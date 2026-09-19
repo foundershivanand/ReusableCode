@@ -1,0 +1,10 @@
+{
+  "name": "reusable-modules-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive Testing Dashboard for 30 Reusable Enterprise Modules",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "bundle": "bash scripts/create-zip.sh"
+  }
+}

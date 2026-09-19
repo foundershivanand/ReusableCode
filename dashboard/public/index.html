@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reusable Modules Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Top Header Bar -->
+    <header class="top-header">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1>Reusable Modules Studio</h1>
+          <p class="subtitle">30 Enterprise Modules + Universal Core Platform</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="auth-pill">🔒 User: <strong>sh15aa</strong> &bull; View &amp; Download Only</span>
+        <button id="run-all-tests-btn" class="btn btn-secondary">
+          <span class="icon">▶</span> Run All Test Suites
+        </button>
+        <a href="/download/modules.zip" class="btn btn-primary download-btn" download="reusable-modules-bundle.zip">
+          <span class="icon">📦</span> Download All Modules (.ZIP)
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="main-body">
+      <!-- Left Sidebar: Modules List -->
+      <aside class="sidebar">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search 30 modules...">
+        </div>
+        <div class="category-filters" id="category-filters">
+          <button class="filter-pill active" data-category="ALL">All (31)</button>
+          <button class="filter-pill" data-category="Foundation">Foundation</button>
+          <button class="filter-pill" data-category="Identity & Access">Identity</button>
+          <button class="filter-pill" data-category="Commerce & Billing">Billing</button>
+          <button class="filter-pill" data-category="Operations & Reliability">Operations</button>
+          <button class="filter-pill" data-category="Growth & Engagement">Growth</button>
+          <button class="filter-pill" data-category="Compliance & Security">Security</button>
+        </div>
+        <div class="modules-list" id="modules-list">
+          <!-- Populated by JS -->
+        </div>
+      </aside>
+
+      <!-- Right Content Pane -->
+      <main class="content-pane">
+        <div id="module-header" class="module-header">
+          <div class="module-meta">
+            <span id="module-badge" class="badge">Module 00</span>
+            <span id="module-category" class="category-tag">Foundation</span>
+          </div>
+          <h2 id="module-title">Universal Core Platform</h2>
+          <p id="module-description" class="module-desc">Universal request pipeline, standard error hierarchy, sortable IDs, idempotency framework, and bounded caching.</p>
+          
+          <div class="feature-badges">
+            <span class="feat-badge">✓ Zod Schemas</span>
+            <span class="feat-badge">✓ Domain Service</span>
+            <span class="feat-badge">✓ SQL Migrations</span>
+            <span class="feat-badge">✓ Pluggable Providers</span>
+            <span class="feat-badge">✓ React Client & Hooks</span>
+            <span class="feat-badge">✓ Accessible UI</span>
+            <span class="feat-badge">✓ 10 Architecture Docs</span>
+            <span class="feat-badge">✓ Vitest Suite</span>
+          </div>
+
+          <!-- Tabs -->
+          <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="tester">⚡ Interactive Manual Tester</button>
+            <button class="tab-btn" data-tab="test-runner">🧪 Vitest Runner</button>
+            <button class="tab-btn" data-tab="docs">📖 Architecture & Docs</button>
+          </div>
+        </div>
+
+        <!-- Tab 1: Interactive Manual Tester -->
+        <div id="tab-tester" class="tab-content active">
+          <div class="tester-grid">
+            <div class="panel form-panel">
+              <div class="panel-header">
+                <h3>Action & Payload Configuration</h3>
+                <span class="hint">Select an operation to test live</span>
+              </div>
+              <div class="form-group">
+                <label for="action-select">Target Action</label>
+                <select id="action-select" class="select-input">
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="payload-editor">Input JSON Payload</label>
+                <textarea id="payload-editor" class="code-editor" rows="8"></textarea>
+              </div>
+              <button id="execute-action-btn" class="btn btn-primary full-width">
+                <span class="icon">⚡</span> Execute Action Live
+              </button>
+            </div>
+
+            <div class="panel response-panel">
+              <div class="panel-header">
+                <h3>Live Execution Output</h3>
+                <div class="status-indicators">
+                  <span id="res-status" class="status-badge idle">Ready</span>
+                  <span id="res-time" class="time-badge">0 ms</span>
+                </div>
+              </div>
+              <div class="response-viewer">
+                <pre id="response-output"><code>Click "Execute Action Live" to test this module.</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Vitest Runner -->
+        <div id="tab-test-runner" class="tab-content">
+          <div class="panel test-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Automated Vitest Test Runner</h3>
+                <p class="hint">Executes test suite with TypeScript checking, assertions, and mocks</p>
+              </div>
+              <button id="run-module-tests-btn" class="btn btn-primary">
+                <span class="icon">▶</span> Run This Module's Tests
+              </button>
+            </div>
+            <div class="terminal-container">
+              <pre id="test-terminal"><code>Terminal ready. Click "Run This Module's Tests" to execute.</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Architecture & Docs -->
+        <div id="tab-docs" class="tab-content">
+          <div class="docs-layout">
+            <div class="docs-sidebar">
+              <h4>Documentation Guides</h4>
+              <ul id="docs-list" class="docs-nav-list">
+                <li class="active" data-doc="01_ARCHITECTURE.md">01 Architecture</li>
+                <li data-doc="02_SECURITY.md">02 Security</li>
+                <li data-doc="03_PERFORMANCE.md">03 Performance</li>
+                <li data-doc="04_RISKS_AND_FAILURES.md">04 Risks & Failures</li>
+                <li data-doc="05_DEPLOYMENT.md">05 Deployment</li>
+                <li data-doc="06_ENVIRONMENT_VARIABLES.md">06 Environment Variables</li>
+                <li data-doc="07_BACKUP_AND_RESTORE.md">07 Backup & Restore</li>
+                <li data-doc="08_MONITORING_AND_ALERTS.md">08 Monitoring & Alerts</li>
+                <li data-doc="09_FUTURE_IMPROVEMENTS.md">09 Future Improvements</li>
+                <li data-doc="10_API_REFERENCE.md">10 API Reference</li>
+              </ul>
+            </div>
+            <div class="docs-viewer">
+              <div class="docs-header">
+                <div>
+                  <h3 id="doc-title">01_ARCHITECTURE.md</h3>
+                  <span class="hint">Standardized Architecture &amp; Operational Guide</span>
+                </div>
+                <div class="doc-actions">
+                  <a id="download-pdf-btn" href="#" class="btn btn-secondary btn-sm" download>
+                    <span class="icon">📥</span> Download PDF
+                  </a>
+                  <button id="print-doc-btn" class="btn btn-secondary btn-sm">
+                    <span class="icon">🖨️</span> Print / Save as PDF
+                  </button>
+                </div>
+              </div>
+              <div id="doc-content" class="doc-markdown">
+                <p>Loading guide...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
