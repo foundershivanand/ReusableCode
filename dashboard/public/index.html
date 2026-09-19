@@ -11,22 +11,31 @@
 </head>
 <body>
   <div class="app-layout">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
     <!-- Top Header Bar -->
     <header class="top-header">
-      <div class="brand">
-        <div class="logo-icon">⚡</div>
-        <div>
-          <h1>Reusable Modules Studio</h1>
-          <p class="subtitle">30 Enterprise Modules + Universal Core Platform</p>
+      <div class="brand-wrapper">
+        <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" aria-label="Toggle Modules List" title="Open Modules List">
+          <span class="toggle-icon">☰</span>
+          <span class="toggle-label">Modules</span>
+        </button>
+        <div class="brand">
+          <div class="logo-icon">⚡</div>
+          <div>
+            <h1>Reusable Modules Studio</h1>
+            <p class="subtitle">30 Enterprise Modules + Universal Core Platform</p>
+          </div>
         </div>
       </div>
       <div class="header-actions">
-        <span class="auth-pill">🔒 User: <strong>sh15aa</strong> &bull; View &amp; Download Only</span>
+        <span class="auth-pill">🔒 User: <strong>sh15aa</strong><span class="auth-extra"> &bull; View &amp; Download Only</span></span>
         <button id="run-all-tests-btn" class="btn btn-secondary">
-          <span class="icon">▶</span> Run All Test Suites
+          <span class="icon">▶</span> <span class="btn-text">Run All Test Suites</span>
         </button>
         <a href="/download/modules.zip" class="btn btn-primary download-btn" download="reusable-modules-bundle.zip">
-          <span class="icon">📦</span> Download All Modules (.ZIP)
+          <span class="icon">📦</span> <span class="btn-text">Download All Modules (.ZIP)</span>
         </a>
       </div>
     </header>
@@ -34,7 +43,13 @@
     <!-- Main Content Grid -->
     <div class="main-body">
       <!-- Left Sidebar: Modules List -->
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header-mobile">
+          <div class="sidebar-header-title">
+            <span>📦 Modules Navigation</span>
+          </div>
+          <button id="sidebar-close-btn" class="sidebar-close-btn" aria-label="Close Modules List">✕</button>
+        </div>
         <div class="search-box">
           <input type="text" id="search-input" placeholder="Search 30 modules...">
         </div>

@@ -20,6 +20,22 @@ const docsListEl = document.getElementById("docs-list");
 const docContentEl = document.getElementById("doc-content");
 const docTitleEl = document.getElementById("doc-title");
 
+// Mobile Navigation Elements
+const sidebarEl = document.getElementById("sidebar");
+const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
+const sidebarCloseBtn = document.getElementById("sidebar-close-btn");
+const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+function openSidebar() {
+  if (sidebarEl) sidebarEl.classList.add("open");
+  if (sidebarOverlay) sidebarOverlay.classList.add("active");
+}
+
+function closeSidebar() {
+  if (sidebarEl) sidebarEl.classList.remove("open");
+  if (sidebarOverlay) sidebarOverlay.classList.remove("active");
+}
+
 // 1. Initialize
 async function init() {
   try {
@@ -37,6 +53,31 @@ async function init() {
 
 // 2. Setup Event Listeners
 function setupEventListeners() {
+  // Mobile Sidebar Drawer Controls
+  if (sidebarToggleBtn) {
+    sidebarToggleBtn.addEventListener("click", () => {
+      if (sidebarEl && sidebarEl.classList.contains("open")) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (sidebarCloseBtn) {
+    sidebarCloseBtn.addEventListener("click", closeSidebar);
+  }
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener("click", closeSidebar);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeSidebar();
+    }
+  });
+
   // Search
   searchInput.addEventListener("input", () => {
     renderModulesList();
@@ -204,6 +245,11 @@ function selectModule(id) {
   document.querySelectorAll(".module-item").forEach(item => {
     item.classList.toggle("active", item.dataset.id === id);
   });
+
+  // If on mobile screen, auto-close sidebar drawer
+  if (window.innerWidth <= 900) {
+    closeSidebar();
+  }
 
   // Load documentation if tab active
   const activeTab = document.querySelector(".tab-btn.active")?.dataset.tab;
