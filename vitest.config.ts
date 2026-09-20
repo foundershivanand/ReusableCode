@@ -68,6 +68,7 @@ export default defineConfig({
       "security-center/tests/**/*.test.tsx",
       "core/tests/**/*.test.ts",
       "core/tests/**/*.test.tsx",
+      "turso-storage/tests/**/*.test.ts",
     ],
   },
   resolve: {

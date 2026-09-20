@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turso File Storage - Code & PDF Repository</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #6366f1;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --code-bg: #0d1117;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      border-radius: 9999px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+    .btn-secondary {
+      background: var(--card-border);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      background: #374151;
+    }
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .stat-val {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .stat-sub {
+      font-size: 0.75rem;
+      color: var(--primary);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 280px;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+    .filter-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    th {
+      background: rgba(31, 41, 55, 0.5);
+      padding: 0.85rem 1rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+    }
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--card-border);
+      vertical-align: middle;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .file-path {
+      font-family: 'JetBrains Mono', monospace;
+      color: #e5e7eb;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      word-break: break-all;
+    }
+    .category-badge {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge-code { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-pdf { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-document { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-image { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-other { background: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3); }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .code-view {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.5;
+    }
+    .pdf-frame {
+      width: 100%;
+      height: 65vh;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* Auth card */
+    .auth-box {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #1f2937;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: white;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--primary);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1f2937;
+      border: 1px solid var(--card-border);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      z-index: 100;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">T</div>
+      <div>
+        <span class="brand-title">Turso Storage</span>
+        <span class="brand-badge">libSQL</span>
+      </div>
+    </div>
+    <div class="header-actions" id="headerActions">
+      <span id="userStatus" style="font-size: 0.85rem; color: var(--text-muted);"></span>
+      <button class="btn btn-secondary" id="logoutBtn" onclick="logout()" style="display: none;">Logout</button>
+    </div>
+  </header>
+
+  <!-- Login Section (when unauthenticated) -->
+  <div id="loginSection" style="display: none;">
+    <div class="auth-box">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">Sign in</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter username and password to access Turso file storage.</p>
+      
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input class="form-input" id="username" type="text" required placeholder="admin" value="admin" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-input" id="password" type="password" required placeholder="••••••••" value="admin123" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard Section -->
+  <main id="dashboardSection">
+    <!-- Stats Row -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Files</span>
+        <span class="stat-val" id="statFiles">0</span>
+        <span class="stat-sub">Stored in Turso</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total Size</span>
+        <span class="stat-val" id="statSize">0 KB</span>
+        <span class="stat-sub">Database storage</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Code Files</span>
+        <span class="stat-val" id="statCode">0</span>
+        <span class="stat-sub">.ts, .tsx, .json, etc.</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">PDF Documents</span>
+        <span class="stat-val" id="statPdf">0</span>
+        <span class="stat-sub">Binary BLOBs</span>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search files by path or name..." oninput="debounceSearch()" />
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" onclick="setCategoryFilter('')">All</button>
+        <button class="filter-btn" onclick="setCategoryFilter('code')">Code</button>
+        <button class="filter-btn" onclick="setCategoryFilter('pdf')">PDFs</button>
+        <button class="filter-btn" onclick="setCategoryFilter('document')">Docs</button>
+        <button class="filter-btn" onclick="setCategoryFilter('image')">Images</button>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-secondary" onclick="openUploadModal()">
+          <span>📤</span> Upload File
+        </button>
+        <button class="btn btn-primary" id="syncBtn" onclick="triggerSync()">
+          <span>⚡</span> Sync Codebase
+        </button>
+      </div>
+    </div>
+
+    <!-- Files Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Path / Name</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>SHA256</th>
+            <th>Updated</th>
+            <th style="text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="filesTableBody">
+          <tr>
+            <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 3rem;">
+              Loading files from Turso...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Viewer Modal -->
+  <div class="modal-overlay" id="viewerModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-title" id="viewerTitle">File Viewer</span>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <a id="viewerDownloadBtn" class="btn btn-secondary" href="#" target="_blank" download>Download</a>
+          <button class="btn btn-secondary" onclick="closeViewerModal()">✕</button>
+        </div>
+      </div>
+      <div class="modal-body" id="viewerBody">
+        <!-- Dynamic content: code or iframe -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Modal -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal-card" style="max-width: 500px;">
+      <div class="modal-header">
+        <span class="modal-title">Upload File to Turso</span>
+        <button class="btn btn-secondary" onclick="closeUploadModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleUpload(event)">
+          <div class="form-group">
+            <label class="form-label">Select File (Code, PDF, etc.)</label>
+            <input class="form-input" id="uploadFileInput" type="file" required onchange="onFileSelected(this)" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Destination Path in Turso</label>
+            <input class="form-input" id="uploadPathInput" type="text" required placeholder="e.g. docs/my-guide.pdf" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="uploadSubmitBtn" style="width: 100%; justify-content: center;">Upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let currentCategory = '';
+    let searchQuery = '';
+    let searchTimer = null;
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.borderColor = isError ? 'var(--danger)' : 'var(--primary)';
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3500);
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    async function checkAuth() {
+      try {
+        const res = await fetch('/api/stats');
+        if (res.status === 401) {
+          document.getElementById('loginSection').style.display = 'block';
+          document.getElementById('dashboardSection').style.display = 'none';
+          document.getElementById('logoutBtn').style.display = 'none';
+          return false;
+        }
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('dashboardSection').style.display = 'block';
+        document.getElementById('logoutBtn').style.display = 'inline-flex';
+        return true;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: u, password: p })
+        });
+
+        if (res.ok) {
+          showToast('Signed in successfully!');
+          await loadDashboard();
+        } else {
+          showToast('Invalid username or password', true);
+        }
+      } catch (err) {
+        showToast('Login failed: ' + err.message, true);
+      }
+    }
+
+    async function logout() {
+      await fetch('/api/logout', { method: 'POST' });
+      document.cookie = "auth_token=; Max-Age=0; path=/";
+      location.reload();
+    }
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        if (!res.ok) return;
+        const data = await res.json();
+        document.getElementById('statFiles').textContent = data.totalFiles.toLocaleString();
+        document.getElementById('statSize').textContent = formatBytes(data.totalSizeBytes);
+        document.getElementById('statCode').textContent = (data.categoryBreakdown.code || 0).toLocaleString();
+        document.getElementById('statPdf').textContent = (data.categoryBreakdown.pdf || 0).toLocaleString();
+      } catch (err) {
+        console.error('Failed to load stats', err);
+      }
+    }
+
+    async function loadFiles() {
+      try {
+        const params = new URLSearchParams();
+        if (searchQuery) params.set('search', searchQuery);
+        if (currentCategory) params.set('category', currentCategory);
+        params.set('limit', '100');
+
+        const res = await fetch('/api/files?' + params.toString());
+        if (!res.ok) return;
+        const data = await res.json();
+
+        const tbody = document.getElementById('filesTableBody');
+        if (data.files.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 3rem;">
+                No files found matching criteria. Click "Sync Codebase" to ingest files into Turso.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tbody.innerHTML = data.files.map(f => {
+          const badgeClass = 'badge-' + (f.category || 'other');
+          const shortSha = f.sha256 ? f.sha256.substring(0, 8) : '';
+          const date = new Date(f.updated_at).toLocaleDateString();
+
+          return `
+            <tr>
+              <td>
+                <div class="file-path">
+                  <span>${f.category === 'pdf' ? '📄' : f.category === 'code' ? '💻' : '📁'}</span>
+                  <span>${escapeHtml(f.path)}</span>
+                </div>
+              </td>
+              <td><span class="category-badge ${badgeClass}">${f.category}</span></td>
+              <td style="color: var(--text-muted);">${formatBytes(f.size_bytes)}</td>
+              <td><code style="font-size: 0.75rem; color: var(--text-muted);">${shortSha}</code></td>
+              <td style="color: var(--text-muted); font-size: 0.8rem;">${date}</td>
+              <td style="text-align: right;">
+                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="viewFile('${f.id}')">View</button>
+                <a class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" href="/api/files/${f.id}/download" target="_blank" download>Download</a>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error('Failed to load files', err);
+      }
+    }
+
+    async function viewFile(id) {
+      try {
+        const res = await fetch('/api/files/' + id);
+        if (!res.ok) return showToast('Error loading file', true);
+        const file = await res.json();
+
+        document.getElementById('viewerTitle').textContent = file.path;
+        document.getElementById('viewerDownloadBtn').href = '/api/files/' + file.id + '/download';
+
+        const body = document.getElementById('viewerBody');
+        if (file.category === 'pdf') {
+          body.innerHTML = `<iframe class="pdf-frame" src="/api/files/${file.id}/download"></iframe>`;
+        } else if (file.is_binary) {
+          body.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Binary file (${formatBytes(file.size_bytes)}). Click "Download" to open.</p>`;
+        } else {
+          body.innerHTML = `<pre class="code-view"><code>${escapeHtml(file.content_text || '')}</code></pre>`;
+        }
+
+        document.getElementById('viewerModal').classList.add('active');
+      } catch (err) {
+        showToast('Error: ' + err.message, true);
+      }
+    }
+
+    function closeViewerModal() {
+      document.getElementById('viewerModal').classList.remove('active');
+      document.getElementById('viewerBody').innerHTML = '';
+    }
+
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.add('active');
+    }
+
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.remove('active');
+    }
+
+    function onFileSelected(input) {
+      if (input.files && input.files[0]) {
+        document.getElementById('uploadPathInput').value = input.files[0].name;
+      }
+    }
+
+    async function handleUpload(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('uploadFileInput');
+      const pathInput = document.getElementById('uploadPathInput');
+      const submitBtn = document.getElementById('uploadSubmitBtn');
+
+      if (!fileInput.files[0]) return;
+
+      const file = fileInput.files[0];
+      const path = pathInput.value.trim() || file.name;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Uploading to Turso...';
+
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('path', path);
+
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (res.ok) {
+          showToast('Uploaded successfully to Turso!');
+          closeUploadModal();
+          await loadDashboard();
+        } else {
+          const err = await res.json();
+          showToast(err.error || 'Upload failed', true);
+        }
+      } catch (err) {
+        showToast('Upload error: ' + err.message, true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Upload';
+      }
+    }
+
+    async function triggerSync() {
+      const syncBtn = document.getElementById('syncBtn');
+      syncBtn.disabled = true;
+      syncBtn.innerHTML = '<span>⏳</span> Syncing...';
+
+      try {
+        const res = await fetch('/api/sync', { method: 'POST' });
+        if (res.ok) {
+          const data = await res.json();
+          showToast(`Synced ${data.result.totalScanned} files (${data.result.inserted} new, ${data.result.updated} updated)`);
+          await loadDashboard();
+        } else {
+          showToast('Sync failed', true);
+        }
+      } catch (err) {
+        showToast('Sync error: ' + err.message, true);
+      } finally {
+        syncBtn.disabled = false;
+        syncBtn.innerHTML = '<span>⚡</span> Sync Codebase';
+      }
+    }
+
+    function debounceSearch() {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        searchQuery = document.getElementById('searchInput').value.trim();
+        loadFiles();
+      }, 250);
+    }
+
+    function setCategoryFilter(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        const text = btn.textContent.toLowerCase();
+        if ((!cat && text === 'all') || (cat && text.includes(cat.toLowerCase()))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      loadFiles();
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    async function loadDashboard() {
+      const isAuth = await checkAuth();
+      if (isAuth) {
+        await Promise.all([loadStats(), loadFiles()]);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadDashboard);
+  </script>
+</body>
+</html>

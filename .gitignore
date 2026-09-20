@@ -21,3 +21,15 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+# Databases & local storage
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+turso_files.db*
+
+# Environment files
+.env
+.env.local
+.env.*.local
