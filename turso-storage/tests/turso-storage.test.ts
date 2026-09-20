@@ -224,3 +224,27 @@ describe("Storage Module Integration (TursoStorageAdapter)", () => {
     db.close();
   });
 });
+
+describe("Security & Launch Hardening", () => {
+  it("should strictly reject path traversal and secret file paths", async () => {
+    const { shouldIgnore } = await import("../utils.ts");
+
+    // Must ignore all .env variants except .env.example
+    expect(shouldIgnore(".env")).toBe(true);
+    expect(shouldIgnore("nested/.env")).toBe(true);
+    expect(shouldIgnore(".env.local")).toBe(true);
+    expect(shouldIgnore(".env.production")).toBe(true);
+    expect(shouldIgnore(".env.example")).toBe(false);
+
+    // Must ignore secret key files
+    expect(shouldIgnore("id_rsa")).toBe(true);
+    expect(shouldIgnore("server.key")).toBe(true);
+    expect(shouldIgnore("cert.pem")).toBe(true);
+    expect(shouldIgnore("credentials.json")).toBe(true);
+
+    // Normal files should not be ignored
+    expect(shouldIgnore("src/app.ts")).toBe(false);
+    expect(shouldIgnore("docs/guide.pdf")).toBe(false);
+  });
+});
+

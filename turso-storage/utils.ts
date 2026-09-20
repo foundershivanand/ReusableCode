@@ -63,10 +63,22 @@ export const DEFAULT_IGNORE_PATTERNS = [
   "coverage",
   ".system_generated",
   ".gemini",
+  ".env",
+  ".env.local",
+  ".env.production",
+  ".env.development",
+  ".env.test",
   "*.db",
   "*.db-journal",
   "*.db-wal",
   "*.db-shm",
+  "*.key",
+  "*.pem",
+  "*.crt",
+  "*.cert",
+  "id_rsa",
+  "id_ed25519",
+  "credentials.json",
   "local.db",
   "turso_files.db",
   "pnpm-lock.yaml",
@@ -123,6 +135,11 @@ export function shouldIgnore(relativePath: string, customIgnorePatterns: string[
   const patterns = [...DEFAULT_IGNORE_PATTERNS, ...customIgnorePatterns];
 
   for (const part of parts) {
+    // Specifically block any .env files unless explicitly .env.example
+    if (part.startsWith(".env") && part !== ".env.example") {
+      return true;
+    }
+
     for (const pattern of patterns) {
       if (pattern.startsWith("*.")) {
         const ext = pattern.slice(1);

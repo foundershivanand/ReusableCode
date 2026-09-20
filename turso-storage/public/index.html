@@ -3,10 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure, high-performance Turso & libSQL code and PDF storage repository with full-text search, preview, and incremental synchronization.">
+  <meta name="keywords" content="Turso, libSQL, Code Storage, PDF Storage, SQLite, Cloud Database">
+  <meta name="author" content="Reusable Product Factory">
+  
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Turso File Storage - Code & PDF Repository">
+  <meta property="og:description" content="Secure edge storage for codebases, PDFs, and documents powered by Turso & libSQL.">
+  <meta property="og:image" content="/favicon.svg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Turso File Storage">
+  <meta name="twitter:description" content="Secure edge storage for codebases, PDFs, and documents powered by Turso & libSQL.">
+  <meta name="twitter:image" content="/favicon.svg">
+
   <title>Turso File Storage - Code & PDF Repository</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg: #090d16;
@@ -35,7 +54,7 @@
 
     header {
       border-bottom: 1px solid var(--card-border);
-      background: rgba(17, 24, 39, 0.8);
+      background: rgba(17, 24, 39, 0.85);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -52,8 +71,8 @@
       gap: 0.75rem;
     }
     .brand-logo {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       background: linear-gradient(135deg, #00d2ff, #3a7bd5);
       border-radius: 8px;
       display: flex;
@@ -61,7 +80,7 @@
       justify-content: center;
       font-weight: 700;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
     }
     .brand-title {
@@ -88,8 +107,10 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.1rem;
+      min-height: 44px; /* Mobile touch accessibility */
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.875rem;
@@ -100,7 +121,7 @@
     }
     .btn-primary {
       background: var(--primary);
-      color: #000;
+      color: #040914;
     }
     .btn-primary:hover {
       background: var(--primary-hover);
@@ -180,6 +201,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       padding: 0.65rem 1rem 0.65rem 2.5rem;
+      min-height: 44px;
       border-radius: 8px;
       color: var(--text);
       font-size: 0.9rem;
@@ -204,7 +226,8 @@
       padding-bottom: 0.25rem;
     }
     .filter-btn {
-      padding: 0.4rem 0.85rem;
+      padding: 0.45rem 0.95rem;
+      min-height: 38px;
       border-radius: 20px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -224,7 +247,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      overflow: hidden;
+      overflow-x: auto;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     table {
@@ -232,6 +255,7 @@
       border-collapse: collapse;
       text-align: left;
       font-size: 0.875rem;
+      min-width: 600px;
     }
     th {
       background: rgba(31, 41, 55, 0.5);
@@ -364,6 +388,7 @@
     .form-input {
       width: 100%;
       padding: 0.75rem 1rem;
+      min-height: 44px;
       background: #1f2937;
       border: 1px solid var(--card-border);
       border-radius: 8px;
@@ -375,6 +400,15 @@
       border-color: var(--primary);
     }
 
+    /* Honeypot field (hidden from legitimate users) */
+    .bot-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 2rem;
@@ -389,6 +423,53 @@
       box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
       display: none;
     }
+
+    /* Cookie Consent Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      z-index: 90;
+    }
+    .cookie-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -396,15 +477,15 @@
   <!-- Header -->
   <header>
     <div class="brand">
-      <div class="brand-logo">T</div>
+      <div class="brand-logo" aria-hidden="true">T</div>
       <div>
         <span class="brand-title">Turso Storage</span>
-        <span class="brand-badge">libSQL</span>
+        <span class="brand-badge">libSQL Cloud</span>
       </div>
     </div>
     <div class="header-actions" id="headerActions">
       <span id="userStatus" style="font-size: 0.85rem; color: var(--text-muted);"></span>
-      <button class="btn btn-secondary" id="logoutBtn" onclick="logout()" style="display: none;">Logout</button>
+      <button class="btn btn-secondary" id="logoutBtn" onclick="logout()" style="display: none;" aria-label="Sign out">Logout</button>
     </div>
   </header>
 
@@ -412,18 +493,21 @@
   <div id="loginSection" style="display: none;">
     <div class="auth-box">
       <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">Sign in</h2>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter username and password to access Turso file storage.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter credentials to access Turso file storage.</p>
       
       <form onsubmit="handleLogin(event)">
+        <!-- Honeypot spam protection -->
+        <input type="text" class="bot-field" id="loginHoneypot" tabindex="-1" autocomplete="off" />
+
         <div class="form-group">
           <label class="form-label" for="username">Username</label>
-          <input class="form-input" id="username" type="text" required placeholder="admin" value="admin" />
+          <input class="form-input" id="username" type="text" required placeholder="admin" value="admin" autocomplete="username" />
         </div>
         <div class="form-group">
           <label class="form-label" for="password">Password</label>
-          <input class="form-input" id="password" type="password" required placeholder="••••••••" value="admin123" />
+          <input class="form-input" id="password" type="password" required placeholder="••••••••" value="admin123" autocomplete="current-password" />
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">Sign In</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Sign In</button>
       </form>
     </div>
   </div>
@@ -457,24 +541,24 @@
     <!-- Toolbar -->
     <div class="toolbar">
       <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input class="search-input" id="searchInput" type="text" placeholder="Search files by path or name..." oninput="debounceSearch()" />
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search files by path or name..." aria-label="Search files" oninput="debounceSearch()" />
       </div>
 
-      <div class="filters">
-        <button class="filter-btn active" onclick="setCategoryFilter('')">All</button>
-        <button class="filter-btn" onclick="setCategoryFilter('code')">Code</button>
-        <button class="filter-btn" onclick="setCategoryFilter('pdf')">PDFs</button>
-        <button class="filter-btn" onclick="setCategoryFilter('document')">Docs</button>
-        <button class="filter-btn" onclick="setCategoryFilter('image')">Images</button>
+      <div class="filters" role="tablist">
+        <button class="filter-btn active" onclick="setCategoryFilter('')" role="tab">All</button>
+        <button class="filter-btn" onclick="setCategoryFilter('code')" role="tab">Code</button>
+        <button class="filter-btn" onclick="setCategoryFilter('pdf')" role="tab">PDFs</button>
+        <button class="filter-btn" onclick="setCategoryFilter('document')" role="tab">Docs</button>
+        <button class="filter-btn" onclick="setCategoryFilter('image')" role="tab">Images</button>
       </div>
 
       <div style="display: flex; gap: 0.75rem;">
-        <button class="btn btn-secondary" onclick="openUploadModal()">
-          <span>📤</span> Upload File
+        <button class="btn btn-secondary" onclick="openUploadModal()" aria-label="Upload file to Turso">
+          <span aria-hidden="true">📤</span> Upload File
         </button>
-        <button class="btn btn-primary" id="syncBtn" onclick="triggerSync()">
-          <span>⚡</span> Sync Codebase
+        <button class="btn btn-primary" id="syncBtn" onclick="triggerSync()" aria-label="Sync codebase into Turso">
+          <span aria-hidden="true">⚡</span> Sync Codebase
         </button>
       </div>
     </div>
@@ -484,18 +568,18 @@
       <table>
         <thead>
           <tr>
-            <th>Path / Name</th>
-            <th>Type</th>
-            <th>Size</th>
-            <th>SHA256</th>
-            <th>Updated</th>
-            <th style="text-align: right;">Actions</th>
+            <th scope="col">Path / Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Size</th>
+            <th scope="col">SHA256</th>
+            <th scope="col">Updated</th>
+            <th scope="col" style="text-align: right;">Actions</th>
           </tr>
         </thead>
         <tbody id="filesTableBody">
           <tr>
             <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 3rem;">
-              Loading files from Turso...
+              Loading files from Turso Cloud...
             </td>
           </tr>
         </tbody>
@@ -504,13 +588,13 @@
   </main>
 
   <!-- Viewer Modal -->
-  <div class="modal-overlay" id="viewerModal">
+  <div class="modal-overlay" id="viewerModal" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
     <div class="modal-card">
       <div class="modal-header">
         <span class="modal-title" id="viewerTitle">File Viewer</span>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <a id="viewerDownloadBtn" class="btn btn-secondary" href="#" target="_blank" download>Download</a>
-          <button class="btn btn-secondary" onclick="closeViewerModal()">✕</button>
+          <a id="viewerDownloadBtn" class="btn btn-secondary" href="#" target="_blank" download aria-label="Download file">Download</a>
+          <button class="btn btn-secondary" onclick="closeViewerModal()" aria-label="Close modal">✕</button>
         </div>
       </div>
       <div class="modal-body" id="viewerBody">
@@ -520,30 +604,64 @@
   </div>
 
   <!-- Upload Modal -->
-  <div class="modal-overlay" id="uploadModal">
+  <div class="modal-overlay" id="uploadModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="max-width: 500px;">
       <div class="modal-header">
         <span class="modal-title">Upload File to Turso</span>
-        <button class="btn btn-secondary" onclick="closeUploadModal()">✕</button>
+        <button class="btn btn-secondary" onclick="closeUploadModal()" aria-label="Close modal">✕</button>
       </div>
       <div class="modal-body">
         <form onsubmit="handleUpload(event)">
+          <!-- Honeypot -->
+          <input type="text" class="bot-field" id="uploadHoneypot" tabindex="-1" autocomplete="off" />
+
           <div class="form-group">
-            <label class="form-label">Select File (Code, PDF, etc.)</label>
+            <label class="form-label" for="uploadFileInput">Select File (Code, PDF, etc.)</label>
             <input class="form-input" id="uploadFileInput" type="file" required onchange="onFileSelected(this)" />
           </div>
           <div class="form-group">
-            <label class="form-label">Destination Path in Turso</label>
+            <label class="form-label" for="uploadPathInput">Destination Path in Turso</label>
             <input class="form-input" id="uploadPathInput" type="text" required placeholder="e.g. docs/my-guide.pdf" />
           </div>
-          <button type="submit" class="btn btn-primary" id="uploadSubmitBtn" style="width: 100%; justify-content: center;">Upload</button>
+          <button type="submit" class="btn btn-primary" id="uploadSubmitBtn" style="width: 100%; justify-content: center;">Upload to Turso</button>
         </form>
       </div>
     </div>
   </div>
 
+  <!-- Legal Modals: Privacy Policy & Terms -->
+  <div class="modal-overlay" id="legalModal" role="dialog" aria-modal="true">
+    <div class="modal-card" style="max-width: 700px;">
+      <div class="modal-header">
+        <span class="modal-title" id="legalTitle">Privacy Policy</span>
+        <button class="btn btn-secondary" onclick="closeLegalModal()" aria-label="Close legal modal">✕</button>
+      </div>
+      <div class="modal-body" id="legalBody" style="line-height: 1.6; color: #d1d5db; font-size: 0.9rem;">
+        <!-- Injected legal content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+    <span class="cookie-text">We use strictly necessary session cookies to authenticate and protect your access to Turso file storage.</span>
+    <div style="display: flex; gap: 0.5rem;">
+      <button class="btn btn-secondary" onclick="setConsent(false)">Decline Optional</button>
+      <button class="btn btn-primary" onclick="setConsent(true)">Accept</button>
+    </div>
+  </div>
+
   <!-- Toast -->
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2026 Reusable Product Factory &bull; Powered by Turso &amp; libSQL</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link" onclick="openPrivacyModal(event)">Privacy Policy</a>
+      <a href="#" class="footer-link" onclick="openTermsModal(event)">Terms &amp; Conditions</a>
+    </div>
+  </footer>
 
   <script>
     let currentCategory = '';
@@ -588,19 +706,21 @@
       e.preventDefault();
       const u = document.getElementById('username').value;
       const p = document.getElementById('password').value;
+      const bot = document.getElementById('loginHoneypot').value;
 
       try {
         const res = await fetch('/api/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username: u, password: p })
+          body: JSON.stringify({ username: u, password: p, bot_field: bot })
         });
 
         if (res.ok) {
           showToast('Signed in successfully!');
           await loadDashboard();
         } else {
-          showToast('Invalid username or password', true);
+          const data = await res.json();
+          showToast(data.error || 'Invalid username or password', true);
         }
       } catch (err) {
         showToast('Login failed: ' + err.message, true);
@@ -659,7 +779,7 @@
             <tr>
               <td>
                 <div class="file-path">
-                  <span>${f.category === 'pdf' ? '📄' : f.category === 'code' ? '💻' : '📁'}</span>
+                  <span aria-hidden="true">${f.category === 'pdf' ? '📄' : f.category === 'code' ? '💻' : '📁'}</span>
                   <span>${escapeHtml(f.path)}</span>
                 </div>
               </td>
@@ -668,8 +788,8 @@
               <td><code style="font-size: 0.75rem; color: var(--text-muted);">${shortSha}</code></td>
               <td style="color: var(--text-muted); font-size: 0.8rem;">${date}</td>
               <td style="text-align: right;">
-                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="viewFile('${f.id}')">View</button>
-                <a class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" href="/api/files/${f.id}/download" target="_blank" download>Download</a>
+                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; min-height: 32px; font-size: 0.75rem;" onclick="viewFile('${f.id}')" aria-label="View ${escapeHtml(f.name)}">View</button>
+                <a class="btn btn-secondary" style="padding: 0.3rem 0.6rem; min-height: 32px; font-size: 0.75rem;" href="/api/files/${f.id}/download" target="_blank" download aria-label="Download ${escapeHtml(f.name)}">Download</a>
               </td>
             </tr>
           `;
@@ -690,7 +810,7 @@
 
         const body = document.getElementById('viewerBody');
         if (file.category === 'pdf') {
-          body.innerHTML = `<iframe class="pdf-frame" src="/api/files/${file.id}/download"></iframe>`;
+          body.innerHTML = `<iframe class="pdf-frame" src="/api/files/${file.id}/download" title="PDF Preview"></iframe>`;
         } else if (file.is_binary) {
           body.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Binary file (${formatBytes(file.size_bytes)}). Click "Download" to open.</p>`;
         } else {
@@ -727,6 +847,7 @@
       const fileInput = document.getElementById('uploadFileInput');
       const pathInput = document.getElementById('uploadPathInput');
       const submitBtn = document.getElementById('uploadSubmitBtn');
+      const bot = document.getElementById('uploadHoneypot').value;
 
       if (!fileInput.files[0]) return;
 
@@ -740,6 +861,7 @@
         const formData = new FormData();
         formData.append('file', file);
         formData.append('path', path);
+        if (bot) formData.append('bot_field', bot);
 
         const res = await fetch('/api/upload', {
           method: 'POST',
@@ -747,7 +869,7 @@
         });
 
         if (res.ok) {
-          showToast('Uploaded successfully to Turso!');
+          showToast('Uploaded successfully to Turso Cloud!');
           closeUploadModal();
           await loadDashboard();
         } else {
@@ -758,14 +880,14 @@
         showToast('Upload error: ' + err.message, true);
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Upload';
+        submitBtn.textContent = 'Upload to Turso';
       }
     }
 
     async function triggerSync() {
       const syncBtn = document.getElementById('syncBtn');
       syncBtn.disabled = true;
-      syncBtn.innerHTML = '<span>⏳</span> Syncing...';
+      syncBtn.innerHTML = '<span aria-hidden="true">⏳</span> Syncing...';
 
       try {
         const res = await fetch('/api/sync', { method: 'POST' });
@@ -774,13 +896,14 @@
           showToast(`Synced ${data.result.totalScanned} files (${data.result.inserted} new, ${data.result.updated} updated)`);
           await loadDashboard();
         } else {
-          showToast('Sync failed', true);
+          const err = await res.json();
+          showToast(err.error || 'Sync failed', true);
         }
       } catch (err) {
         showToast('Sync error: ' + err.message, true);
       } finally {
         syncBtn.disabled = false;
-        syncBtn.innerHTML = '<span>⚡</span> Sync Codebase';
+        syncBtn.innerHTML = '<span aria-hidden="true">⚡</span> Sync Codebase';
       }
     }
 
@@ -814,7 +937,48 @@
         .replace(/'/g, '&#039;');
     }
 
+    // Legal Modals
+    function openPrivacyModal(e) {
+      e.preventDefault();
+      document.getElementById('legalTitle').textContent = 'Privacy Policy';
+      document.getElementById('legalBody').innerHTML = `
+        <h3 style="color: white; margin-bottom: 0.5rem;">Data Collection & Usage</h3>
+        <p>This application stores source code, documentation, and PDFs solely within your designated Turso database instance. We do not sell, rent, or transfer your stored data or telemetry to third parties.</p>
+        <h3 style="color: white; margin: 1rem 0 0.5rem;">Authentication & Security</h3>
+        <p>Session authentication cookies are HttpOnly and encrypted. All communications with Turso Cloud are encrypted in transit via TLS.</p>
+      `;
+      document.getElementById('legalModal').classList.add('active');
+    }
+
+    function openTermsModal(e) {
+      e.preventDefault();
+      document.getElementById('legalTitle').textContent = 'Terms & Conditions';
+      document.getElementById('legalBody').innerHTML = `
+        <h3 style="color: white; margin-bottom: 0.5rem;">Authorized Use</h3>
+        <p>This service is intended for legitimate codebase and document archival in personal and enterprise software factories. Unauthorized attempts to exploit, bypass authentication, or abuse the service are prohibited.</p>
+        <h3 style="color: white; margin: 1rem 0 0.5rem;">Limitation of Liability</h3>
+        <p>This software is provided "as is", without warranty of any kind, express or implied. Always maintain independent backups of critical data.</p>
+      `;
+      document.getElementById('legalModal').classList.add('active');
+    }
+
+    function closeLegalModal() {
+      document.getElementById('legalModal').classList.remove('active');
+    }
+
+    // Cookie Consent
+    function checkCookieConsent() {
+      if (!localStorage.getItem('cookie_consent')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+    }
+    function setConsent(accepted) {
+      localStorage.setItem('cookie_consent', accepted ? 'accepted' : 'declined');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+
     async function loadDashboard() {
+      checkCookieConsent();
       const isAuth = await checkAuth();
       if (isAuth) {
         await Promise.all([loadStats(), loadFiles()]);
