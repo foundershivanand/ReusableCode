@@ -2,7 +2,7 @@
 
 > Production-grade, battle-tested software modules designed for autonomous AI agents and modern engineering teams to build products 10x faster.
 
-[![Repository](https://img.shields.io/badge/GitHub-sh15aa%2FReusable-blue.svg)](https://github.com/sh15aa/Reusable)
+[![Repository](https://img.shields.io/badge/GitHub-sh15aa%2FReusable-blue.svg)](https://github.com/sh15aa/Web-Reusable)
 [![Registry](https://img.shields.io/badge/Modules-33%20Standardized-green.svg)](./registry/modules.json)
 [![Platform Standard](https://img.shields.io/badge/Standard-40--Dimension%20Resilience-purple.svg)](./core/PLATFORM_STANDARD.md)
 
@@ -30,16 +30,16 @@ Any developer or AI agent can pull any module directly into a project without cl
 
 ```bash
 # One-liner script pull:
-curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s <module-name> src/modules/<module-name>
+curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s <module-name> src/modules/<module-name>
 
 # Or using npx degit:
-npx degit sh15aa/Reusable/<module-name> src/modules/<module-name>
+npx degit sh15aa/Web-Reusable/<module-name> src/modules/<module-name>
 ```
 
 *Example for Authentication & Billing:*
 ```bash
-curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s auth src/modules/auth
-curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s billing src/modules/billing
+curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s auth src/modules/auth
+curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s billing src/modules/billing
 ```
 
 ---

@@ -3,10 +3,10 @@
 ## 1. REUSABLE CODE LIBRARY ACCESS
 
 This project is connected to the centralized **Reusable Code Library**:
-- **Repository**: [https://github.com/sh15aa/Reusable](https://github.com/sh15aa/Reusable)
-- **Raw Registry**: `https://raw.githubusercontent.com/sh15aa/Reusable/main/registry/modules.json`
-- **Categories Overview**: `https://raw.githubusercontent.com/sh15aa/Reusable/main/registry/categories.json`
-- **Helper Pull Script**: `https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh`
+- **Repository**: [https://github.com/sh15aa/Web-Reusable](https://github.com/sh15aa/Web-Reusable)
+- **Raw Registry**: `https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/registry/modules.json`
+- **Categories Overview**: `https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/registry/categories.json`
+- **Helper Pull Script**: `https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh`
 
 ---
 
@@ -18,7 +18,7 @@ REUSE FIRST. BUILD SECOND.
 
 **Before writing new implementation code for any standard feature:**
 1. **Query the Registry**:
-   Inspect `https://raw.githubusercontent.com/sh15aa/Reusable/main/registry/modules.json` (or curl it with `curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/registry/modules.json`) to find matching modules.
+   Inspect `https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/registry/modules.json` (or curl it with `curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/registry/modules.json`) to find matching modules.
 2. **Match the Capability**:
    Check if the capability is covered by one of the 33 production-ready modules:
    - Authentication, Sessions, OAuth (Google/GitHub/Apple) -> `auth`
@@ -46,13 +46,13 @@ REUSE FIRST. BUILD SECOND.
    Run one of these commands directly in the shell:
    ```bash
    # Method 1 (Direct one-liner via pull script):
-   curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s <module-name> src/modules/<module-name>
+   curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s <module-name> src/modules/<module-name>
 
    # Method 2 (Via degit):
-   npx --yes degit sh15aa/Reusable/<module-name> src/modules/<module-name>
+   npx --yes degit sh15aa/Web-Reusable/<module-name> src/modules/<module-name>
 
    # Method 3 (Via git sparse-checkout):
-   git clone --depth 1 --filter=blob:none --sparse https://github.com/sh15aa/Reusable.git .reusable-temp && \
+   git clone --depth 1 --filter=blob:none --sparse https://github.com/sh15aa/Web-Reusable.git .reusable-temp && \
      (cd .reusable-temp && git sparse-checkout set <module-name>) && \
      mkdir -p src/modules && cp -r .reusable-temp/<module-name> src/modules/ && \
      rm -rf .reusable-temp

@@ -1,6 +1,6 @@
 # REUSABLE CODE LIBRARY
 
-> **Repository**: [https://github.com/sh15aa/Reusable](https://github.com/sh15aa/Reusable)  
+> **Repository**: [https://github.com/sh15aa/Web-Reusable](https://github.com/sh15aa/Web-Reusable)  
 > **Registry**: [`registry/modules.json`](./registry/modules.json) | [`registry/categories.json`](./registry/categories.json)  
 > **Platform Standard**: [`core/PLATFORM_STANDARD.md`](./core/PLATFORM_STANDARD.md)
 
@@ -73,21 +73,21 @@ To use any module from this repository in another project or folder directly fro
 
 ### Option A: Using the Pull Script (Fastest)
 ```bash
-curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s <module-name> [destination-path]
+curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s <module-name> [destination-path]
 ```
 *Example:*
 ```bash
-curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s auth src/modules/auth
+curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s auth src/modules/auth
 ```
 
 ### Option B: Using `npx degit`
 ```bash
-npx degit sh15aa/Reusable/<module-name> src/modules/<module-name>
+npx degit sh15aa/Web-Reusable/<module-name> src/modules/<module-name>
 ```
 
 ### Option C: Using Git Sparse-Checkout
 ```bash
-git clone --depth 1 --filter=blob:none --sparse https://github.com/sh15aa/Reusable.git temp-reusable
+git clone --depth 1 --filter=blob:none --sparse https://github.com/sh15aa/Web-Reusable.git temp-reusable
 cd temp-reusable
 git sparse-checkout set <module-name>
 cp -r <module-name> ../src/modules/

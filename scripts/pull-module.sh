@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # Pull Module Helper Script for Reusable Code Library
-# Repository: https://github.com/sh15aa/Reusable
+# Repository: https://github.com/sh15aa/Web-Reusable
 #
 # Usage:
-#   npx degit sh15aa/Reusable/<module_name> [destination_path]
+#   npx degit sh15aa/Web-Reusable/<module_name> [destination_path]
 #   OR
 #   bash scripts/pull-module.sh <module_name> [destination_path]
 #   OR via curl:
-#   curl -sSL https://raw.githubusercontent.com/sh15aa/Reusable/main/scripts/pull-module.sh | bash -s <module_name> [destination_path]
+#   curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s <module_name> [destination_path]
 # ==============================================================================
 
 set -euo pipefail
@@ -16,7 +16,7 @@ set -euo pipefail
 MODULE="${1:-}"
 DEST="${2:-}"
 REPO_OWNER="sh15aa"
-REPO_NAME="Reusable"
+REPO_NAME="Web-Reusable"
 BRANCH="main"
 
 if [ -z "$MODULE" ]; then
