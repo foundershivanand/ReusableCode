@@ -7,6 +7,54 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
+export const ECOSYSTEM_LINKS = [
+  {
+    id: "project-manage",
+    title: "Product Hub",
+    description: "96 Projects & Master Launch OS — Central management and launch control.",
+    url: "https://project-manage-z6u.pages.dev/",
+    category: "Management",
+    badge: "96 Projects",
+    icon: "📊",
+  },
+  {
+    id: "finder",
+    title: "Project & Startup Finder",
+    description: "Market discovery directory — Find live SaaS products, apps, and verified deals.",
+    url: "https://finder-d17.pages.dev/",
+    category: "Discovery",
+    badge: "Live Directory",
+    icon: "🔍",
+  },
+  {
+    id: "bots-reusable",
+    title: "Bots Reusable Factory",
+    description: "Enterprise bot product factory — Production-grade reusable telegram, discord & automation bots.",
+    url: "https://botserusable.pages.dev/",
+    category: "Bots",
+    badge: "Bot Factory",
+    icon: "🤖",
+  },
+  {
+    id: "agents-reusable",
+    title: "AI Agents Reusable Factory",
+    description: "Autonomous AI agent product factory — Multi-agent orchestrations and reusable agent harnesses.",
+    url: "https://agentsreusable.pages.dev/",
+    category: "AI",
+    badge: "Agent Factory",
+    icon: "🧠",
+  },
+  {
+    id: "app-reusable",
+    title: "Mobile Product Factory",
+    description: "Mobile & app product factory — 163 production-grade reusable modules for mobile apps.",
+    url: "https://appreusable.pages.dev/",
+    category: "Mobile",
+    badge: "163 Modules",
+    icon: "📱",
+  },
+];
+
 function jsonResponse(data: unknown, status = 200, extraHeaders: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(data, null, 2), {
     status,
@@ -122,6 +170,7 @@ function renderHtml(): string {
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1px solid transparent;
+      font-family: inherit;
     }
     .btn-primary {
       background: var(--primary);
@@ -139,6 +188,19 @@ function renderHtml(): string {
     .btn-secondary:hover {
       background: var(--card-hover);
       border-color: var(--primary);
+    }
+    .btn-links {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%);
+      color: #c4b5fd;
+      border-color: rgba(139, 92, 246, 0.4);
+      position: relative;
+    }
+    .btn-links:hover {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(59, 130, 246, 0.4) 100%);
+      color: #ffffff;
+      border-color: #a78bfa;
+      box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
+      transform: translateY(-1px);
     }
     .container {
       max-width: 1280px;
@@ -317,6 +379,188 @@ function renderHtml(): string {
       transform: translateY(0);
       opacity: 1;
     }
+
+    /* Modal / Popup Styles */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-container {
+      background: #0f172a;
+      border: 1px solid #293856;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(139, 92, 246, 0.2);
+      transform: scale(0.94);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-backdrop.open .modal-container {
+      transform: scale(1);
+    }
+    .modal-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: sticky;
+      top: 0;
+      background: #0f172a;
+      z-index: 2;
+    }
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .modal-close {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+    .modal-close:hover {
+      background: #ef4444;
+      color: white;
+      border-color: #ef4444;
+    }
+    .modal-body {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .link-card {
+      background: #151f33;
+      border: 1px solid #23314d;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .link-card:hover {
+      background: #1c2944;
+      border-color: #60a5fa;
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .link-icon {
+      font-size: 1.8rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .link-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .link-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .link-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+    .link-badge {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .link-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .link-url {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: #38bdf8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .link-arrow {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .link-card:hover .link-arrow {
+      color: #60a5fa;
+      transform: translate(2px, -2px);
+    }
+    .modal-footer {
+      padding: 14px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b1120;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+    .modal-footer-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -325,6 +569,9 @@ function renderHtml(): string {
     <h1>Reusable Code Library & Agent Hub</h1>
     <p class="subtitle">33 enterprise-grade, battle-tested software modules ready for autonomous AI coding agents to discover, pull, and integrate directly.</p>
     <div class="actions-bar">
+      <button class="btn btn-links" onclick="openLinksModal()" id="allLinksBtn" title="Click to view all connected product hubs, bots & finder tools">
+        🔗 All Links
+      </button>
       <a href="/api/pdf" target="_blank" class="btn btn-primary">📄 View Audit PDF (${(PDF_BASE64.length * 0.75 / 1024).toFixed(0)} KB)</a>
       <a href="/api/registry" target="_blank" class="btn btn-secondary">🔍 Registry JSON</a>
       <a href="/AGENTS.md" target="_blank" class="btn btn-secondary">🤖 AGENTS.md Template</a>
@@ -367,6 +614,39 @@ function renderHtml(): string {
     </div>
   </main>
 
+  <!-- All Links Popup Modal -->
+  <div id="linksModal" class="modal-backdrop" onclick="handleBackdropClick(event)">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle" class="modal-title">🔗 Ecosystem Hubs & Platforms</h2>
+          <p class="modal-subtitle">Quick access to all connected product hubs, bot factories, and finder tools.</p>
+        </div>
+        <button class="modal-close" onclick="closeLinksModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        ${ECOSYSTEM_LINKS.map(item => `
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon">${item.icon}</div>
+            <div class="link-content">
+              <div class="link-title-row">
+                <span class="link-title">${item.title}</span>
+                <span class="link-badge">${item.badge}</span>
+              </div>
+              <p class="link-desc">${item.description}</p>
+              <div class="link-url">${item.url}</div>
+            </div>
+            <div class="link-arrow">↗</div>
+          </a>
+        `).join('')}
+      </div>
+      <div class="modal-footer">
+        <span class="modal-footer-hint">Click any card to open in a new tab &bull; Press <code>Esc</code> to close</span>
+        <button class="btn btn-secondary" onclick="closeLinksModal()" style="padding: 6px 14px; font-size: 0.8rem;">Close</button>
+      </div>
+    </div>
+  </div>
+
   <div id="toast" class="toast">Command copied to clipboard!</div>
 
   <script>
@@ -398,6 +678,32 @@ function renderHtml(): string {
         setTimeout(() => toast.classList.remove('show'), 2500);
       });
     }
+
+    // Modal Control Functions
+    function openLinksModal() {
+      const modal = document.getElementById('linksModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLinksModal() {
+      const modal = document.getElementById('linksModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleBackdropClick(event) {
+      if (event.target.id === 'linksModal') {
+        closeLinksModal();
+      }
+    }
+
+    // Keyboard support: Escape closes modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLinksModal();
+      }
+    });
   </script>
 </body>
 </html>`;
@@ -431,6 +737,14 @@ export default {
           "Content-Type": "text/html; charset=utf-8",
           "Cache-Control": "public, max-age=300",
         },
+      });
+    }
+
+    // Ecosystem Links API: /api/links or /links.json
+    if (path === "/api/links" || path === "/links" || path === "/links.json") {
+      return jsonResponse({
+        total: ECOSYSTEM_LINKS.length,
+        links: ECOSYSTEM_LINKS,
       });
     }
 
