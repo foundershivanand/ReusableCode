@@ -53,6 +53,15 @@ export const ECOSYSTEM_LINKS = [
     badge: "163 Modules",
     icon: "📱",
   },
+  {
+    id: "mentor-api",
+    title: "AI Mentor OS",
+    description: "Adversarial Socratic Mentor & Extreme Accountability OS — Real-time performance auditing, flaw remediation & Turso edge intelligence.",
+    url: "https://mentor-api.foundershivanand.workers.dev/",
+    category: "AI",
+    badge: "Mentor OS",
+    icon: "⚔️",
+  },
 ];
 
 function jsonResponse(data: unknown, status = 200, extraHeaders: Record<string, string> = {}): Response {
