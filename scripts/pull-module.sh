@@ -4,27 +4,22 @@
 # Repository: https://github.com/sh15aa/Web-Reusable
 #
 # Usage:
-#   npx degit sh15aa/Web-Reusable/<module_name> [destination_path]
-#   OR
 #   bash scripts/pull-module.sh <module_name> [destination_path]
-#   OR via curl:
-#   curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s <module_name> [destination_path]
 # ==============================================================================
 
 set -euo pipefail
 
 MODULE="${1:-}"
 DEST="${2:-}"
-REPO_OWNER="sh15aa"
-REPO_NAME="Web-Reusable"
+REPO_URL="https://github.com/sh15aa/Web-Reusable.git"
 BRANCH="main"
 
 if [ -z "$MODULE" ]; then
   echo "❌ Error: Missing module name."
   echo "Usage: pull-module.sh <module_name> [destination_path]"
-  echo "Example: pull-module.sh auth src/auth"
+  echo "Example: pull-module.sh auth src/modules/auth"
   echo ""
-  echo "Available modules:"
+  echo "Available modules (33 total):"
   echo "  admin, ai, analytics, audit, auth, billing, changelog, compliance,"
   echo "  core, dashboard, database, deployment, domains, experimentation,"
   echo "  flags, i18n, maintenance, metering, monitoring, notifications,"
@@ -34,44 +29,55 @@ if [ -z "$MODULE" ]; then
 fi
 
 if [ -z "$DEST" ]; then
-  DEST="./$MODULE"
+  DEST="./src/modules/$MODULE"
 fi
 
-echo "📦 Fetching module '$MODULE' from https://github.com/$REPO_OWNER/$REPO_NAME ($BRANCH) into '$DEST'..."
-
-# Create destination directory
+echo "📦 Fetching module '$MODULE' from $REPO_URL ($BRANCH) into '$DEST'..."
 mkdir -p "$DEST"
 
-# Method 1: Try using npx degit if available / installed
-if command -v npx >/dev/null 2>&1; then
-  echo "🚀 Using npx degit..."
-  if npx --yes degit "$REPO_OWNER/$REPO_NAME/$MODULE#$BRANCH" "$DEST" --force; then
-    echo "✅ Module '$MODULE' successfully installed into '$DEST'!"
-    exit 0
-  fi
-  echo "⚠️ npx degit failed or unavailable, falling back to git sparse-checkout..."
-fi
-
-# Method 2: Use git sparse-checkout (shallow clone of single directory)
+# Method 1: Git sparse-checkout (Supports both Public and Private repos via local git credentials/SSH)
 if command -v git >/dev/null 2>&1; then
   echo "🚀 Using git sparse-checkout..."
   TEMP_DIR=$(mktemp -d)
-  git clone --depth 1 --filter=blob:none --sparse "https://github.com/$REPO_OWNER/$REPO_NAME.git" "$TEMP_DIR"
-  (
-    cd "$TEMP_DIR"
-    git sparse-checkout set "$MODULE"
-  )
-  cp -r "$TEMP_DIR/$MODULE/." "$DEST/"
+  if git clone --depth 1 --filter=blob:none --sparse "$REPO_URL" "$TEMP_DIR" 2>/dev/null; then
+    (
+      cd "$TEMP_DIR"
+      git sparse-checkout set "$MODULE" >/dev/null 2>&1
+    )
+    if [ -d "$TEMP_DIR/$MODULE" ]; then
+      cp -r "$TEMP_DIR/$MODULE/." "$DEST/"
+      rm -rf "$TEMP_DIR"
+      echo "✅ Successfully pulled '$MODULE' into '$DEST'!"
+      exit 0
+    else
+      echo "❌ Module '$MODULE' not found in repository."
+      rm -rf "$TEMP_DIR"
+      exit 1
+    fi
+  fi
   rm -rf "$TEMP_DIR"
-  echo "✅ Module '$MODULE' successfully copied to '$DEST'!"
-  exit 0
 fi
 
-# Method 3: GitHub Tarball download via curl / tar
-echo "🚀 Using GitHub archive tarball..."
-TEMP_TAR=$(mktemp)
-curl -sSL "https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/heads/$BRANCH.tar.gz" -o "$TEMP_TAR"
-tar -xzf "$TEMP_TAR" --strip-components=2 -C "$DEST" "$REPO_NAME-$BRANCH/$MODULE"
-rm -f "$TEMP_TAR"
+# Method 2: npx degit fallback (if public repo)
+if command -v npx >/dev/null 2>&1; then
+  echo "🚀 Trying npx degit fallback..."
+  if npx --yes degit "sh15aa/Web-Reusable/$MODULE#$BRANCH" "$DEST" --force 2>/dev/null; then
+    echo "✅ Successfully installed '$MODULE' into '$DEST'!"
+    exit 0
+  fi
+fi
 
-echo "✅ Module '$MODULE' successfully extracted to '$DEST'!"
+# Method 3: GitHub Tarball fallback via curl
+echo "🚀 Trying archive download fallback..."
+TEMP_TAR=$(mktemp)
+if curl -sSL "https://github.com/sh15aa/Web-Reusable/archive/refs/heads/$BRANCH.tar.gz" -o "$TEMP_TAR" 2>/dev/null; then
+  tar -xzf "$TEMP_TAR" --strip-components=2 -C "$DEST" "Web-Reusable-$BRANCH/$MODULE" 2>/dev/null || true
+  rm -f "$TEMP_TAR"
+  if [ -n "$(ls -A "$DEST" 2>/dev/null)" ]; then
+    echo "✅ Successfully extracted '$MODULE' into '$DEST'!"
+    exit 0
+  fi
+fi
+
+echo "❌ Failed to pull module '$MODULE'. Please verify git credentials or network access."
+exit 1
