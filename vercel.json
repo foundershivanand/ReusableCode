@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/favicon.ico", "destination": "/api" },
+    { "source": "/favicon.svg", "destination": "/api" },
+    { "source": "/dashboard", "destination": "/dashboard/public/index.html" },
+    { "source": "/dashboard/(.*)", "destination": "/dashboard/public/$1" },
+    { "source": "/(.*)", "destination": "/turso-storage/public/$1" }
+  ]
+}

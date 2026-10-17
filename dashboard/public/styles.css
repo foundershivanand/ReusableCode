@@ -976,8 +976,14 @@ body {
     font-size: 11px;
   }
 
-  .select-input, .code-editor {
-    font-size: 13px;
+  .select-input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .code-editor {
+    font-size: 14px;
+    line-height: 1.4;
   }
 
   .module-header {

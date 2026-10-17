@@ -470,6 +470,256 @@
     .footer-link:hover {
       color: var(--primary);
     }
+
+    .meta-label {
+      display: none;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .btn-sm {
+      padding: 0.35rem 0.75rem;
+      min-height: 36px;
+      font-size: 0.8rem;
+    }
+
+    /* Responsive Mobile Styles */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .brand-logo {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .brand-badge {
+        font-size: 0.65rem;
+      }
+      main {
+        padding: 1rem 0.75rem;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .stat-card {
+        padding: 0.85rem;
+        border-radius: 10px;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+      }
+      .stat-val {
+        font-size: 1.35rem;
+      }
+      .stat-sub {
+        font-size: 0.7rem;
+      }
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .search-box {
+        min-width: 0;
+        width: 100%;
+      }
+      .search-input {
+        font-size: 16px; /* Avoid iOS auto-zoom */
+        min-height: 44px;
+        padding: 0.65rem 0.85rem 0.65rem 2.4rem;
+      }
+      .filters {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.4rem;
+        padding-bottom: 4px;
+      }
+      .filter-btn {
+        flex-shrink: 0;
+        min-height: 38px;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.8rem;
+      }
+      .toolbar-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .toolbar-actions .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+      }
+
+      /* Mobile Card Layout for Stored Files */
+      .table-container {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        overflow: visible;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      table {
+        min-width: 0 !important;
+      }
+      tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .file-card-row {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      .file-card-row:active {
+        transform: scale(0.99);
+        border-color: var(--primary);
+      }
+      td {
+        padding: 0 !important;
+        border: none !important;
+      }
+      .td-file-info .file-path {
+        font-size: 0.88rem;
+        line-height: 1.4;
+        word-break: break-word;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .file-name-text {
+        word-break: break-all;
+      }
+      .meta-label {
+        display: inline;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        font-weight: 500;
+        margin-right: 0.25rem;
+      }
+      .td-type, .td-size, .td-sha, .td-date {
+        font-size: 0.82rem;
+        color: #d1d5db;
+      }
+      .td-actions {
+        margin-top: 0.5rem;
+        padding-top: 0.75rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      .td-actions .btn {
+        width: 100%;
+        min-height: 42px;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      /* Modals */
+      .modal-overlay {
+        padding: 0.5rem;
+      }
+      .modal-card {
+        max-width: 100% !important;
+        max-height: 94vh;
+        border-radius: 12px;
+      }
+      .modal-header {
+        padding: 0.75rem 1rem;
+      }
+      .modal-title {
+        font-size: 0.95rem;
+        max-width: 65%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .modal-body {
+        padding: 0.85rem 1rem;
+      }
+      .code-view {
+        font-size: 0.78rem;
+        padding: 0.75rem;
+        max-height: 62vh;
+      }
+      .pdf-frame {
+        height: 70vh;
+      }
+      .auth-box {
+        margin: 1.5rem 0.75rem;
+        padding: 1.5rem 1rem;
+      }
+      .form-input {
+        font-size: 16px; /* Avoid iOS auto-zoom */
+        min-height: 46px;
+      }
+      .toast {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        text-align: center;
+      }
+      .cookie-banner {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+      }
+      .cookie-banner div {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .cookie-banner .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 40px;
+      }
+      footer {
+        padding: 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .toolbar-actions {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -553,7 +803,7 @@
         <button class="filter-btn" onclick="setCategoryFilter('image')" role="tab">Images</button>
       </div>
 
-      <div style="display: flex; gap: 0.75rem;">
+      <div class="toolbar-actions">
         <button class="btn btn-secondary" onclick="openUploadModal()" aria-label="Upload file to Turso">
           <span aria-hidden="true">📤</span> Upload File
         </button>
@@ -776,20 +1026,20 @@
           const date = new Date(f.updated_at).toLocaleDateString();
 
           return `
-            <tr>
-              <td>
+            <tr class="file-card-row">
+              <td class="td-file-info">
                 <div class="file-path">
-                  <span aria-hidden="true">${f.category === 'pdf' ? '📄' : f.category === 'code' ? '💻' : '📁'}</span>
-                  <span>${escapeHtml(f.path)}</span>
+                  <span class="file-icon" aria-hidden="true">${f.category === 'pdf' ? '📄' : f.category === 'code' ? '💻' : '📁'}</span>
+                  <span class="file-name-text">${escapeHtml(f.path)}</span>
                 </div>
               </td>
-              <td><span class="category-badge ${badgeClass}">${f.category}</span></td>
-              <td style="color: var(--text-muted);">${formatBytes(f.size_bytes)}</td>
-              <td><code style="font-size: 0.75rem; color: var(--text-muted);">${shortSha}</code></td>
-              <td style="color: var(--text-muted); font-size: 0.8rem;">${date}</td>
-              <td style="text-align: right;">
-                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; min-height: 32px; font-size: 0.75rem;" onclick="viewFile('${f.id}')" aria-label="View ${escapeHtml(f.name)}">View</button>
-                <a class="btn btn-secondary" style="padding: 0.3rem 0.6rem; min-height: 32px; font-size: 0.75rem;" href="/api/files/${f.id}/download" target="_blank" download aria-label="Download ${escapeHtml(f.name)}">Download</a>
+              <td class="td-type"><span class="category-badge ${badgeClass}">${f.category}</span></td>
+              <td class="td-size"><span class="meta-label">Size: </span>${formatBytes(f.size_bytes)}</td>
+              <td class="td-sha"><span class="meta-label">SHA: </span><code>${shortSha}</code></td>
+              <td class="td-date"><span class="meta-label">Updated: </span>${date}</td>
+              <td class="td-actions">
+                <button class="btn btn-secondary btn-sm" onclick="viewFile('${f.id}')" aria-label="View ${escapeHtml(f.name)}">View</button>
+                <a class="btn btn-secondary btn-sm" href="/api/files/${f.id}/download" target="_blank" download aria-label="Download ${escapeHtml(f.name)}">Download</a>
               </td>
             </tr>
           `;

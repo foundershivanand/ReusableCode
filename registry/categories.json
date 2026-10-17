@@ -1,0 +1,428 @@
+{
+  "total_categories": 10,
+  "categories": {
+    "operations": [
+      {
+        "id": "ops.admin",
+        "name": "Admin Operations Console",
+        "path": "admin",
+        "description": "Super-admin control center, user impersonation, system flags, audit oversight, and emergency controls.",
+        "capabilities": [
+          "user-impersonation",
+          "system-controls",
+          "audit-inspection",
+          "tenant-management"
+        ]
+      },
+      {
+        "id": "ops.deployment",
+        "name": "Environment & Canary Deployment Management",
+        "path": "deployment",
+        "description": "Multi-environment configuration, traffic shifting, canary rollouts, zero-downtime health verification, and rollback engine.",
+        "capabilities": [
+          "canary-rollouts",
+          "health-probes",
+          "traffic-shifting",
+          "environment-promotion"
+        ]
+      },
+      {
+        "id": "ops.feature-flags",
+        "name": "Feature Flags & Dynamic Config",
+        "path": "flags",
+        "description": "Dynamic feature switches, percentage rollouts, user attribute targeting, kill-switches, and zero-redeploy config updates.",
+        "capabilities": [
+          "feature-flags",
+          "percentage-rollouts",
+          "kill-switches",
+          "attribute-targeting"
+        ]
+      },
+      {
+        "id": "ops.maintenance",
+        "name": "Maintenance Mode & Incident Banners",
+        "path": "maintenance",
+        "description": "Emergency maintenance switch, scheduled downtime banners, bypass tokens for staff, and read-only mode enforcement.",
+        "capabilities": [
+          "maintenance-mode",
+          "status-banners",
+          "bypass-tokens",
+          "read-only-guard"
+        ]
+      },
+      {
+        "id": "ops.monitoring",
+        "name": "Product Health & Incident Monitoring",
+        "path": "monitoring",
+        "description": "Synthetic uptime pings, real-time error budget tracking, alerting webhooks, and public status page generation.",
+        "capabilities": [
+          "uptime-monitors",
+          "sla-tracking",
+          "incident-management",
+          "status-page"
+        ]
+      }
+    ],
+    "ai": [
+      {
+        "id": "ai.infra",
+        "name": "AI Infrastructure & LLM Workflows",
+        "path": "ai",
+        "description": "Enterprise AI runtime with streaming, prompt injection defense, token/cost accounting, and worker queue.",
+        "capabilities": [
+          "llm-streaming",
+          "prompt-defense",
+          "token-accounting",
+          "job-queue",
+          "cost-tracking"
+        ]
+      }
+    ],
+    "data": [
+      {
+        "id": "analytics.events",
+        "name": "Analytics & Event Tracking",
+        "path": "analytics",
+        "description": "Real-time event logging, funnel analysis, custom product events, and privacy-preserving metrics aggregation.",
+        "capabilities": [
+          "event-tracking",
+          "funnel-analysis",
+          "time-series-metrics",
+          "privacy-filtering"
+        ]
+      },
+      {
+        "id": "data.database",
+        "name": "Database Migrations & Disaster Recovery",
+        "path": "database",
+        "description": "Migration manager, automated backups, point-in-time recovery, and multi-dialect connection pooling (libSQL, Postgres, SQLite).",
+        "capabilities": [
+          "migration-runner",
+          "backup-automation",
+          "snapshot-restore",
+          "connection-pooling"
+        ]
+      },
+      {
+        "id": "data.portability",
+        "name": "Data Export, Import & GDPR Takeout",
+        "path": "portability",
+        "description": "Asynchronous JSON/CSV data export generation, streaming data imports, validation checks, and user GDPR data portability.",
+        "capabilities": [
+          "async-data-export",
+          "csv-import",
+          "gdpr-takeout",
+          "zip-generation"
+        ]
+      },
+      {
+        "id": "data.storage",
+        "name": "File Storage & Asset Pipeline",
+        "path": "storage",
+        "description": "Provider-agnostic file storage (S3, Cloudflare R2, Local), secure pre-signed upload URLs, MIME verification, and thumbnail resizing.",
+        "capabilities": [
+          "s3-storage",
+          "r2-storage",
+          "presigned-urls",
+          "mime-validation",
+          "image-resizing"
+        ]
+      },
+      {
+        "id": "data.turso-storage",
+        "name": "Turso Distributed SQLite Storage Engine",
+        "path": "turso-storage",
+        "description": "Distributed edge storage engine on libSQL / Turso, with built-in HTTP API, ingestion CLI, and web explorer UI.",
+        "capabilities": [
+          "libsql-client",
+          "embedded-sqlite",
+          "http-storage-api",
+          "cli-tools",
+          "web-explorer"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "audit.trail",
+        "name": "Audit Logs & Tamper-Evident Trail",
+        "path": "audit",
+        "description": "Cryptographically verified activity logging, actor attribution, structured audit trail, and compliance export.",
+        "capabilities": [
+          "activity-stream",
+          "tamper-evident-logs",
+          "actor-attribution",
+          "compliance-ready"
+        ]
+      },
+      {
+        "id": "auth.unified",
+        "name": "Unified Authentication & Sessions",
+        "path": "auth",
+        "description": "Production session management, secure passwords, Google/GitHub OAuth, MFA, and RBAC middleware.",
+        "capabilities": [
+          "session-auth",
+          "google-oauth",
+          "github-oauth",
+          "password-hashing",
+          "rbac-middleware",
+          "csrf-protection"
+        ]
+      },
+      {
+        "id": "compliance.legal",
+        "name": "Legal & Compliance Suite",
+        "path": "compliance",
+        "description": "GDPR/CCPA privacy management, cookie consent banner, terms acceptance tracking, and data erasure requests.",
+        "capabilities": [
+          "gdpr-compliance",
+          "cookie-consent",
+          "terms-tracking",
+          "data-erasure-requests"
+        ]
+      },
+      {
+        "id": "security.shield",
+        "name": "Rate Limiting & Threat Protection",
+        "path": "security",
+        "description": "Token-bucket & sliding window rate limiters, IP blacklisting, DDoS mitigations, SQLi/XSS sanitization, and request signing.",
+        "capabilities": [
+          "sliding-window-rate-limit",
+          "ip-firewall",
+          "payload-sanitization",
+          "honeypot-guards"
+        ]
+      },
+      {
+        "id": "security.center",
+        "name": "Security Posture & Compliance Dashboard",
+        "path": "security-center",
+        "description": "SOC2/ISO27001 readiness monitor, security health scoring, open vulnerability tracking, and automated posture reports.",
+        "capabilities": [
+          "posture-scoring",
+          "soc2-checklist",
+          "vulnerability-tracker",
+          "security-dashboard"
+        ]
+      }
+    ],
+    "monetization": [
+      {
+        "id": "billing.subscriptions",
+        "name": "Payments & Subscription Engine",
+        "path": "billing",
+        "description": "Multi-provider payment gateway (Stripe/LemonSqueezy), recurring subscriptions, usage invoices, and checkout flows.",
+        "capabilities": [
+          "stripe-billing",
+          "lemon-squeezy",
+          "subscription-lifecycle",
+          "usage-metering",
+          "webhook-reconciliation"
+        ]
+      },
+      {
+        "id": "monetization.metering",
+        "name": "Usage Metering & Credit Ledger",
+        "path": "metering",
+        "description": "High-throughput usage aggregation, prepaid credit wallet, quota limits, and burst protection for API and compute consumption.",
+        "capabilities": [
+          "usage-metering",
+          "credit-wallet",
+          "quota-enforcement",
+          "overage-billing"
+        ]
+      }
+    ],
+    "growth": [
+      {
+        "id": "growth.changelog",
+        "name": "Product Changelog & Roadmap",
+        "path": "changelog",
+        "description": "In-app release announcements, release notes feed, feature roadmap, and subscriber email notifications.",
+        "capabilities": [
+          "in-app-releases",
+          "public-roadmap",
+          "version-tags",
+          "email-broadcasts"
+        ]
+      },
+      {
+        "id": "growth.domains",
+        "name": "Custom Domains & White-Label Routing",
+        "path": "domains",
+        "description": "Multi-tenant custom domain provisioning, CNAME verification, automated SSL certificate lifecycle, and edge routing.",
+        "capabilities": [
+          "custom-domains",
+          "cname-validation",
+          "ssl-lifecycle",
+          "subdomain-routing"
+        ]
+      },
+      {
+        "id": "growth.ab-testing",
+        "name": "A/B Testing & Experimentation Engine",
+        "path": "experimentation",
+        "description": "Statistically sound A/B experimentation, deterministic hashing, variant assignment, and conversion tracking.",
+        "capabilities": [
+          "variant-bucketing",
+          "conversion-tracking",
+          "feature-experiments",
+          "significance-calc"
+        ]
+      },
+      {
+        "id": "growth.referrals",
+        "name": "Affiliate & Viral Referral System",
+        "path": "referral",
+        "description": "Unique invite links, referral code generation, click-to-signup attribution, reward payouts, and tier progression.",
+        "capabilities": [
+          "referral-codes",
+          "attribution-tracking",
+          "reward-credits",
+          "tier-incentives"
+        ]
+      },
+      {
+        "id": "growth.seo",
+        "name": "SEO, OpenGraph & Metadata Engine",
+        "path": "seo",
+        "description": "Dynamic Open Graph social card generation, structured JSON-LD schema builder, automatic sitemap.xml, and canonical tags.",
+        "capabilities": [
+          "opengraph-generator",
+          "json-ld-schemas",
+          "dynamic-sitemaps",
+          "meta-tag-builder"
+        ]
+      }
+    ],
+    "foundation": [
+      {
+        "id": "core.platform",
+        "name": "Core Platform & Resilience Standards",
+        "path": "core",
+        "description": "Universal 40-dimension platform foundation: AsyncLocalStorage context, Crockford IDs, UnitOfWork, Idempotency, and resilient errors.",
+        "capabilities": [
+          "error-handling",
+          "crockford-ids",
+          "idempotency-engine",
+          "unit-of-work",
+          "secrets-manager",
+          "crypto-utils"
+        ]
+      },
+      {
+        "id": "foundation.tenancy",
+        "name": "Multi-Tenancy & Workspace Isolation",
+        "path": "tenancy",
+        "description": "Strict tenant boundary enforcement, workspace switching, team invitations, member roles, and multi-tenant scoping.",
+        "capabilities": [
+          "workspace-isolation",
+          "tenant-switching",
+          "team-invitations",
+          "role-delegation"
+        ]
+      },
+      {
+        "id": "foundation.webhooks",
+        "name": "Webhook Engine & Developer API Keys",
+        "path": "webhooks",
+        "description": "Outbound webhook dispatcher with exponential backoff retries, HMAC-SHA256 signature verification, and developer API key hashing.",
+        "capabilities": [
+          "hmac-verification",
+          "webhook-retries",
+          "dead-letter-queue",
+          "api-key-management"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "id": "tools.dashboard",
+        "name": "Reusable Studio Dashboard",
+        "path": "dashboard",
+        "description": "Interactive testing studio and packager for exploring and bundling reusable modules.",
+        "capabilities": [
+          "module-studio",
+          "bundle-packager",
+          "api-tester"
+        ]
+      }
+    ],
+    "ux": [
+      {
+        "id": "ux.i18n",
+        "name": "Internationalization & Translation Suite",
+        "path": "i18n",
+        "description": "Type-safe multi-language translations, locale detection, pluralization, currency/date formatting, and missing key fallbacks.",
+        "capabilities": [
+          "locale-detection",
+          "type-safe-translations",
+          "pluralization",
+          "currency-formatting"
+        ]
+      },
+      {
+        "id": "ux.onboarding",
+        "name": "User Onboarding & Interactive Tours",
+        "path": "onboarding",
+        "description": "Interactive step-by-step checklists, guided tours, progress state persistence, and gamified onboarding milestones.",
+        "capabilities": [
+          "checklist-progress",
+          "guided-tours",
+          "onboarding-milestones",
+          "dismissible-guides"
+        ]
+      },
+      {
+        "id": "ux.search",
+        "name": "Global Search & Command Palette",
+        "path": "search",
+        "description": "Spotlight-style command palette (Cmd+K), fuzzy search over entities, keyboard navigation, and indexed action catalog.",
+        "capabilities": [
+          "command-palette",
+          "fuzzy-search",
+          "keyboard-shortcuts",
+          "quick-actions"
+        ]
+      },
+      {
+        "id": "ux.settings",
+        "name": "Settings & Workspace Preferences",
+        "path": "settings",
+        "description": "Multi-level settings engine (user profile, workspace configuration, billing preferences, developer keys) with schema validation.",
+        "capabilities": [
+          "profile-settings",
+          "workspace-settings",
+          "notification-prefs",
+          "schema-validation"
+        ]
+      }
+    ],
+    "communications": [
+      {
+        "id": "comms.notifications",
+        "name": "Notification Center & Transactional Emails",
+        "path": "notifications",
+        "description": "Multi-channel notifications (Transactional Email via Resend/Postmark, Webhooks, In-App Bell), user preference controls.",
+        "capabilities": [
+          "transactional-email",
+          "in-app-notifications",
+          "webhook-dispatch",
+          "email-templates"
+        ]
+      },
+      {
+        "id": "comms.support",
+        "name": "Customer Support & Feedback System",
+        "path": "support",
+        "description": "Embeddable feedback modal, ticket management lifecycle, triage priorities, CSAT surveys, and Discord/Slack integrations.",
+        "capabilities": [
+          "feedback-widget",
+          "ticket-lifecycle",
+          "csat-ratings",
+          "webhook-alerts"
+        ]
+      }
+    ]
+  }
+}

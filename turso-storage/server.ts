@@ -147,42 +147,54 @@ const FAVICON_SVG = Buffer.from(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d2ff"/><stop offset="100%" stop-color="#3a7bd5"/></linearGradient></defs><rect width="100" height="100" rx="20" fill="url(#g)"/><text x="50%" y="65%" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="52" font-weight="bold">T</text></svg>`
 );
 
-export function createTursoStorageServer() {
-  return createServer(async (req, res) => {
-    applySecurityHeaders(res);
-
-    const config = getConfig();
-    const parsedUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
-    const pathname = parsedUrl.pathname;
-    const clientIp = getClientIp(req);
-
-    // Restricted CORS: only allow origin if explicitly matched or same-origin
-    const origin = req.headers.origin;
-    const allowedOrigin = process.env.ALLOWED_ORIGIN || `http://${req.headers.host || "localhost"}`;
-    if (origin && (origin === allowedOrigin || origin.startsWith("http://localhost:") || origin.startsWith("http://127.0.0.1:"))) {
-      res.setHeader("Access-Control-Allow-Origin", origin);
-      res.setHeader("Access-Control-Allow-Credentials", "true");
+let isInitialized = false;
+export async function ensureTursoInitialized(): Promise<void> {
+  if (!isInitialized) {
+    try {
+      await service.initialize();
+      isInitialized = true;
+    } catch (err) {
+      console.error("[Turso Init Error]", err);
     }
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  }
+}
 
-    if (req.method === "OPTIONS") {
-      res.writeHead(204);
-      res.end();
-      return;
-    }
+export async function handleTursoRequest(req: IncomingMessage, res: ServerResponse): Promise<void> {
+  await ensureTursoInitialized();
+  applySecurityHeaders(res);
 
-    // SEO: robots.txt
-    if (pathname === "/robots.txt" && req.method === "GET") {
-      res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
-      res.end("User-agent: *\nDisallow: /api/\nAllow: /\nSitemap: /sitemap.xml\n");
-      return;
-    }
+  const config = getConfig();
+  const parsedUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+  const pathname = parsedUrl.pathname;
+  const clientIp = getClientIp(req);
 
-    // SEO: sitemap.xml
-    if (pathname === "/sitemap.xml" && req.method === "GET") {
-      const host = req.headers.host || "localhost:3000";
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  // Restricted CORS: only allow origin if explicitly matched or same-origin
+  const origin = req.headers.origin;
+  const allowedOrigin = process.env.ALLOWED_ORIGIN || `http://${req.headers.host || "localhost"}`;
+  if (origin && (origin === allowedOrigin || origin.startsWith("http://localhost:") || origin.startsWith("http://127.0.0.1:"))) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
+  // SEO: robots.txt
+  if (pathname === "/robots.txt" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
+    res.end("User-agent: *\nDisallow: /api/\nAllow: /\nSitemap: /sitemap.xml\n");
+    return;
+  }
+
+  // SEO: sitemap.xml
+  if (pathname === "/sitemap.xml" && req.method === "GET") {
+    const host = req.headers.host || "localhost:3000";
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://${host}/</loc>
@@ -190,30 +202,35 @@ export function createTursoStorageServer() {
     <priority>1.0</priority>
   </url>
 </urlset>`;
-      res.writeHead(200, { "Content-Type": "application/xml; charset=utf-8" });
-      res.end(sitemap);
+    res.writeHead(200, { "Content-Type": "application/xml; charset=utf-8" });
+    res.end(sitemap);
+    return;
+  }
+
+  // Favicon
+  if (pathname === "/favicon.ico" || pathname === "/favicon.svg") {
+    res.writeHead(200, { "Content-Type": "image/svg+xml" });
+    res.end(FAVICON_SVG);
+    return;
+  }
+
+  // Serve Frontend Static UI
+  if (pathname === "/" || pathname === "/index.html") {
+    const candidatePaths = [
+      resolve(import.meta.dirname || "", "public/index.html"),
+      resolve(process.cwd(), "turso-storage/public/index.html"),
+      resolve(process.cwd(), "public/index.html"),
+    ];
+    const indexPath = candidatePaths.find((p) => existsSync(p));
+    if (indexPath) {
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      res.end(readFileSync(indexPath));
       return;
     }
+  }
 
-    // Favicon
-    if (pathname === "/favicon.ico" || pathname === "/favicon.svg") {
-      res.writeHead(200, { "Content-Type": "image/svg+xml" });
-      res.end(FAVICON_SVG);
-      return;
-    }
-
-    // Serve Frontend Static UI
-    if (pathname === "/" || pathname === "/index.html") {
-      const indexPath = resolve(import.meta.dirname || process.cwd(), "public/index.html");
-      if (existsSync(indexPath)) {
-        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-        res.end(readFileSync(indexPath));
-        return;
-      }
-    }
-
-    // Rate-limited Login: POST /api/login
-    if (pathname === "/api/login" && req.method === "POST") {
+  // Rate-limited Login: POST /api/login
+  if (pathname === "/api/login" && req.method === "POST") {
       if (!checkRateLimit(clientIp, 5, 60000)) {
         sendError(res, 429, "Too many login attempts. Please wait 1 minute before trying again.");
         return;
@@ -468,7 +485,10 @@ export function createTursoStorageServer() {
     } else {
       sendError(res, 404, "Not Found");
     }
-  });
+}
+
+export function createTursoStorageServer() {
+  return createServer(handleTursoRequest);
 }
 
 export async function startServer(port?: number): Promise<void> {
