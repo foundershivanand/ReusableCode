@@ -1,0 +1,46 @@
+name: CI Test Suite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Universal Test Matrix (Web, Bots, Agents, Apps)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install Node Dependencies
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Set up Python Test Environments
+        run: |
+          python3 -m venv bots/.venv
+          bots/.venv/bin/pip install --upgrade pip
+          bots/.venv/bin/pip install -r bots/requirements.txt pytest pytest-asyncio
+
+      - name: Run Unified Test Suite
+        run: pnpm test:all

@@ -1,0 +1,19 @@
+{
+  "agents": [
+    {
+      "role": "PRD Agent",
+      "objective": "Generate complete, unambiguous Product Requirements Documents with user personas, user stories, acceptance criteria, and edge cases.",
+      "temperature": 0.2
+    },
+    {
+      "role": "Security Agent",
+      "objective": "Audit client code and backend endpoints for OWASP Mobile Top 10 vulnerabilities, unauthorized data exposure, and hardcoded secrets.",
+      "temperature": 0.0
+    },
+    {
+      "role": "ASO Agent",
+      "objective": "Produce conversion-optimized App Store and Google Play titles, subtitles, keywords, and localized descriptions.",
+      "temperature": 0.4
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+name: mod_22_permission_architecture
+description: Contextual permission manager with educational rationale dialogs and graceful degradation.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

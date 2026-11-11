@@ -1,6 +1,5 @@
 import {
   LocaleMetadata,
-  TranslationDictionary,
   FormatNumberOptions,
   FormatDateTimeOptions,
   MissingKeyReport,

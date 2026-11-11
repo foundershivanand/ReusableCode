@@ -1,0 +1,10 @@
+name: mod_13_api_layer
+description: Resilient HTTP/API layer with SSL pinning, token refresh interceptor, and standard JSON envelope.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

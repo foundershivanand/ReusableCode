@@ -1,0 +1,12 @@
+appId: ${APP_BUNDLE_ID}
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Welcome"
+- tapOn: "Get Started"
+- tapOn: "Continue"
+- assertVisible: "Dashboard"
+- tapOn: "New Project"
+- inputText: "My First Project"
+- tapOn: "Save"
+- assertVisible: "Project Created Successfully"

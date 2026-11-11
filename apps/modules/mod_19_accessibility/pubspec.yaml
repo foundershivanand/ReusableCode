@@ -1,0 +1,10 @@
+name: mod_19_accessibility
+description: Accessibility (A11y) validation, minimum touch targets, and contrast ratio checkers.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

@@ -1,0 +1,19 @@
+name: mobile_product_factory
+repository: https://github.com/yourcompany/mobile-product-factory
+
+packages:
+  - modules/**
+  - apps/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  lint:all:
+    run: melos exec -- "flutter analyze . || dart analyze ."
+    description: "Lint all 60 modules and apps"
+
+  test:all:
+    run: melos exec -- "flutter test || dart test"
+    description: "Run automated tests across all modules"

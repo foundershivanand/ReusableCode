@@ -70,7 +70,8 @@ export const CheckMaintenanceInputSchema = z.object({
   bypassSecret: z.string().optional(),
   isApiRequest: z.boolean().default(false),
 });
-export type CheckMaintenanceInput = z.infer<typeof CheckMaintenanceInputSchema>;
+export type CheckMaintenanceInput = z.input<typeof CheckMaintenanceInputSchema>;
+export type ValidatedCheckMaintenanceInput = z.infer<typeof CheckMaintenanceInputSchema>;
 
 export const CheckMaintenanceResultSchema = z.object({
   blocked: z.boolean(),

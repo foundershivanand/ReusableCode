@@ -37,7 +37,7 @@ export class InternalReferralAdapter implements IReferralProvider {
 
 export class RewardfulAdapter implements IReferralProvider {
   public name = "REWARDFUL";
-  constructor(private apiKey: string) {}
+  constructor(public apiKey: string) {}
 
   async createAffiliate(account: AffiliateAccount): Promise<AffiliateAccount> {
     return account;
@@ -61,7 +61,7 @@ export class RewardfulAdapter implements IReferralProvider {
 
 export class FirstPromoterAdapter implements IReferralProvider {
   public name = "FIRSTPROMOTER";
-  constructor(private apiKey: string) {}
+  constructor(public apiKey: string) {}
 
   async createAffiliate(account: AffiliateAccount): Promise<AffiliateAccount> {
     return account;

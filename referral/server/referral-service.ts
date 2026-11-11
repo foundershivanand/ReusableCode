@@ -1,4 +1,4 @@
-import { randomBytes, randomUUID } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import type { IReferralRepository } from "./repository.js";
 import {
   type AffiliateAccount,

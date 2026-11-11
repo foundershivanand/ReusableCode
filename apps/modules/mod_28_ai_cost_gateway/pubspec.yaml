@@ -1,0 +1,10 @@
+name: mod_28_ai_cost_gateway
+description: AI Cost Gateway engine with token budgeting, rate limiting, and model fallback.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

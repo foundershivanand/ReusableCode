@@ -1,0 +1,242 @@
+#!/usr/bin/env python3
+"""
+Factory-Pull: Reusable Module Discovery & Integration Tool
+Allows AI Agents and Developers to discover, inspect, and pull modules
+directly from https://github.com/sh15aa/Appreusable into any external folder.
+"""
+
+import sys
+import os
+import json
+import argparse
+import subprocess
+import shutil
+
+REPO_URL = "https://github.com/sh15aa/Appreusable.git"
+DEFAULT_BRANCH = "main"
+
+# Path to local registry if running from inside the factory repo
+LOCAL_REGISTRY_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "registry", "modules.json")
+
+def load_registry():
+    # 1. Try local repository registry
+    if os.path.exists(LOCAL_REGISTRY_PATH):
+        try:
+            with open(LOCAL_REGISTRY_PATH, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+
+    # 2. Check cache directory in ~/.cache/appreusable/modules.json
+    cache_dir = os.path.expanduser("~/.cache/appreusable")
+    cache_file = os.path.join(cache_dir, "modules.json")
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+
+    # 3. Pull registry using git archive or sparse-checkout
+    os.makedirs(cache_dir, exist_ok=True)
+    temp_clone = os.path.join(cache_dir, "temp_sparse")
+    try:
+        subprocess.run(
+            ["git", "clone", "--filter=blob:none", "--no-checkout", "--depth", "1", REPO_URL, temp_clone],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", temp_clone, "sparse-checkout", "set", "registry"],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", temp_clone, "checkout"],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        fetched_reg = os.path.join(temp_clone, "registry", "modules.json")
+        if os.path.exists(fetched_reg):
+            shutil.copy(fetched_reg, cache_file)
+            shutil.rmtree(temp_clone, ignore_errors=True)
+            with open(cache_file, "r") as f:
+                return json.load(f)
+    except Exception as e:
+        shutil.rmtree(temp_clone, ignore_errors=True)
+        print(f"[Error] Failed to fetch remote module registry: {e}", file=sys.stderr)
+        sys.exit(1)
+
+def list_modules(args):
+    reg = load_registry()
+    modules = reg.get("modules", [])
+    print(f"\n📦 Reusable Code Library ({len(modules)} Modules)")
+    print(f"Repository: {REPO_URL}\n")
+    print(f"{'ID':<35} {'Category':<32} {'Platform':<12}")
+    print("-" * 80)
+    for m in modules:
+        if args.category and args.category.lower() not in m.get("category", "").lower():
+            continue
+        print(f"{m['id']:<35} {m.get('category',''):<32} {m.get('platform',''):<12}")
+
+def search_modules(args):
+    query = args.query.lower()
+    reg = load_registry()
+    matches = []
+    for m in reg.get("modules", []):
+        text = f"{m['id']} {m.get('name','')} {m.get('description','')} {' '.join(m.get('tags',[]))} {' '.join(m.get('capabilities',[]))}".lower()
+        if query in text:
+            matches.append(m)
+    
+    print(f"\n🔍 Found {len(matches)} matching module(s) for query: '{args.query}'\n")
+    for m in matches:
+        print(f"[{m['id']}] - {m.get('name', m['id'])}")
+        print(f"  Category: {m.get('category', 'general')} | Platform: {m.get('platform', 'any')}")
+        print(f"  Description: {m.get('description', '')[:120]}...")
+        if m.get('capabilities'):
+            print(f"  Capabilities: {', '.join(m['capabilities'][:3])}")
+        print()
+
+def info_module(args):
+    mod_id = args.module_id
+    reg = load_registry()
+    found = next((m for m in reg.get("modules", []) if m["id"] == mod_id), None)
+    if not found:
+        print(f"[Error] Module '{mod_id}' not found in registry.", file=sys.stderr)
+        sys.exit(1)
+    
+    print(f"\n📦 Module: {found['id']}")
+    print(f"Title:       {found.get('name')}")
+    print(f"Category:    {found.get('category')}")
+    print(f"Platform:    {found.get('platform')}")
+    print(f"Status:      {found.get('status')}")
+    print(f"Path:        {found.get('path')}")
+    print(f"\nDescription:\n  {found.get('description')}\n")
+    if found.get("capabilities"):
+        print("Key Capabilities:")
+        for c in found["capabilities"]:
+            print(f"  - {c}")
+    print("\nGit Dependency (Flutter pubspec.yaml):")
+    print(f"  {mod_id}:")
+    print("    git:")
+    print(f"      url: {REPO_URL}")
+    print(f"      path: modules/{mod_id}")
+    print(f"      ref: {DEFAULT_BRANCH}\n")
+
+def pull_module(args):
+    mod_id = args.module_id
+    dest_dir = args.dest or os.path.join(".", "shared_modules", mod_id)
+    os.makedirs(dest_dir, exist_ok=True)
+    
+    print(f"🚀 Pulling '{mod_id}' directly from GitHub ({REPO_URL})...")
+    
+    # Use git shallow sparse-checkout to fetch ONLY this module directory
+    temp_dir = os.path.join("/tmp", f"pull_{mod_id}_{os.getpid()}")
+    try:
+        subprocess.run(
+            ["git", "clone", "--filter=blob:none", "--no-checkout", "--depth", "1", REPO_URL, temp_dir],
+            check=True, stdout=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", temp_dir, "sparse-checkout", "set", f"modules/{mod_id}"],
+            check=True, stdout=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", temp_dir, "checkout"],
+            check=True, stdout=subprocess.DEVNULL
+        )
+        src = os.path.join(temp_dir, "modules", mod_id)
+        if not os.path.exists(src):
+            print(f"[Error] Module path 'modules/{mod_id}' not found in repo.", file=sys.stderr)
+            sys.exit(1)
+        
+        # Copy contents to destination
+        for item in os.listdir(src):
+            s = os.path.join(src, item)
+            d = os.path.join(dest_dir, item)
+            if os.path.isdir(s):
+                shutil.copytree(s, d, dirs_exist_ok=True)
+            else:
+                shutil.copy2(s, d)
+                
+        print(f"✅ Module '{mod_id}' successfully placed at: {os.path.abspath(dest_dir)}")
+    finally:
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
+def setup_agent(args):
+    target = os.path.abspath("AGENTS.md")
+    template_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "templates", "AGENTS.md")
+    
+    content = ""
+    if os.path.exists(template_path):
+        with open(template_path, "r") as f:
+            content = f.read()
+    else:
+        # Fallback template
+        content = f"""# PROJECT INSTRUCTIONS & REUSABLE CODE LIBRARY
+
+## Reusable Code Library
+This project has direct access to the enterprise reusable code library:
+Repository: {REPO_URL}
+Branch: {DEFAULT_BRANCH}
+
+## Core Rule: Reuse First. Build Second.
+Before creating new code for authentication, APIs, state management, security, database, payments, or UI:
+1. Search the reusable library registry: `registry/modules.json` or run `./factory-pull search <keyword>`
+2. Find the existing production-ready module.
+3. Review its capabilities and README.
+4. Reuse or integrate the module directly.
+5. NEVER rewrite functionality that already exists in the 163-module factory library.
+
+## Integration Methods:
+### Method 1: Direct Flutter Git Dependency (Recommended for Mobile)
+```yaml
+dependencies:
+  mod_09_auth_module:
+    git:
+      url: {REPO_URL}
+      path: modules/mod_09_auth_module
+      ref: {DEFAULT_BRANCH}
+```
+
+### Method 2: Pull Module into Local Folder
+Run:
+```bash
+python3 tools/factory-pull pull <module_id> --dest ./lib/shared/<module_id>
+```
+"""
+    with open(target, "w") as f:
+        f.write(content)
+    print(f"✅ Generated {target} for AI agents.")
+
+def main():
+    parser = argparse.ArgumentParser(description="Factory-Pull: Reusable Module Discovery & Integration Tool")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # list
+    list_p = subparsers.add_parser("list", help="List all available reusable modules")
+    list_p.add_argument("--category", help="Filter by category")
+    list_p.set_defaults(func=list_modules)
+
+    # search
+    search_p = subparsers.add_parser("search", help="Search reusable modules by keyword or capability")
+    search_p.add_argument("query", help="Keyword to search e.g. auth, sqlite, payments, security")
+    search_p.set_defaults(func=search_modules)
+
+    # info
+    info_p = subparsers.add_parser("info", help="Get detailed information about a module")
+    info_p.add_argument("module_id", help="Module ID e.g. mod_09_auth_module")
+    info_p.set_defaults(func=info_module)
+
+    # pull
+    pull_p = subparsers.add_parser("pull", help="Pull a module directly from GitHub into a local directory")
+    pull_p.add_argument("module_id", help="Module ID e.g. mod_09_auth_module")
+    pull_p.add_argument("--dest", help="Destination folder (defaults to ./shared_modules/<module_id>)")
+    pull_p.set_defaults(func=pull_module)
+
+    # setup-agent
+    agent_p = subparsers.add_parser("setup-agent", help="Generate AGENTS.md in the current directory")
+    agent_p.set_defaults(func=setup_agent)
+
+    args = parser.parse_args()
+    args.func(args)
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,2223 @@
+{
+  "version": "2.0.0",
+  "total_domains": 4,
+  "domains": {
+    "web": {
+      "name": "Web Applications",
+      "count": 33,
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "icon": "\ud83c\udf10",
+      "description": "33 production-hardened web modules with 40-dimension resilience, Crockford IDs, UnitOfWork, and multi-tenancy."
+    },
+    "bots": {
+      "name": "Conversational & Messaging Bots",
+      "count": 27,
+      "framework": "Python / FastAPI / Async Redis",
+      "icon": "\ud83e\udd16",
+      "description": "27 enterprise bot modules for WhatsApp, Telegram, Chatwoot, anti-loop guards, and distributed workers."
+    },
+    "agents": {
+      "name": "Autonomous AI Agents",
+      "count": 40,
+      "framework": "Python / Multi-Agent Factory / Evaluation",
+      "icon": "\ud83e\udde0",
+      "description": "40 autonomous agent modules including memory hierarchies, tool sandboxing, regression judges, and workflows."
+    },
+    "apps": {
+      "name": "Mobile Applications",
+      "count": 163,
+      "framework": "Flutter / Dart / FastAPI / 1M Scale",
+      "icon": "\ud83d\udcf1",
+      "description": "163 production-grade mobile modules for Flutter, offline-first sync, zero-trust security, and 1M user scale."
+    }
+  },
+  "categories_by_domain": {
+    "web": {
+      "operations": [
+        "ops.admin",
+        "ops.deployment",
+        "ops.feature-flags",
+        "ops.maintenance",
+        "ops.monitoring"
+      ],
+      "ai": [
+        "ai.infra"
+      ],
+      "data": [
+        "analytics.events",
+        "data.database",
+        "data.portability",
+        "data.storage",
+        "data.turso-storage"
+      ],
+      "security": [
+        "audit.trail",
+        "auth.unified",
+        "compliance.legal",
+        "security.shield",
+        "security.center"
+      ],
+      "monetization": [
+        "billing.subscriptions",
+        "monetization.metering"
+      ],
+      "growth": [
+        "growth.changelog",
+        "growth.domains",
+        "growth.ab-testing",
+        "growth.referrals",
+        "growth.seo"
+      ],
+      "foundation": [
+        "core.platform",
+        "foundation.tenancy",
+        "foundation.webhooks"
+      ],
+      "tools": [
+        "tools.dashboard"
+      ],
+      "ux": [
+        "ux.i18n",
+        "ux.onboarding",
+        "ux.search",
+        "ux.settings"
+      ],
+      "communications": [
+        "comms.notifications",
+        "comms.support"
+      ]
+    },
+    "bots": {
+      "adapters": [
+        "adapters.whatsapp",
+        "adapters.telegram",
+        "adapters.chatwoot",
+        "adapters.base"
+      ],
+      "schemas": [
+        "schemas.unmp",
+        "schemas.chatwoot"
+      ],
+      "gateway": [
+        "gateway.security",
+        "gateway.router"
+      ],
+      "engine": [
+        "engine.fsm",
+        "engine.handoff",
+        "engine.flows",
+        "engine.router"
+      ],
+      "ai": [
+        "ai.guardrails",
+        "ai.gateway",
+        "ai.cost_controller",
+        "ai.memory",
+        "ai.rag",
+        "ai.tools"
+      ],
+      "security": [
+        "security.rate_limiter",
+        "security.loop_detector",
+        "security.rbac",
+        "security.feature_flags"
+      ],
+      "messaging": [
+        "messaging.media",
+        "messaging.templates"
+      ],
+      "identity": [
+        "identity.service"
+      ],
+      "payments": [
+        "payments.gateway"
+      ],
+      "worker": [
+        "worker.tasks"
+      ]
+    },
+    "agents": {
+      "factory": [
+        "factory.master"
+      ],
+      "core": [
+        "core.identity",
+        "core.gateway",
+        "core.cost",
+        "core.prompt",
+        "core.reliability",
+        "core.security",
+        "core.state",
+        "core.lifecycle"
+      ],
+      "memory": [
+        "memory.conversation",
+        "memory.working",
+        "memory.semantic",
+        "memory.episodic",
+        "memory.rag",
+        "memory.governance"
+      ],
+      "tools": [
+        "tools.registry",
+        "tools.base",
+        "tools.approval",
+        "tools.builtins.search",
+        "tools.builtins.browser",
+        "tools.builtins.code_exec",
+        "tools.builtins.files"
+      ],
+      "orchestration": [
+        "orchestration.planner",
+        "orchestration.workflow",
+        "orchestration.multi_agent",
+        "orchestration.events"
+      ],
+      "validation": [
+        "validation.structured",
+        "validation.verification",
+        "validation.citations"
+      ],
+      "observability": [
+        "observability.tracer",
+        "observability.audit",
+        "observability.metrics"
+      ],
+      "evaluation": [
+        "evaluation.dataset",
+        "evaluation.judge",
+        "evaluation.regression"
+      ],
+      "api": [
+        "api.server",
+        "api.auth"
+      ],
+      "templates": [
+        "templates.research_agent",
+        "templates.content_agent",
+        "templates.coding_agent"
+      ]
+    },
+    "apps": {
+      "architecture_and_auth": [
+        "mod_01_product_idea_engine",
+        "mod_02_tech_stack_standard",
+        "mod_03_app_starter_template",
+        "mod_04_core_architecture",
+        "mod_05_app_config_system",
+        "mod_06_android_identity",
+        "mod_07_ios_identity",
+        "mod_08_environment_system",
+        "mod_09_auth_module",
+        "mod_10_authorization_system"
+      ],
+      "data_and_design": [
+        "mod_11_local_data_system",
+        "mod_12_offline_first_sync",
+        "mod_13_api_layer",
+        "mod_14_error_handling",
+        "mod_15_state_management",
+        "mod_16_design_system",
+        "mod_17_design_tokens",
+        "mod_18_responsive_ui",
+        "mod_19_accessibility",
+        "mod_20_dark_mode"
+      ],
+      "hardware_ai_and_monetization": [
+        "mod_21_device_features",
+        "mod_22_permission_architecture",
+        "mod_23_push_notifications",
+        "mod_24_analytics",
+        "mod_25_crash_monitoring",
+        "mod_26_performance_monitoring",
+        "mod_27_ai_client_module",
+        "mod_28_ai_cost_gateway",
+        "mod_29_subscription_system",
+        "mod_30_purchase_security"
+      ],
+      "growth_and_security": [
+        "mod_31_ads_module",
+        "mod_32_remote_config",
+        "mod_33_feature_flags",
+        "mod_34_deep_link_system",
+        "mod_35_sharing_system",
+        "mod_36_viral_loops",
+        "mod_37_onboarding_engine",
+        "mod_38_app_lifecycle",
+        "mod_39_security_hardening",
+        "mod_40_data_validation"
+      ],
+      "backend_storage_and_qa": [
+        "mod_41_database_architecture",
+        "mod_42_file_storage",
+        "mod_43_background_jobs",
+        "mod_44_app_backend_template",
+        "mod_45_cicd_factory",
+        "mod_46_automated_testing",
+        "mod_47_golden_user_journey",
+        "mod_48_device_test_matrix",
+        "mod_49_release_checklist",
+        "mod_50_aso_factory"
+      ],
+      "factory_orchestration": [
+        "mod_51_screenshot_factory",
+        "mod_52_review_monitoring",
+        "mod_53_analytics_dashboard",
+        "mod_54_health_scorecard",
+        "mod_55_app_factory_db",
+        "mod_56_automated_cli",
+        "mod_57_ai_agent_team",
+        "mod_58_dev_pipeline",
+        "mod_59_architecture_boundary",
+        "mod_60_portfolio_registry",
+        "mod_61_isolation_guardian",
+        "mod_62_one_click_synthesizer",
+        "mod_63_master_checklist_tracker"
+      ],
+      "zero_trust_and_data_security": [
+        "mod_64_threat_modeling",
+        "mod_65_security_boundary",
+        "mod_66_zero_trust_api",
+        "mod_67_object_authorization",
+        "mod_68_property_authorization",
+        "mod_69_function_authorization",
+        "mod_70_admin_security",
+        "mod_71_break_glass_access",
+        "mod_72_secrets_management",
+        "mod_73_secret_rotation",
+        "mod_74_key_management",
+        "mod_75_database_security",
+        "mod_76_database_tenancy",
+        "mod_77_backup_recovery",
+        "mod_78_disaster_recovery"
+      ],
+      "scale_abuse_and_integrity": [
+        "mod_79_multi_region",
+        "mod_80_autoscaling",
+        "mod_81_load_shedding",
+        "mod_82_circuit_breaker",
+        "mod_83_retry_idempotency",
+        "mod_84_rate_limiting_matrix",
+        "mod_85_abuse_prevention",
+        "mod_86_bot_defense",
+        "mod_87_replay_protection",
+        "mod_88_session_security",
+        "mod_89_token_security",
+        "mod_90_device_secure_storage",
+        "mod_91_app_integrity",
+        "mod_92_tamper_resilience",
+        "mod_93_network_security",
+        "mod_94_webhook_security",
+        "mod_95_file_upload_security",
+        "mod_96_ssrf_protection"
+      ],
+      "io_security_and_supply_chain": [
+        "mod_97_input_security",
+        "mod_98_output_security",
+        "mod_99_error_leak_prevention",
+        "mod_100_security_logging",
+        "mod_101_audit_log_system",
+        "mod_102_security_monitoring_siem",
+        "mod_103_security_alerting",
+        "mod_104_incident_response",
+        "mod_105_emergency_controls",
+        "mod_106_force_upgrade",
+        "mod_107_remote_kill_switch",
+        "mod_108_supply_chain_security",
+        "mod_109_sbom_generator",
+        "mod_110_dependency_policy",
+        "mod_111_secure_build_env",
+        "mod_112_reproducible_builds",
+        "mod_113_artifact_signing",
+        "mod_114_cicd_security",
+        "mod_115_branch_protection"
+      ],
+      "compliance_and_sast_dast": [
+        "mod_116_sast_scanner",
+        "mod_117_dast_scanner",
+        "mod_118_penetration_testing",
+        "mod_119_owasp_masvs_test",
+        "mod_120_privacy_engineering",
+        "mod_121_data_classification",
+        "mod_122_data_retention_engine",
+        "mod_123_account_deletion_pipeline",
+        "mod_124_child_age_safety",
+        "mod_125_compliance_engine"
+      ],
+      "cloud_iam_and_observability": [
+        "mod_126_third_party_risk",
+        "mod_127_third_party_isolation",
+        "mod_128_cost_abuse_protection",
+        "mod_129_billing_anomaly_detection",
+        "mod_130_cache_security",
+        "mod_131_queue_security",
+        "mod_132_job_idempotency",
+        "mod_133_observability_pillars",
+        "mod_134_distributed_tracing",
+        "mod_135_db_performance_engine",
+        "mod_136_pagination_guard",
+        "mod_137_search_abuse_guard",
+        "mod_138_api_versioning",
+        "mod_139_api_inventory",
+        "mod_140_edge_security_headers",
+        "mod_141_ddos_resilience",
+        "mod_142_network_segmentation",
+        "mod_143_cloud_iam",
+        "mod_144_environment_isolation",
+        "mod_145_production_data_protection"
+      ],
+      "enterprise_scale_gate_and_monitoring": [
+        "mod_146_support_tool_security",
+        "mod_147_social_engineering_defense",
+        "mod_148_fraud_detection",
+        "mod_149_release_rollback",
+        "mod_150_canary_releases",
+        "mod_151_feature_gated_migrations",
+        "mod_152_security_regression_suite",
+        "mod_153_security_scorecard",
+        "mod_154_security_release_gate",
+        "mod_155_1m_user_scale_gate",
+        "mod_156_capacity_planning",
+        "mod_157_chaos_testing",
+        "mod_158_business_continuity",
+        "mod_159_vulnerability_disclosure",
+        "mod_160_security_patch_pipeline",
+        "mod_161_blast_radius_control",
+        "mod_162_factory_security_monitor",
+        "mod_163_final_production_architecture"
+      ]
+    }
+  },
+  "all_categories": {
+    "web:operations": {
+      "domain": "web",
+      "category": "operations",
+      "modules": [
+        {
+          "id": "ops.admin",
+          "name": "Admin Operations Console",
+          "path": "admin",
+          "description": "Super-admin control center, user impersonation, system flags, audit oversight, and emergency controls."
+        },
+        {
+          "id": "ops.deployment",
+          "name": "Environment & Canary Deployment Management",
+          "path": "deployment",
+          "description": "Multi-environment configuration, traffic shifting, canary rollouts, zero-downtime health verification, and rollback engine."
+        },
+        {
+          "id": "ops.feature-flags",
+          "name": "Feature Flags & Dynamic Config",
+          "path": "flags",
+          "description": "Dynamic feature switches, percentage rollouts, user attribute targeting, kill-switches, and zero-redeploy config updates."
+        },
+        {
+          "id": "ops.maintenance",
+          "name": "Maintenance Mode & Incident Banners",
+          "path": "maintenance",
+          "description": "Emergency maintenance switch, scheduled downtime banners, bypass tokens for staff, and read-only mode enforcement."
+        },
+        {
+          "id": "ops.monitoring",
+          "name": "Product Health & Incident Monitoring",
+          "path": "monitoring",
+          "description": "Synthetic uptime pings, real-time error budget tracking, alerting webhooks, and public status page generation."
+        }
+      ]
+    },
+    "web:ai": {
+      "domain": "web",
+      "category": "ai",
+      "modules": [
+        {
+          "id": "ai.infra",
+          "name": "AI Infrastructure & LLM Workflows",
+          "path": "ai",
+          "description": "Enterprise AI runtime with streaming, prompt injection defense, token/cost accounting, and worker queue."
+        }
+      ]
+    },
+    "web:data": {
+      "domain": "web",
+      "category": "data",
+      "modules": [
+        {
+          "id": "analytics.events",
+          "name": "Analytics & Event Tracking",
+          "path": "analytics",
+          "description": "Real-time event logging, funnel analysis, custom product events, and privacy-preserving metrics aggregation."
+        },
+        {
+          "id": "data.database",
+          "name": "Database Migrations & Disaster Recovery",
+          "path": "database",
+          "description": "Migration manager, automated backups, point-in-time recovery, and multi-dialect connection pooling (libSQL, Postgres, SQLite)."
+        },
+        {
+          "id": "data.portability",
+          "name": "Data Export, Import & GDPR Takeout",
+          "path": "portability",
+          "description": "Asynchronous JSON/CSV data export generation, streaming data imports, validation checks, and user GDPR data portability."
+        },
+        {
+          "id": "data.storage",
+          "name": "File Storage & Asset Pipeline",
+          "path": "storage",
+          "description": "Provider-agnostic file storage (S3, Cloudflare R2, Local), secure pre-signed upload URLs, MIME verification, and thumbnail resizing."
+        },
+        {
+          "id": "data.turso-storage",
+          "name": "Turso Distributed SQLite Storage Engine",
+          "path": "turso-storage",
+          "description": "Distributed edge storage engine on libSQL / Turso, with built-in HTTP API, ingestion CLI, and web explorer UI."
+        }
+      ]
+    },
+    "web:security": {
+      "domain": "web",
+      "category": "security",
+      "modules": [
+        {
+          "id": "audit.trail",
+          "name": "Audit Logs & Tamper-Evident Trail",
+          "path": "audit",
+          "description": "Cryptographically verified activity logging, actor attribution, structured audit trail, and compliance export."
+        },
+        {
+          "id": "auth.unified",
+          "name": "Unified Authentication & Sessions",
+          "path": "auth",
+          "description": "Production session management, secure passwords, Google/GitHub OAuth, MFA, and RBAC middleware."
+        },
+        {
+          "id": "compliance.legal",
+          "name": "Legal & Compliance Suite",
+          "path": "compliance",
+          "description": "GDPR/CCPA privacy management, cookie consent banner, terms acceptance tracking, and data erasure requests."
+        },
+        {
+          "id": "security.shield",
+          "name": "Rate Limiting & Threat Protection",
+          "path": "security",
+          "description": "Token-bucket & sliding window rate limiters, IP blacklisting, DDoS mitigations, SQLi/XSS sanitization, and request signing."
+        },
+        {
+          "id": "security.center",
+          "name": "Security Posture & Compliance Dashboard",
+          "path": "security-center",
+          "description": "SOC2/ISO27001 readiness monitor, security health scoring, open vulnerability tracking, and automated posture reports."
+        }
+      ]
+    },
+    "web:monetization": {
+      "domain": "web",
+      "category": "monetization",
+      "modules": [
+        {
+          "id": "billing.subscriptions",
+          "name": "Payments & Subscription Engine",
+          "path": "billing",
+          "description": "Multi-provider payment gateway (Stripe/LemonSqueezy), recurring subscriptions, usage invoices, and checkout flows."
+        },
+        {
+          "id": "monetization.metering",
+          "name": "Usage Metering & Credit Ledger",
+          "path": "metering",
+          "description": "High-throughput usage aggregation, prepaid credit wallet, quota limits, and burst protection for API and compute consumption."
+        }
+      ]
+    },
+    "web:growth": {
+      "domain": "web",
+      "category": "growth",
+      "modules": [
+        {
+          "id": "growth.changelog",
+          "name": "Product Changelog & Roadmap",
+          "path": "changelog",
+          "description": "In-app release announcements, release notes feed, feature roadmap, and subscriber email notifications."
+        },
+        {
+          "id": "growth.domains",
+          "name": "Custom Domains & White-Label Routing",
+          "path": "domains",
+          "description": "Multi-tenant custom domain provisioning, CNAME verification, automated SSL certificate lifecycle, and edge routing."
+        },
+        {
+          "id": "growth.ab-testing",
+          "name": "A/B Testing & Experimentation Engine",
+          "path": "experimentation",
+          "description": "Statistically sound A/B experimentation, deterministic hashing, variant assignment, and conversion tracking."
+        },
+        {
+          "id": "growth.referrals",
+          "name": "Affiliate & Viral Referral System",
+          "path": "referral",
+          "description": "Unique invite links, referral code generation, click-to-signup attribution, reward payouts, and tier progression."
+        },
+        {
+          "id": "growth.seo",
+          "name": "SEO, OpenGraph & Metadata Engine",
+          "path": "seo",
+          "description": "Dynamic Open Graph social card generation, structured JSON-LD schema builder, automatic sitemap.xml, and canonical tags."
+        }
+      ]
+    },
+    "web:foundation": {
+      "domain": "web",
+      "category": "foundation",
+      "modules": [
+        {
+          "id": "core.platform",
+          "name": "Core Platform & Resilience Standards",
+          "path": "core",
+          "description": "Universal 40-dimension platform foundation: AsyncLocalStorage context, Crockford IDs, UnitOfWork, Idempotency, and resilient errors."
+        },
+        {
+          "id": "foundation.tenancy",
+          "name": "Multi-Tenancy & Workspace Isolation",
+          "path": "tenancy",
+          "description": "Strict tenant boundary enforcement, workspace switching, team invitations, member roles, and multi-tenant scoping."
+        },
+        {
+          "id": "foundation.webhooks",
+          "name": "Webhook Engine & Developer API Keys",
+          "path": "webhooks",
+          "description": "Outbound webhook dispatcher with exponential backoff retries, HMAC-SHA256 signature verification, and developer API key hashing."
+        }
+      ]
+    },
+    "web:tools": {
+      "domain": "web",
+      "category": "tools",
+      "modules": [
+        {
+          "id": "tools.dashboard",
+          "name": "Reusable Studio Dashboard",
+          "path": "dashboard",
+          "description": "Interactive testing studio and packager for exploring and bundling reusable modules."
+        }
+      ]
+    },
+    "web:ux": {
+      "domain": "web",
+      "category": "ux",
+      "modules": [
+        {
+          "id": "ux.i18n",
+          "name": "Internationalization & Translation Suite",
+          "path": "i18n",
+          "description": "Type-safe multi-language translations, locale detection, pluralization, currency/date formatting, and missing key fallbacks."
+        },
+        {
+          "id": "ux.onboarding",
+          "name": "User Onboarding & Interactive Tours",
+          "path": "onboarding",
+          "description": "Interactive step-by-step checklists, guided tours, progress state persistence, and gamified onboarding milestones."
+        },
+        {
+          "id": "ux.search",
+          "name": "Global Search & Command Palette",
+          "path": "search",
+          "description": "Spotlight-style command palette (Cmd+K), fuzzy search over entities, keyboard navigation, and indexed action catalog."
+        },
+        {
+          "id": "ux.settings",
+          "name": "Settings & Workspace Preferences",
+          "path": "settings",
+          "description": "Multi-level settings engine (user profile, workspace configuration, billing preferences, developer keys) with schema validation."
+        }
+      ]
+    },
+    "web:communications": {
+      "domain": "web",
+      "category": "communications",
+      "modules": [
+        {
+          "id": "comms.notifications",
+          "name": "Notification Center & Transactional Emails",
+          "path": "notifications",
+          "description": "Multi-channel notifications (Transactional Email via Resend/Postmark, Webhooks, In-App Bell), user preference controls."
+        },
+        {
+          "id": "comms.support",
+          "name": "Customer Support & Feedback System",
+          "path": "support",
+          "description": "Embeddable feedback modal, ticket management lifecycle, triage priorities, CSAT surveys, and Discord/Slack integrations."
+        }
+      ]
+    },
+    "bots:adapters": {
+      "domain": "bots",
+      "category": "adapters",
+      "modules": [
+        {
+          "id": "adapters.whatsapp",
+          "name": "WhatsApp Cloud API Adapter",
+          "path": "bots/app/adapters/whatsapp.py",
+          "description": "Parses Meta Cloud API inbound webhooks and renders outbound text, interactive buttons, list messages, and media."
+        },
+        {
+          "id": "adapters.telegram",
+          "name": "Telegram Bot API Adapter",
+          "path": "bots/app/adapters/telegram.py",
+          "description": "Parses Telegram Bot updates and sends outbound MarkdownV2 text, inline keyboards, reply keyboards, and media."
+        },
+        {
+          "id": "adapters.chatwoot",
+          "name": "Chatwoot Live-Agent Client",
+          "path": "bots/app/adapters/chatwoot.py",
+          "description": "Bi-directional integration with Chatwoot live support desk. Manages contact lookup, conversation creation, and message relaying."
+        },
+        {
+          "id": "adapters.base",
+          "name": "Base Channel Adapter Interface",
+          "path": "bots/app/adapters/base.py",
+          "description": "Abstract base class defining parse_inbound and render_and_send contract for all channel adapters."
+        }
+      ]
+    },
+    "bots:schemas": {
+      "domain": "bots",
+      "category": "schemas",
+      "modules": [
+        {
+          "id": "schemas.unmp",
+          "name": "Unified Normalised Messaging Protocol (UNMP)",
+          "path": "bots/app/schemas/unmp.py",
+          "description": "Channel-agnostic data schemas for inbound messages, outbound responses, sender identities, and interactive payloads."
+        },
+        {
+          "id": "schemas.chatwoot",
+          "name": "Chatwoot Webhook Schemas",
+          "path": "bots/app/schemas/chatwoot.py",
+          "description": "Typed Pydantic models for parsing Chatwoot webhook payloads (message_created, conversation_status_changed)."
+        }
+      ]
+    },
+    "bots:gateway": {
+      "domain": "bots",
+      "category": "gateway",
+      "modules": [
+        {
+          "id": "gateway.security",
+          "name": "Webhook Security & Signature Verification",
+          "path": "bots/app/gateway/security.py",
+          "description": "Constant-time HMAC-SHA256 signature verification, timing-safe Telegram token validation, and atomic Redis replay prevention."
+        },
+        {
+          "id": "gateway.router",
+          "name": "FastAPI Webhook Gateway Router",
+          "path": "bots/app/gateway/router.py",
+          "description": "Sub-200ms ACK webhook endpoints for WhatsApp, Telegram, and Chatwoot with immediate queue offloading via ARQ."
+        }
+      ]
+    },
+    "bots:engine": {
+      "domain": "bots",
+      "category": "engine",
+      "modules": [
+        {
+          "id": "engine.fsm",
+          "name": "Conversation Engine & Distributed FSM",
+          "path": "bots/app/engine/fsm.py",
+          "description": "Finite State Machine with Redis distributed mutex locking (via atomic Lua script release) to prevent button-mashing and race conditions."
+        },
+        {
+          "id": "engine.handoff",
+          "name": "Human Handoff Manager",
+          "path": "bots/app/engine/handoff.py",
+          "description": "Coordinates seamless handoff between automated bot conversation and human agents on Chatwoot."
+        },
+        {
+          "id": "engine.flows",
+          "name": "Interactive Flow Engine",
+          "path": "bots/app/engine/flows.py",
+          "description": "Step-by-step interactive workflow engine supporting custom validators, dynamic prompts, and transition branching."
+        },
+        {
+          "id": "engine.router",
+          "name": "Message & Command Router",
+          "path": "bots/app/engine/router.py",
+          "description": "Dispatches incoming messages to slash commands, interactive button callbacks, active flows, or AI assistants."
+        }
+      ]
+    },
+    "bots:ai": {
+      "domain": "bots",
+      "category": "ai",
+      "modules": [
+        {
+          "id": "ai.guardrails",
+          "name": "Dual-Tier AI Security Guardrails",
+          "path": "bots/app/ai/guardrails.py",
+          "description": "Zero-trust AI safety layer: automated PII masking (credit cards, emails, SSN, phone numbers), prompt delimiter sandboxing, and dynamic canary token leakage defense."
+        },
+        {
+          "id": "ai.gateway",
+          "name": "Multi-Provider LLM Gateway",
+          "path": "bots/app/ai/gateway.py",
+          "description": "Unified LLM client supporting OpenAI, Anthropic, Gemini, Groq, and Ollama with automated fallback, streaming, and tool execution."
+        },
+        {
+          "id": "ai.cost_controller",
+          "name": "AI Token Cost Controller & Budgeting",
+          "path": "bots/app/ai/cost_controller.py",
+          "description": "Per-user and tenant daily token consumption tracking using Redis sliding counters to prevent quota exhaustion and runaway costs."
+        },
+        {
+          "id": "ai.memory",
+          "name": "Conversation Sliding-Window Memory",
+          "path": "bots/app/ai/memory.py",
+          "description": "Redis-backed conversation memory preserving multi-turn chat history with sliding window size and configurable TTL."
+        },
+        {
+          "id": "ai.rag",
+          "name": "Lightweight Embedding RAG Knowledge Base",
+          "path": "bots/app/ai/rag.py",
+          "description": "Vector embedding retrieval with cosine similarity ranking and dynamic prompt augmentation for contextual Q&A."
+        },
+        {
+          "id": "ai.tools",
+          "name": "Sandboxed Tool & Function Calling",
+          "path": "bots/app/ai/tools.py",
+          "description": "Framework for registering Python functions as OpenAI/Gemini/Anthropic compatible tools with automatic JSON schema generation."
+        }
+      ]
+    },
+    "bots:security": {
+      "domain": "bots",
+      "category": "security",
+      "modules": [
+        {
+          "id": "security.rate_limiter",
+          "name": "Atomic Redis Sliding-Window Rate Limiter",
+          "path": "bots/app/security/rate_limiter.py",
+          "description": "High-performance sliding-window rate limiter powered by an atomic Redis Lua script to neutralize DoS and flooding attacks."
+        },
+        {
+          "id": "security.loop_detector",
+          "name": "Rolling SHA-256 Bot Loop Detector",
+          "path": "bots/app/security/loop_detector.py",
+          "description": "Detects and breaks infinite ping-pong loops between automated bots by computing rolling message hashes across a sliding time window."
+        },
+        {
+          "id": "security.rbac",
+          "name": "Role-Based Access Control (RBAC)",
+          "path": "bots/app/security/rbac.py",
+          "description": "Admin and client authentication context, JWT validation, and route dependency guards."
+        },
+        {
+          "id": "security.feature_flags",
+          "name": "Dynamic Redis Feature Flags & Kill Switch",
+          "path": "bots/app/security/feature_flags.py",
+          "description": "Runtime configuration switches, percentage rollouts, and instant emergency kill switches without restarting services."
+        }
+      ]
+    },
+    "bots:messaging": {
+      "domain": "bots",
+      "category": "messaging",
+      "modules": [
+        {
+          "id": "messaging.media",
+          "name": "Secure Media Downloader & SSRF Protection",
+          "path": "bots/app/messaging/media.py",
+          "description": "Downloads and validates media attachments with anti-SSRF IP blocking (blocks private/loopback/cloud metadata IP ranges)."
+        },
+        {
+          "id": "messaging.templates",
+          "name": "Multi-Locale Template Engine",
+          "path": "bots/app/messaging/templates.py",
+          "description": "Channel-agnostic i18n template registry supporting parameter substitution and fallback locales."
+        }
+      ]
+    },
+    "bots:identity": {
+      "domain": "bots",
+      "category": "identity",
+      "modules": [
+        {
+          "id": "identity.service",
+          "name": "Cross-Channel Identity Resolution",
+          "path": "bots/app/identity/service.py",
+          "description": "Unifies user records across WhatsApp phone numbers, Telegram chat IDs, and Web CRM profiles into a single persistent user record."
+        }
+      ]
+    },
+    "bots:payments": {
+      "domain": "bots",
+      "category": "payments",
+      "modules": [
+        {
+          "id": "payments.gateway",
+          "name": "Payment Gateway & Webhook Validator",
+          "path": "bots/app/payments/gateway.py",
+          "description": "Stripe webhook signature validation and subscription tier provisioning in Redis."
+        }
+      ]
+    },
+    "bots:worker": {
+      "domain": "bots",
+      "category": "worker",
+      "modules": [
+        {
+          "id": "worker.tasks",
+          "name": "ARQ Distributed Async Task Worker",
+          "path": "bots/app/worker/tasks.py",
+          "description": "Async Redis queue (ARQ) background task processor for parsing messages, running FSM, executing AI pipelines, and dispatching outbound messages."
+        }
+      ]
+    },
+    "agents:factory": {
+      "domain": "agents",
+      "category": "factory",
+      "modules": [
+        {
+          "id": "factory.master",
+          "name": "Master Agent Factory",
+          "path": "agents/agent_factory/factory.py",
+          "description": "Master builder for assembling full production agent instances from identity, gateway, memory, tools, and security layers."
+        }
+      ]
+    },
+    "agents:core": {
+      "domain": "agents",
+      "category": "core",
+      "modules": [
+        {
+          "id": "core.identity",
+          "name": "Agent Identity & Configuration",
+          "path": "agents/agent_factory/core/identity.py",
+          "description": "Agent identity specifications, manifests, environment configurations, and cost/retry policies."
+        },
+        {
+          "id": "core.gateway",
+          "name": "LLM Gateway & Multi-Provider Router",
+          "path": "agents/agent_factory/core/gateway.py",
+          "description": "Unified LLM gateway with model routing by task complexity, multi-provider fallbacks, streaming, and tool call normalization."
+        },
+        {
+          "id": "core.cost",
+          "name": "Token Tracker & Cost Economics",
+          "path": "agents/agent_factory/core/cost.py",
+          "description": "Token usage tracking, multi-model pricing economics, per-run cost recording, and budget limit enforcement."
+        },
+        {
+          "id": "core.prompt",
+          "name": "Prompt Manager & Injection Defense",
+          "path": "agents/agent_factory/core/prompt.py",
+          "description": "Dynamic prompt template compilation, versioning, canary tokens for system prompt leakage detection, and prompt injection filtering."
+        },
+        {
+          "id": "core.reliability",
+          "name": "Reliability, Loop Detection & Idempotency",
+          "path": "agents/agent_factory/core/reliability.py",
+          "description": "Exponential backoff retries, cycle/loop detection, execution resource bounds, and idempotency guarantees."
+        },
+        {
+          "id": "core.security",
+          "name": "Security, RBAC & Secret Isolation",
+          "path": "agents/agent_factory/core/security.py",
+          "description": "Role-based access control, tool risk categorization (LOW, MEDIUM, HIGH, CRITICAL), SSRF IP/domain validation, and zero-leak secret isolation."
+        },
+        {
+          "id": "core.state",
+          "name": "Agent Execution State & Persistence",
+          "path": "agents/agent_factory/core/state.py",
+          "description": "Execution context state machine, step tracking, intermediate results, and checkpoint persistence."
+        },
+        {
+          "id": "core.lifecycle",
+          "name": "Agent Versioning & Canary Rollout",
+          "path": "agents/agent_factory/core/lifecycle.py",
+          "description": "Semantic agent version management, canary traffic splitting, and automated rollback on regression."
+        }
+      ]
+    },
+    "agents:memory": {
+      "domain": "agents",
+      "category": "memory",
+      "modules": [
+        {
+          "id": "memory.conversation",
+          "name": "Conversation Engine & Multi-turn Threads",
+          "path": "agents/agent_factory/memory/conversation.py",
+          "description": "Multi-turn conversation management, message history formatting, and automated context compaction for large dialogues."
+        },
+        {
+          "id": "memory.working",
+          "name": "Working Memory & Scratchpad",
+          "path": "agents/agent_factory/memory/working.py",
+          "description": "Short-term scratchpad memory storing active goals, discovered findings, completed steps, and task scratchpad notes."
+        },
+        {
+          "id": "memory.semantic",
+          "name": "Semantic Memory & Vector Retrieval",
+          "path": "agents/agent_factory/memory/semantic.py",
+          "description": "In-memory semantic vector store, text chunking, and cosine similarity ranking for agent knowledge."
+        },
+        {
+          "id": "memory.episodic",
+          "name": "Episodic Memory & Experience Learning",
+          "path": "agents/agent_factory/memory/episodic.py",
+          "description": "Stores historical task execution episodes, failures, successes, and derived lessons learned for future task improvement."
+        },
+        {
+          "id": "memory.rag",
+          "name": "Hybrid RAG Engine (BM25 + Dense Vectors)",
+          "path": "agents/agent_factory/memory/rag.py",
+          "description": "Hybrid retrieval augmented generation combining lexical BM25 indexing with dense semantic vector search and reciprocal rank fusion."
+        },
+        {
+          "id": "memory.governance",
+          "name": "Memory Governance, PII Redaction & Context Builder",
+          "path": "agents/agent_factory/memory/governance.py",
+          "description": "PII scrubbing (emails, credit cards, phones, SSNs), TTL retention pruning, and assembled context token budgeting."
+        }
+      ]
+    },
+    "agents:tools": {
+      "domain": "agents",
+      "category": "tools",
+      "modules": [
+        {
+          "id": "tools.registry",
+          "name": "Central Tool Registry & Dispatcher",
+          "path": "agents/agent_factory/tools/registry.py",
+          "description": "Central registry registering tools, generating standardized JSON tool schemas for LLMs, checking permissions, and dispatching execution."
+        },
+        {
+          "id": "tools.base",
+          "name": "Base Tool Contract & Specification",
+          "path": "agents/agent_factory/tools/base.py",
+          "description": "Abstract base class for all tools with JSON schema extraction, risk levels, and standardized ToolExecutionResult wrapper."
+        },
+        {
+          "id": "tools.approval",
+          "name": "Human Approval & HITL Workflows",
+          "path": "agents/agent_factory/tools/approval.py",
+          "description": "Human-in-the-loop approval queue intercepting HIGH and CRITICAL risk tool executions before dispatch."
+        },
+        {
+          "id": "tools.builtins.search",
+          "name": "Web Search Tool",
+          "path": "agents/agent_factory/tools/builtins/search.py",
+          "description": "Structured search tool for external information gathering with query parameters, filtering, and result summaries."
+        },
+        {
+          "id": "tools.builtins.browser",
+          "name": "Browser Action Tool with SSRF Defense",
+          "path": "agents/agent_factory/tools/builtins/browser.py",
+          "description": "Web browser automation tool with URL sanitization, domain allow/deny list, and private network SSRF defenses."
+        },
+        {
+          "id": "tools.builtins.code_exec",
+          "name": "Hardened Python Sandbox Tool",
+          "path": "agents/agent_factory/tools/builtins/code_exec.py",
+          "description": "AST-inspected, isolated Python code execution tool restricting dangerous builtins, modules, and excessive CPU/memory runtime."
+        },
+        {
+          "id": "tools.builtins.files",
+          "name": "Document & File Processing Tool",
+          "path": "agents/agent_factory/tools/builtins/files.py",
+          "description": "File parser and reader supporting text, markdown, CSV, JSON, and PDF text extraction with strict path traversal prevention."
+        }
+      ]
+    },
+    "agents:orchestration": {
+      "domain": "agents",
+      "category": "orchestration",
+      "modules": [
+        {
+          "id": "orchestration.planner",
+          "name": "Planning Engine & Task Decomposition",
+          "path": "agents/agent_factory/orchestration/planner.py",
+          "description": "Breaks complex user goals into sequential/parallel dependency DAG steps, handles dynamic re-planning on step failures."
+        },
+        {
+          "id": "orchestration.workflow",
+          "name": "Workflow Execution Engine (DAG Orchestrator)",
+          "path": "agents/agent_factory/orchestration/workflow.py",
+          "description": "Directed acyclic graph execution engine supporting parallel branches, dependency resolution, error traps, and conditional routing."
+        },
+        {
+          "id": "orchestration.multi_agent",
+          "name": "Multi-Agent Orchestration & Supervisor",
+          "path": "agents/agent_factory/orchestration/multi_agent.py",
+          "description": "Agent-to-agent communication protocol, message passing, peer collaboration, and hierarchical supervisor orchestration."
+        },
+        {
+          "id": "orchestration.events",
+          "name": "Event Bus, Trigger Engine & Job Queue",
+          "path": "agents/agent_factory/orchestration/events.py",
+          "description": "Asynchronous publish-subscribe event bus, event triggers for automated agent dispatch, and background job queuing."
+        }
+      ]
+    },
+    "agents:validation": {
+      "domain": "agents",
+      "category": "validation",
+      "modules": [
+        {
+          "id": "validation.structured",
+          "name": "Structured Output Engine & Schema Enforcer",
+          "path": "agents/agent_factory/validation/structured.py",
+          "description": "Extracts and validates JSON outputs against Pydantic models, automatically repairing broken JSON and syntax mismatches."
+        },
+        {
+          "id": "validation.verification",
+          "name": "Self-Verification & Fact Checking",
+          "path": "agents/agent_factory/validation/verification.py",
+          "description": "Multi-pass verification validating LLM responses against source material, checking hallucinations and factual alignment."
+        },
+        {
+          "id": "validation.citations",
+          "name": "Citation Engine & Source Provenance",
+          "path": "agents/agent_factory/validation/citations.py",
+          "description": "Maps claims and generated statements back to verified document source IDs, line ranges, or URLs."
+        }
+      ]
+    },
+    "agents:observability": {
+      "domain": "agents",
+      "category": "observability",
+      "modules": [
+        {
+          "id": "observability.tracer",
+          "name": "Distributed Tracing & Span Trees",
+          "path": "agents/agent_factory/observability/tracer.py",
+          "description": "Hierarchical span tracing for agent thought loops, LLM calls, tool executions, and timing diagnostics."
+        },
+        {
+          "id": "observability.audit",
+          "name": "Security Audit Logging",
+          "path": "agents/agent_factory/observability/audit.py",
+          "description": "Tamper-evident audit logging for tool executions, privilege elevations, policy rejections, and access logs."
+        },
+        {
+          "id": "observability.metrics",
+          "name": "Operational Metrics & Analytics",
+          "path": "agents/agent_factory/observability/metrics.py",
+          "description": "Tracks latency distributions, token usage, tool success/failure ratios, and cost velocity."
+        }
+      ]
+    },
+    "agents:evaluation": {
+      "domain": "agents",
+      "category": "evaluation",
+      "modules": [
+        {
+          "id": "evaluation.dataset",
+          "name": "Golden Evaluation Datasets & Test Cases",
+          "path": "agents/agent_factory/evaluation/dataset.py",
+          "description": "Golden test case schema, expected outputs, ground truth rubrics, and dataset serialization."
+        },
+        {
+          "id": "evaluation.judge",
+          "name": "LLM-as-Judge & Rubric Scoring",
+          "path": "agents/agent_factory/evaluation/judge.py",
+          "description": "Automated qualitative evaluation scoring agent outputs on accuracy, clarity, safety, and helpfulness (1-5 scale)."
+        },
+        {
+          "id": "evaluation.regression",
+          "name": "Regression Benchmark Runner",
+          "path": "agents/agent_factory/evaluation/regression.py",
+          "description": "Automated benchmark suite running GoldenDatasets against agent instances and generating pass/fail reports."
+        }
+      ]
+    },
+    "agents:api": {
+      "domain": "agents",
+      "category": "api",
+      "modules": [
+        {
+          "id": "api.server",
+          "name": "Production FastAPI Agent Server",
+          "path": "agents/agent_factory/api/server.py",
+          "description": "REST API, Server-Sent Events (SSE) streaming endpoint, and webhook callback integration for agents."
+        },
+        {
+          "id": "api.auth",
+          "name": "API Auth, Tenant Resolution & HMAC Webhooks",
+          "path": "agents/agent_factory/api/auth.py",
+          "description": "Bearer token authentication, multi-tenant isolation, rate limiting, and HMAC signature verification for webhooks."
+        }
+      ]
+    },
+    "agents:templates": {
+      "domain": "agents",
+      "category": "templates",
+      "modules": [
+        {
+          "id": "templates.research_agent",
+          "name": "Deep Research Agent Template",
+          "path": "agents/templates/research_agent.py",
+          "description": "Pre-configured ready-to-run Deep Web Search, Fact-Checking, and Citation Research Agent."
+        },
+        {
+          "id": "templates.content_agent",
+          "name": "Content Strategy Agent Template",
+          "path": "agents/templates/content_agent.py",
+          "description": "Pre-configured Content Strategy, Tone-of-Voice, and SEO Writing Agent."
+        },
+        {
+          "id": "templates.coding_agent",
+          "name": "Data Analysis & Coding Agent Template",
+          "path": "agents/templates/coding_agent.py",
+          "description": "Pre-configured Python Sandbox, Data Analysis, and Code Execution Agent."
+        }
+      ]
+    },
+    "apps:architecture_and_auth": {
+      "domain": "apps",
+      "category": "architecture_and_auth",
+      "modules": [
+        {
+          "id": "mod_01_product_idea_engine",
+          "name": "Module 01: Product Idea Engine",
+          "path": "apps/modules/mod_01_product_idea_engine",
+          "description": "The **Product Idea Engine** ensures that every app built in the factory undergoes strict market validation, scoring, and lifecycle tracking before writing any code."
+        },
+        {
+          "id": "mod_02_tech_stack_standard",
+          "name": "Module 02: Tech Stack Standard",
+          "path": "apps/modules/mod_02_tech_stack_standard",
+          "description": "Enforces zero-tolerance architecture rules and Dart linter configurations for all apps in the factory."
+        },
+        {
+          "id": "mod_03_app_starter_template",
+          "name": "Module 03: App Starter Template",
+          "path": "apps/modules/mod_03_app_starter_template",
+          "description": "The foundation scaffold for any new app generated in the factory. It enforces Clean Architecture folders:"
+        },
+        {
+          "id": "mod_04_core_architecture",
+          "name": "Module 04: Core Mobile Architecture",
+          "path": "apps/modules/mod_04_core_architecture",
+          "description": "Defines Clean Architecture primitives ensuring complete separation of concerns:"
+        },
+        {
+          "id": "mod_05_app_config_system",
+          "name": "Module 05: App Configuration System",
+          "path": "apps/modules/mod_05_app_config_system",
+          "description": "Manages per-app configuration and flavors:"
+        },
+        {
+          "id": "mod_06_android_identity",
+          "name": "Module 06: Android Identity",
+          "path": "apps/modules/mod_06_android_identity",
+          "description": "Provides templates and scripts for hardening Android application identity, signing, and security:"
+        },
+        {
+          "id": "mod_07_ios_identity",
+          "name": "Module 07: iOS Identity",
+          "path": "apps/modules/mod_07_ios_identity",
+          "description": "Provides standardized configuration, security hardening, and entitlements for iOS:"
+        },
+        {
+          "id": "mod_08_environment_system",
+          "name": "Module 08: Environment System",
+          "path": "apps/modules/mod_08_environment_system",
+          "description": "Manages environment configuration across `.env.dev`, `.env.staging`, and `.env.prod`."
+        },
+        {
+          "id": "mod_09_auth_module",
+          "name": "Module 09: Authentication Module",
+          "path": "apps/modules/mod_09_auth_module",
+          "description": "Production-grade authentication engine designed with zero-trust principles:"
+        },
+        {
+          "id": "mod_10_authorization_system",
+          "name": "Module 10: Authorization System",
+          "path": "apps/modules/mod_10_authorization_system",
+          "description": "Enforces Zero-Trust authorization principles:"
+        }
+      ]
+    },
+    "apps:data_and_design": {
+      "domain": "apps",
+      "category": "data_and_design",
+      "modules": [
+        {
+          "id": "mod_11_local_data_system",
+          "name": "Module 11: Local Data System",
+          "path": "apps/modules/mod_11_local_data_system",
+          "description": "Provides encrypted key-value and relational local persistence:"
+        },
+        {
+          "id": "mod_12_offline_first_sync",
+          "name": "Module 12: Offline-First Architecture",
+          "path": "apps/modules/mod_12_offline_first_sync",
+          "description": "Implements the **Outbox Pattern** for robust offline mobile operations:"
+        },
+        {
+          "id": "mod_13_api_layer",
+          "name": "Module 13: API Layer",
+          "path": "apps/modules/mod_13_api_layer",
+          "description": "Standardized HTTP client engine for the entire factory:"
+        },
+        {
+          "id": "mod_14_error_handling",
+          "name": "Module 14: Error-Handling System",
+          "path": "apps/modules/mod_14_error_handling",
+          "description": "Centralized error handling and security sanitization:"
+        },
+        {
+          "id": "mod_15_state_management",
+          "name": "Module 15: State Management",
+          "path": "apps/modules/mod_15_state_management",
+          "description": "Defines a strict state pattern to prevent ad-hoc boolean flags:"
+        },
+        {
+          "id": "mod_16_design_system",
+          "name": "Module 16: Design System",
+          "path": "apps/modules/mod_16_design_system",
+          "description": "Internal mobile design system specification providing standard reusable UI primitives:"
+        },
+        {
+          "id": "mod_17_design_tokens",
+          "name": "Module 17: Design Token System",
+          "path": "apps/modules/mod_17_design_tokens",
+          "description": "Centralized design tokens ensuring visual harmony and ultra-fast re-theming across 100+ apps."
+        },
+        {
+          "id": "mod_18_responsive_ui",
+          "name": "Module 18: Responsive UI",
+          "path": "apps/modules/mod_18_responsive_ui",
+          "description": "Adaptive layout breakpoints:"
+        },
+        {
+          "id": "mod_19_accessibility",
+          "name": "Module 19: Accessibility (A11y)",
+          "path": "apps/modules/mod_19_accessibility",
+          "description": "Enforces accessibility guidelines across the factory:"
+        },
+        {
+          "id": "mod_20_dark_mode",
+          "name": "Module 20: Dark Mode & Dynamic Theme",
+          "path": "apps/modules/mod_20_dark_mode",
+          "description": "Dynamic theme switcher supporting:"
+        }
+      ]
+    },
+    "apps:hardware_ai_and_monetization": {
+      "domain": "apps",
+      "category": "hardware_ai_and_monetization",
+      "modules": [
+        {
+          "id": "mod_21_device_features",
+          "name": "Module 21: Device Features Module",
+          "path": "apps/modules/mod_21_device_features",
+          "description": "Standardized native device bridges:"
+        },
+        {
+          "id": "mod_22_permission_architecture",
+          "name": "Module 22: Permission Architecture",
+          "path": "apps/modules/mod_22_permission_architecture",
+          "description": "Enforces the Golden Rule of Mobile Permissions:"
+        },
+        {
+          "id": "mod_23_push_notifications",
+          "name": "Module 23: Push Notifications",
+          "path": "apps/modules/mod_23_push_notifications",
+          "description": "Handles notifications across Android (FCM) and iOS (APNs):"
+        },
+        {
+          "id": "mod_24_analytics",
+          "name": "Module 24: Analytics",
+          "path": "apps/modules/mod_24_analytics",
+          "description": "Privacy-centric event dispatcher:"
+        },
+        {
+          "id": "mod_25_crash_monitoring",
+          "name": "Module 25: Crash Monitoring",
+          "path": "apps/modules/mod_25_crash_monitoring",
+          "description": "Standardized error reporting:"
+        },
+        {
+          "id": "mod_26_performance_monitoring",
+          "name": "Module 26: Performance Monitoring",
+          "path": "apps/modules/mod_26_performance_monitoring",
+          "description": "Tracks mobile performance KPIs:"
+        },
+        {
+          "id": "mod_27_ai_client_module",
+          "name": "Module 27: AI Client Module",
+          "path": "apps/modules/mod_27_ai_client_module",
+          "description": "Client-side AI integration:"
+        },
+        {
+          "id": "mod_28_ai_cost_gateway",
+          "name": "Module 28: AI Cost Control & Gateway",
+          "path": "apps/modules/mod_28_ai_cost_gateway",
+          "description": "Protects profitability and prevents abuse:"
+        },
+        {
+          "id": "mod_29_subscription_system",
+          "name": "Module 29: Subscription System",
+          "path": "apps/modules/mod_29_subscription_system",
+          "description": "Cross-platform subscription management:"
+        },
+        {
+          "id": "mod_30_purchase_security",
+          "name": "Module 30: Purchase Security",
+          "path": "apps/modules/mod_30_purchase_security",
+          "description": "Prevents in-app purchase piracy and tampering:"
+        }
+      ]
+    },
+    "apps:growth_and_security": {
+      "domain": "apps",
+      "category": "growth_and_security",
+      "modules": [
+        {
+          "id": "mod_31_ads_module",
+          "name": "Module 31: Ads Module",
+          "path": "apps/modules/mod_31_ads_module",
+          "description": "Advertising infrastructure:"
+        },
+        {
+          "id": "mod_32_remote_config",
+          "name": "Module 32: Remote Configuration",
+          "path": "apps/modules/mod_32_remote_config",
+          "description": "Enables instant app adjustments without App Store re-submission:"
+        },
+        {
+          "id": "mod_33_feature_flags",
+          "name": "Module 33: Feature Flags",
+          "path": "apps/modules/mod_33_feature_flags",
+          "description": "Enables gradual feature rollouts:"
+        },
+        {
+          "id": "mod_34_deep_link_system",
+          "name": "Module 34: Deep Link System",
+          "path": "apps/modules/mod_34_deep_link_system",
+          "description": "Universal links and custom scheme router:"
+        },
+        {
+          "id": "mod_35_sharing_system",
+          "name": "Module 35: Sharing System",
+          "path": "apps/modules/mod_35_sharing_system",
+          "description": "Standardizes social sharing across apps:"
+        },
+        {
+          "id": "mod_36_viral_loops",
+          "name": "Module 36: Viral Loops Module",
+          "path": "apps/modules/mod_36_viral_loops",
+          "description": "Built-in viral growth mechanics:"
+        },
+        {
+          "id": "mod_37_onboarding_engine",
+          "name": "Module 37: Onboarding Engine",
+          "path": "apps/modules/mod_37_onboarding_engine",
+          "description": "Modular onboarding controller:"
+        },
+        {
+          "id": "mod_38_app_lifecycle",
+          "name": "Module 38: App Lifecycle Guardian",
+          "path": "apps/modules/mod_38_app_lifecycle",
+          "description": "Monitors application execution state:"
+        },
+        {
+          "id": "mod_39_security_hardening",
+          "name": "Module 39: Security Hardening & Anti-Tamper",
+          "path": "apps/modules/mod_39_security_hardening",
+          "description": "Hardens apps against attacks:"
+        },
+        {
+          "id": "mod_40_data_validation",
+          "name": "Module 40: Data Validation & Sanitization",
+          "path": "apps/modules/mod_40_data_validation",
+          "description": "Sanitizes all user inputs before persistence or transmission:"
+        }
+      ]
+    },
+    "apps:backend_storage_and_qa": {
+      "domain": "apps",
+      "category": "backend_storage_and_qa",
+      "modules": [
+        {
+          "id": "mod_41_database_architecture",
+          "name": "Module 41: Database Architecture",
+          "path": "apps/modules/mod_41_database_architecture",
+          "description": "Encrypted SQLite migration engine:"
+        },
+        {
+          "id": "mod_42_file_storage",
+          "name": "Module 42: File Storage & Upload",
+          "path": "apps/modules/mod_42_file_storage",
+          "description": "Uploads files directly to S3 / Cloud Storage via presigned URLs:"
+        },
+        {
+          "id": "mod_43_background_jobs",
+          "name": "Module 43: Background Job System",
+          "path": "apps/modules/mod_43_background_jobs",
+          "description": "Coordinates WorkManager (Android) and Background Tasks (iOS):"
+        },
+        {
+          "id": "mod_44_app_backend_template",
+          "name": "Module 44: App Backend Template",
+          "path": "apps/modules/mod_44_app_backend_template",
+          "description": "Zero-trust isolated backend server template built with Python FastAPI:"
+        },
+        {
+          "id": "mod_45_cicd_factory",
+          "name": "Module 45: CI/CD Factory",
+          "path": "apps/modules/mod_45_cicd_factory",
+          "description": "Reusable GitHub Actions workflows and Fastlane templates:"
+        },
+        {
+          "id": "mod_46_automated_testing",
+          "name": "Module 46: Automated Testing Suite",
+          "path": "apps/modules/mod_46_automated_testing",
+          "description": "Utilities for test-driven development:"
+        },
+        {
+          "id": "mod_47_golden_user_journey",
+          "name": "Module 47: Golden User Journey",
+          "path": "apps/modules/mod_47_golden_user_journey",
+          "description": "Defines Maestro / Patrol end-to-end automation scripts for the primary conversion funnel:"
+        },
+        {
+          "id": "mod_48_device_test_matrix",
+          "name": "Module 48: Device Test Matrix",
+          "path": "apps/modules/mod_48_device_test_matrix",
+          "description": "Standardized test matrix configuration for Firebase Test Lab / AWS Device Farm:"
+        },
+        {
+          "id": "mod_49_release_checklist",
+          "name": "Module 49: Release Checklist Pre-Flight",
+          "path": "apps/modules/mod_49_release_checklist",
+          "description": "Automated Python pre-flight auditor script that verifies all 32 critical release criteria before store submission."
+        },
+        {
+          "id": "mod_50_aso_factory",
+          "name": "Module 50: ASO Factory",
+          "path": "apps/modules/mod_50_aso_factory",
+          "description": "App Store Optimization (ASO) metadata engine:"
+        }
+      ]
+    },
+    "apps:factory_orchestration": {
+      "domain": "apps",
+      "category": "factory_orchestration",
+      "modules": [
+        {
+          "id": "mod_51_screenshot_factory",
+          "name": "Module 51: Screenshot Factory",
+          "path": "apps/modules/mod_51_screenshot_factory",
+          "description": "Automates App Store and Google Play screenshot generation:"
+        },
+        {
+          "id": "mod_52_review_monitoring",
+          "name": "Module 52: Review Monitoring & AI Categorization",
+          "path": "apps/modules/mod_52_review_monitoring",
+          "description": "Harvests and classifies store reviews using rule-based and AI sentiment analysis:"
+        },
+        {
+          "id": "mod_53_analytics_dashboard",
+          "name": "Module 53: App Analytics Dashboard",
+          "path": "apps/modules/mod_53_analytics_dashboard",
+          "description": "Aggregates product KPIs across the 100-app portfolio:"
+        },
+        {
+          "id": "mod_54_health_scorecard",
+          "name": "Module 54: Product Health Scorecard",
+          "path": "apps/modules/mod_54_health_scorecard",
+          "description": "Algorithmic scorecard evaluating the operational health of any app in the portfolio:"
+        },
+        {
+          "id": "mod_55_app_factory_db",
+          "name": "Module 55: App Factory Database",
+          "path": "apps/modules/mod_55_app_factory_db",
+          "description": "Central registry tracking all 100+ applications across their lifecycle:"
+        },
+        {
+          "id": "mod_56_automated_cli",
+          "name": "Module 56: Automated Product Creation CLI (`factory-cli`)",
+          "path": "apps/modules/mod_56_automated_cli",
+          "description": "Command-line interface to scaffold a new independent production mobile app with 1 command:"
+        },
+        {
+          "id": "mod_57_ai_agent_team",
+          "name": "Module 57: AI Agent Team Prompts & Specs",
+          "path": "apps/modules/mod_57_ai_agent_team",
+          "description": "System prompts and operational playbooks for the 15 specialized AI agent roles:"
+        },
+        {
+          "id": "mod_58_dev_pipeline",
+          "name": "Module 58: 16-Phase Gatekeeper Pipeline",
+          "path": "apps/modules/mod_58_dev_pipeline",
+          "description": "Orchestrates the 16 phases of app development with strict entry and exit criteria:"
+        },
+        {
+          "id": "mod_59_architecture_boundary",
+          "name": "Module 59: Architecture Boundary Linter",
+          "path": "apps/modules/mod_59_architecture_boundary",
+          "description": "Enforces boundary separation:"
+        },
+        {
+          "id": "mod_60_portfolio_registry",
+          "name": "Module 60: Master Portfolio Registry & Monorepo",
+          "path": "apps/modules/mod_60_portfolio_registry",
+          "description": "Orchestrates the 100+ app portfolio monorepo:"
+        },
+        {
+          "id": "mod_61_isolation_guardian",
+          "name": "Module 61: Isolation Guardian",
+          "path": "apps/modules/mod_61_isolation_guardian",
+          "description": "Enforces **Rule 61: The Most Important Factory Rule**:"
+        },
+        {
+          "id": "mod_62_one_click_synthesizer",
+          "name": "Module 62: One-Click Product Synthesizer",
+          "path": "apps/modules/mod_62_one_click_synthesizer",
+          "description": "Implements **Rule 62: The 'One-Click' Future**."
+        },
+        {
+          "id": "mod_63_master_checklist_tracker",
+          "name": "Module 63: Master Checklist & Progress Tracker",
+          "path": "apps/modules/mod_63_master_checklist_tracker",
+          "description": "Implements **Rule 63: The Complete Factory Layers & Master 360+ Task Checklist**."
+        }
+      ]
+    },
+    "apps:zero_trust_and_data_security": {
+      "domain": "apps",
+      "category": "zero_trust_and_data_security",
+      "modules": [
+        {
+          "id": "mod_64_threat_modeling",
+          "name": "Module 64: Threat Modeling Module",
+          "path": "apps/modules/mod_64_threat_modeling",
+          "description": "Automates STRIDE / DREAD threat modeling for every mobile feature before production:"
+        },
+        {
+          "id": "mod_65_security_boundary",
+          "name": "Module 65: Security Boundary Module",
+          "path": "apps/modules/mod_65_security_boundary",
+          "description": "Enforces the core rule: **The mobile application must always be treated as potentially compromised.**"
+        },
+        {
+          "id": "mod_66_zero_trust_api",
+          "name": "Module 66: Zero-Trust API Module",
+          "path": "apps/modules/mod_66_zero_trust_api",
+          "description": "Every API request undergoes a multi-layer verification chain:"
+        },
+        {
+          "id": "mod_67_object_authorization",
+          "name": "Module 67: Object-Level Authorization (BOLA Defense)",
+          "path": "apps/modules/mod_67_object_authorization",
+          "description": "Guards against OWASP API1: Broken Object Level Authorization."
+        },
+        {
+          "id": "mod_68_property_authorization",
+          "name": "Module 68: Property-Level Authorization (BOPLA Defense)",
+          "path": "apps/modules/mod_68_property_authorization",
+          "description": "Guards against OWASP API3: Broken Object Property Level Authorization."
+        },
+        {
+          "id": "mod_69_function_authorization",
+          "name": "Module 69: Function-Level Authorization",
+          "path": "apps/modules/mod_69_function_authorization",
+          "description": "Guards against OWASP API5: Broken Function Level Authorization."
+        },
+        {
+          "id": "mod_70_admin_security",
+          "name": "Module 70: Admin Security Module",
+          "path": "apps/modules/mod_70_admin_security",
+          "description": "Hardens internal management dashboards:"
+        },
+        {
+          "id": "mod_71_break_glass_access",
+          "name": "Module 71: Break-Glass Access",
+          "path": "apps/modules/mod_71_break_glass_access",
+          "description": "Emergency elevated access protocol:"
+        },
+        {
+          "id": "mod_72_secrets_management",
+          "name": "Module 72: Secrets Management",
+          "path": "apps/modules/mod_72_secrets_management",
+          "description": "Enforces zero secrets in source code, APKs, or IPAs:"
+        },
+        {
+          "id": "mod_73_secret_rotation",
+          "name": "Module 73: Secret Rotation",
+          "path": "apps/modules/mod_73_secret_rotation",
+          "description": "Tracks secret age, rotation schedule, and automated revocation:"
+        },
+        {
+          "id": "mod_74_key_management",
+          "name": "Module 74: Key Management Module",
+          "path": "apps/modules/mod_74_key_management",
+          "description": "Separates cryptographic keys by purpose:"
+        },
+        {
+          "id": "mod_75_database_security",
+          "name": "Module 75: Database Security Module",
+          "path": "apps/modules/mod_75_database_security",
+          "description": "Database hardening rules:"
+        },
+        {
+          "id": "mod_76_database_tenancy",
+          "name": "Module 76: Database Tenancy Isolation",
+          "path": "apps/modules/mod_76_database_tenancy",
+          "description": "Ensures complete logical or physical isolation for all 100+ apps:"
+        },
+        {
+          "id": "mod_77_backup_recovery",
+          "name": "Module 77: Backup & Disaster Recovery Verification",
+          "path": "apps/modules/mod_77_backup_recovery",
+          "description": "> \"A backup that has never been successfully restored is not a proven backup.\""
+        },
+        {
+          "id": "mod_78_disaster_recovery",
+          "name": "Module 78: Disaster Recovery (RPO / RTO)",
+          "path": "apps/modules/mod_78_disaster_recovery",
+          "description": "Defines and audits Recovery Point Objective (RPO) and Recovery Time Objective (RTO):"
+        }
+      ]
+    },
+    "apps:scale_abuse_and_integrity": {
+      "domain": "apps",
+      "category": "scale_abuse_and_integrity",
+      "modules": [
+        {
+          "id": "mod_79_multi_region",
+          "name": "Module 79: Multi-Region / Availability Module",
+          "path": "apps/modules/mod_79_multi_region",
+          "description": "Orchestrates multi-region failover and CDN edge caching for 1M+ user scale:"
+        },
+        {
+          "id": "mod_80_autoscaling",
+          "name": "Module 80: Autoscaling Module",
+          "path": "apps/modules/mod_80_autoscaling",
+          "description": "Multi-metric autoscaler for backend containers:"
+        },
+        {
+          "id": "mod_81_load_shedding",
+          "name": "Module 81: Load Shedding Module",
+          "path": "apps/modules/mod_81_load_shedding",
+          "description": "Under extreme traffic spikes (>95% capacity), gracefully degrades non-critical features:"
+        },
+        {
+          "id": "mod_82_circuit_breaker",
+          "name": "Module 82: Circuit Breaker Module",
+          "path": "apps/modules/mod_82_circuit_breaker",
+          "description": "Prevents cascading outages when external providers fail (OpenAI, Stripe, Firebase):"
+        },
+        {
+          "id": "mod_83_retry_idempotency",
+          "name": "Module 83: Retry Safety & Idempotency",
+          "path": "apps/modules/mod_83_retry_idempotency",
+          "description": "Prevents double-charging, duplicate orders, or double-spent AI credits:"
+        },
+        {
+          "id": "mod_84_rate_limiting_matrix",
+          "name": "Module 84: Rate-Limiting Matrix",
+          "path": "apps/modules/mod_84_rate_limiting_matrix",
+          "description": "Multi-dimensional rate limiting:"
+        },
+        {
+          "id": "mod_85_abuse_prevention",
+          "name": "Module 85: Abuse-Prevention Module",
+          "path": "apps/modules/mod_85_abuse_prevention",
+          "description": "Detects non-hacking abuse:"
+        },
+        {
+          "id": "mod_86_bot_defense",
+          "name": "Module 86: Bot / Automation Defense",
+          "path": "apps/modules/mod_86_bot_defense",
+          "description": "Selective friction engine:"
+        },
+        {
+          "id": "mod_87_replay_protection",
+          "name": "Module 87: Replay-Attack Protection",
+          "path": "apps/modules/mod_87_replay_protection",
+          "description": "Guards against captured request replay:"
+        },
+        {
+          "id": "mod_88_session_security",
+          "name": "Module 88: Session Security Module",
+          "path": "apps/modules/mod_88_session_security",
+          "description": "Multi-device session manager:"
+        },
+        {
+          "id": "mod_89_token_security",
+          "name": "Module 89: Token Security Module",
+          "path": "apps/modules/mod_89_token_security",
+          "description": "Cryptographic token lifecycle:"
+        },
+        {
+          "id": "mod_90_device_secure_storage",
+          "name": "Module 90: Device-Side Secure Storage",
+          "path": "apps/modules/mod_90_device_secure_storage",
+          "description": "Hardware-backed secure storage:"
+        },
+        {
+          "id": "mod_91_app_integrity",
+          "name": "Module 91: App Integrity Module",
+          "path": "apps/modules/mod_91_app_integrity",
+          "description": "Server-side verification of mobile environment attestation:"
+        },
+        {
+          "id": "mod_92_tamper_resilience",
+          "name": "Module 92: Tamper & Reverse-Engineering Resilience",
+          "path": "apps/modules/mod_92_tamper_resilience",
+          "description": "Multi-layered client-side defense:"
+        },
+        {
+          "id": "mod_93_network_security",
+          "name": "Module 93: Network Security Module",
+          "path": "apps/modules/mod_93_network_security",
+          "description": "Enforces TLS 1.3, strict certificate validation, WebSocket security, and absolute ban on cleartext HTTP traffic."
+        },
+        {
+          "id": "mod_94_webhook_security",
+          "name": "Module 94: Webhook Security Module",
+          "path": "apps/modules/mod_94_webhook_security",
+          "description": "Hardens webhook receivers (Stripe, RevenueCat, Firebase):"
+        },
+        {
+          "id": "mod_95_file_upload_security",
+          "name": "Module 95: File-Upload Security Module",
+          "path": "apps/modules/mod_95_file_upload_security",
+          "description": "Never trusts extension or `Content-Type`:"
+        },
+        {
+          "id": "mod_96_ssrf_protection",
+          "name": "Module 96: SSRF Protection Module",
+          "path": "apps/modules/mod_96_ssrf_protection",
+          "description": "Guards against OWASP API7: Server-Side Request Forgery."
+        }
+      ]
+    },
+    "apps:io_security_and_supply_chain": {
+      "domain": "apps",
+      "category": "io_security_and_supply_chain",
+      "modules": [
+        {
+          "id": "mod_97_input_security",
+          "name": "Module 97: Input Security Module",
+          "path": "apps/modules/mod_97_input_security",
+          "description": "Comprehensive input validation firewall:"
+        },
+        {
+          "id": "mod_98_output_security",
+          "name": "Module 98: Output Security Module",
+          "path": "apps/modules/mod_98_output_security",
+          "description": "Production response shaping:"
+        },
+        {
+          "id": "mod_99_error_leak_prevention",
+          "name": "Module 99: Error-Leak Prevention",
+          "path": "apps/modules/mod_99_error_leak_prevention",
+          "description": "Ensures production errors return a generic message + UUID correlation ID:"
+        },
+        {
+          "id": "mod_100_security_logging",
+          "name": "Module 100: Security Logging Module",
+          "path": "apps/modules/mod_100_security_logging",
+          "description": "Structured JSON logging for security events:"
+        },
+        {
+          "id": "mod_101_audit_log_system",
+          "name": "Module 101: Audit Log System",
+          "path": "apps/modules/mod_101_audit_log_system",
+          "description": "Immutable audit ledger:"
+        },
+        {
+          "id": "mod_102_security_monitoring_siem",
+          "name": "Module 102: Security Monitoring / SIEM",
+          "path": "apps/modules/mod_102_security_monitoring_siem",
+          "description": "Aggregates auth logs and API metrics to detect security anomalies (e.g. 50 failed logins in 1 minute)."
+        },
+        {
+          "id": "mod_103_security_alerting",
+          "name": "Module 103: Security Alerting Module",
+          "path": "apps/modules/mod_103_security_alerting",
+          "description": "Multi-channel alerting (Slack, PagerDuty, Email) when security thresholds are breached."
+        },
+        {
+          "id": "mod_104_incident_response",
+          "name": "Module 104: Incident Response Module",
+          "path": "apps/modules/mod_104_incident_response",
+          "description": "Step-by-step incident response playbook:"
+        },
+        {
+          "id": "mod_105_emergency_controls",
+          "name": "Module 105: Automatic Emergency Controls",
+          "path": "apps/modules/mod_105_emergency_controls",
+          "description": "Remotely freeze operations in case of an attack:"
+        },
+        {
+          "id": "mod_106_force_upgrade",
+          "name": "Module 106: Force-Upgrade System",
+          "path": "apps/modules/mod_106_force_upgrade",
+          "description": "Protects users against critical client vulnerabilities:"
+        },
+        {
+          "id": "mod_107_remote_kill_switch",
+          "name": "Module 107: Remote Kill Switch",
+          "path": "apps/modules/mod_107_remote_kill_switch",
+          "description": "Secure remote feature toggles:"
+        },
+        {
+          "id": "mod_108_supply_chain_security",
+          "name": "Module 108: Supply-Chain Security",
+          "path": "apps/modules/mod_108_supply_chain_security",
+          "description": "Audits dependencies across all 60+ modules:"
+        },
+        {
+          "id": "mod_109_sbom_generator",
+          "name": "Module 109: Software Bill of Materials (SBOM)",
+          "path": "apps/modules/mod_109_sbom_generator",
+          "description": "Generates CycloneDX / SPDX SBOM JSON for every production build:"
+        },
+        {
+          "id": "mod_110_dependency_policy",
+          "name": "Module 110: Dependency Policy & Evaluation",
+          "path": "apps/modules/mod_110_dependency_policy",
+          "description": "Pre-install vetting for new packages:"
+        },
+        {
+          "id": "mod_111_secure_build_env",
+          "name": "Module 111: Secure Build Environment",
+          "path": "apps/modules/mod_111_secure_build_env",
+          "description": "Hardens CI/CD runners:"
+        },
+        {
+          "id": "mod_112_reproducible_builds",
+          "name": "Module 112: Reproducible Builds",
+          "path": "apps/modules/mod_112_reproducible_builds",
+          "description": "Addresses OWASP MASWE: Non-reproducible builds."
+        },
+        {
+          "id": "mod_113_artifact_signing",
+          "name": "Module 113: Artifact Signing & Provenance",
+          "path": "apps/modules/mod_113_artifact_signing",
+          "description": "Signs production artifacts with SHA-256 and records build provenance (Git commit, build ID, signer identity)."
+        },
+        {
+          "id": "mod_114_cicd_security",
+          "name": "Module 114: CI/CD Pipeline Security",
+          "path": "apps/modules/mod_114_cicd_security",
+          "description": "Prevents pipeline poisoning:"
+        },
+        {
+          "id": "mod_115_branch_protection",
+          "name": "Module 115: Git Branch Protection",
+          "path": "apps/modules/mod_115_branch_protection",
+          "description": "Enforces GitHub branch protection policies:"
+        }
+      ]
+    },
+    "apps:compliance_and_sast_dast": {
+      "domain": "apps",
+      "category": "compliance_and_sast_dast",
+      "modules": [
+        {
+          "id": "mod_116_sast_scanner",
+          "name": "Module 116: Static Application Security Testing (SAST)",
+          "path": "apps/modules/mod_116_sast_scanner",
+          "description": "Scans Dart and Python code for hardcoded secrets, insecure random generators, and missing SSL checks."
+        },
+        {
+          "id": "mod_117_dast_scanner",
+          "name": "Module 117: Dynamic Application Security Testing (DAST)",
+          "path": "apps/modules/mod_117_dast_scanner",
+          "description": "Automated API fuzzer testing for:"
+        },
+        {
+          "id": "mod_118_penetration_testing",
+          "name": "Module 118: Penetration Testing",
+          "path": "apps/modules/mod_118_penetration_testing",
+          "description": "Standard operating procedure & checklist for mobile and API penetration testing."
+        },
+        {
+          "id": "mod_119_owasp_masvs_test",
+          "name": "Module 119: OWASP MASVS / MASTG / MASWE Test Suite",
+          "path": "apps/modules/mod_119_owasp_masvs_test",
+          "description": "Conforms to OWASP Mobile Application Security Verification Standard (MASVS v2.0) and MASWE 1.0 (78 catalogued weaknesses)."
+        },
+        {
+          "id": "mod_120_privacy_engineering",
+          "name": "Module 120: Privacy Engineering & Data Mapping",
+          "path": "apps/modules/mod_120_privacy_engineering",
+          "description": "Maintains an automated data map:"
+        },
+        {
+          "id": "mod_121_data_classification",
+          "name": "Module 121: Data Classification",
+          "path": "apps/modules/mod_121_data_classification",
+          "description": "Classifies all data into 5 tiers:"
+        },
+        {
+          "id": "mod_122_data_retention_engine",
+          "name": "Module 122: Data Retention Engine",
+          "path": "apps/modules/mod_122_data_retention_engine",
+          "description": "Automates scheduled data purging:"
+        },
+        {
+          "id": "mod_123_account_deletion_pipeline",
+          "name": "Module 123: Account-Deletion Pipeline",
+          "path": "apps/modules/mod_123_account_deletion_pipeline",
+          "description": "Apple Guideline 5.1.1 & GDPR Article 17 (Right to Erasure) compliant pipeline:"
+        },
+        {
+          "id": "mod_124_child_age_safety",
+          "name": "Module 124: Child & Age Safety",
+          "path": "apps/modules/mod_124_child_age_safety",
+          "description": "COPPA & Age-Appropriate Design Code (AADC) compliance:"
+        },
+        {
+          "id": "mod_125_compliance_engine",
+          "name": "Module 125: Regulatory & Store Compliance Engine",
+          "path": "apps/modules/mod_125_compliance_engine",
+          "description": "Continuously audits compliance:"
+        }
+      ]
+    },
+    "apps:cloud_iam_and_observability": {
+      "domain": "apps",
+      "category": "cloud_iam_and_observability",
+      "modules": [
+        {
+          "id": "mod_126_third_party_risk",
+          "name": "Module 126: Third-Party Risk Module",
+          "path": "apps/modules/mod_126_third_party_risk",
+          "description": "Audits all external SaaS & SDK integrations (OpenAI, Stripe, Firebase, Mixpanel):"
+        },
+        {
+          "id": "mod_127_third_party_isolation",
+          "name": "Module 127: Third-Party Failure Isolation",
+          "path": "apps/modules/mod_127_third_party_isolation",
+          "description": "Ensures that if an external provider (Analytics, AI, Push) goes down, the core mobile app remains operational."
+        },
+        {
+          "id": "mod_128_cost_abuse_protection",
+          "name": "Module 128: Cost-Abuse Protection",
+          "path": "apps/modules/mod_128_cost_abuse_protection",
+          "description": "Hard limits to prevent massive cloud/AI bills:"
+        },
+        {
+          "id": "mod_129_billing_anomaly_detection",
+          "name": "Module 129: Billing Anomaly Detection",
+          "path": "apps/modules/mod_129_billing_anomaly_detection",
+          "description": "Monitors sudden spikes in API, SMS, or AI consumption (e.g. 5x increase over historical baseline)."
+        },
+        {
+          "id": "mod_130_cache_security",
+          "name": "Module 130: Cache Security",
+          "path": "apps/modules/mod_130_cache_security",
+          "description": "Guards Redis / Memcached against cross-user cache contamination:"
+        },
+        {
+          "id": "mod_131_queue_security",
+          "name": "Module 131: Queue Security",
+          "path": "apps/modules/mod_131_queue_security",
+          "description": "Protects message queues (RabbitMQ / SQS / Redis Streams):"
+        },
+        {
+          "id": "mod_132_job_idempotency",
+          "name": "Module 132: Job Idempotency",
+          "path": "apps/modules/mod_132_job_idempotency",
+          "description": "Ensures background workers never process duplicate tasks (e.g. sending 2 emails, processing 2 invoices)."
+        },
+        {
+          "id": "mod_133_observability_pillars",
+          "name": "Module 133: Observability Pillars",
+          "path": "apps/modules/mod_133_observability_pillars",
+          "description": "Unified telemetry engine:"
+        },
+        {
+          "id": "mod_134_distributed_tracing",
+          "name": "Module 134: Distributed Tracing",
+          "path": "apps/modules/mod_134_distributed_tracing",
+          "description": "Propagates `traceparent` and correlation IDs across Flutter -> API Gateway -> Backend -> Database."
+        },
+        {
+          "id": "mod_135_db_performance_engine",
+          "name": "Module 135: Database Performance Engine",
+          "path": "apps/modules/mod_135_db_performance_engine",
+          "description": "Optimized for 1M user scale:"
+        },
+        {
+          "id": "mod_136_pagination_guard",
+          "name": "Module 136: Pagination & Query Limits",
+          "path": "apps/modules/mod_136_pagination_guard",
+          "description": "Never permits unbounded `SELECT *`:"
+        },
+        {
+          "id": "mod_137_search_abuse_guard",
+          "name": "Module 137: Search Abuse Protection",
+          "path": "apps/modules/mod_137_search_abuse_guard",
+          "description": "Protects search endpoints against ReDoS and resource exhaustion:"
+        },
+        {
+          "id": "mod_138_api_versioning",
+          "name": "Module 138: API Versioning & Deprecation",
+          "path": "apps/modules/mod_138_api_versioning",
+          "description": "Manages API lifecycle:"
+        },
+        {
+          "id": "mod_139_api_inventory",
+          "name": "Module 139: API Inventory & Shadow Endpoint Detection",
+          "path": "apps/modules/mod_139_api_inventory",
+          "description": "OWASP API9 compliance:"
+        },
+        {
+          "id": "mod_140_edge_security_headers",
+          "name": "Module 140: Edge Security Headers",
+          "path": "apps/modules/mod_140_edge_security_headers",
+          "description": "Injects industry-standard HTTP security headers:"
+        },
+        {
+          "id": "mod_141_ddos_resilience",
+          "name": "Module 141: DDoS Resilience",
+          "path": "apps/modules/mod_141_ddos_resilience",
+          "description": "Cloudflare / AWS Shield edge defense:"
+        },
+        {
+          "id": "mod_142_network_segmentation",
+          "name": "Module 142: Network Segmentation",
+          "path": "apps/modules/mod_142_network_segmentation",
+          "description": "VPC 3-tier network topology:"
+        },
+        {
+          "id": "mod_143_cloud_iam",
+          "name": "Module 143: Cloud IAM Least Privilege",
+          "path": "apps/modules/mod_143_cloud_iam",
+          "description": "Generates least-privilege IAM policies:"
+        },
+        {
+          "id": "mod_144_environment_isolation",
+          "name": "Module 144: Environment Isolation",
+          "path": "apps/modules/mod_144_environment_isolation",
+          "description": "Strict audit preventing dev/staging from communicating with production databases or buckets."
+        },
+        {
+          "id": "mod_145_production_data_protection",
+          "name": "Module 145: Production Data Protection",
+          "path": "apps/modules/mod_145_production_data_protection",
+          "description": "Never dumps real customer records into developer laptops:"
+        }
+      ]
+    },
+    "apps:enterprise_scale_gate_and_monitoring": {
+      "domain": "apps",
+      "category": "enterprise_scale_gate_and_monitoring",
+      "modules": [
+        {
+          "id": "mod_146_support_tool_security",
+          "name": "Module 146: Support-Tool Security",
+          "path": "apps/modules/mod_146_support_tool_security",
+          "description": "Hardens customer support dashboards:"
+        },
+        {
+          "id": "mod_147_social_engineering_defense",
+          "name": "Module 147: Social-Engineering Defense",
+          "path": "apps/modules/mod_147_social_engineering_defense",
+          "description": "Standard operating procedure for account recovery:"
+        },
+        {
+          "id": "mod_148_fraud_detection",
+          "name": "Module 148: Fraud Detection",
+          "path": "apps/modules/mod_148_fraud_detection",
+          "description": "Flags high-risk transactions:"
+        },
+        {
+          "id": "mod_149_release_rollback",
+          "name": "Module 149: Release Rollback System",
+          "path": "apps/modules/mod_149_release_rollback",
+          "description": "1-command atomic rollback:"
+        },
+        {
+          "id": "mod_150_canary_releases",
+          "name": "Module 150: Canary Releases",
+          "path": "apps/modules/mod_150_canary_releases",
+          "description": "Progressive rollout engine:"
+        },
+        {
+          "id": "mod_151_feature_gated_migrations",
+          "name": "Module 151: Feature-Gated Migrations",
+          "path": "apps/modules/mod_151_feature_gated_migrations",
+          "description": "Dual-schema backward compatibility:"
+        },
+        {
+          "id": "mod_152_security_regression_suite",
+          "name": "Module 152: Security Regression Suite",
+          "path": "apps/modules/mod_152_security_regression_suite",
+          "description": "> \"A vulnerability should never be fixed only once.\""
+        },
+        {
+          "id": "mod_153_security_scorecard",
+          "name": "Module 153: Security Scorecard per App",
+          "path": "apps/modules/mod_153_security_scorecard",
+          "description": "14-dimension security scorecard release gate:"
+        },
+        {
+          "id": "mod_154_security_release_gate",
+          "name": "Module 154: Security Release Gate",
+          "path": "apps/modules/mod_154_security_release_gate",
+          "description": "Pipeline gatekeeper blocking production deployment unless 100% of critical security checks pass."
+        },
+        {
+          "id": "mod_155_1m_user_scale_gate",
+          "name": "Module 155: 1M User Scale Gate",
+          "path": "apps/modules/mod_155_1m_user_scale_gate",
+          "description": "Simulates 10k, 50k, 100k, and 1M registered user loads:"
+        },
+        {
+          "id": "mod_156_capacity_planning",
+          "name": "Module 156: Capacity Planning Engine",
+          "path": "apps/modules/mod_156_capacity_planning",
+          "description": "Calculates required compute pods, database storage, and egress bandwidth based on projected MAU."
+        },
+        {
+          "id": "mod_157_chaos_testing",
+          "name": "Module 157: Chaos & Failure Testing",
+          "path": "apps/modules/mod_157_chaos_testing",
+          "description": "Simulates real-world infrastructure failures:"
+        },
+        {
+          "id": "mod_158_business_continuity",
+          "name": "Module 158: Business Continuity Module",
+          "path": "apps/modules/mod_158_business_continuity",
+          "description": "Playbooks for major external failures:"
+        },
+        {
+          "id": "mod_159_vulnerability_disclosure",
+          "name": "Module 159: Vulnerability Disclosure Program (VDP)",
+          "path": "apps/modules/mod_159_vulnerability_disclosure",
+          "description": "Provides standard `security.txt` and responsible disclosure guidelines for security researchers."
+        },
+        {
+          "id": "mod_160_security_patch_pipeline",
+          "name": "Module 160: Security Patch Pipeline",
+          "path": "apps/modules/mod_160_security_patch_pipeline",
+          "description": "Automates patching shared factory modules across all 100+ apps:"
+        },
+        {
+          "id": "mod_161_blast_radius_control",
+          "name": "Module 161: Blast-Radius Control",
+          "path": "apps/modules/mod_161_blast_radius_control",
+          "description": "Never auto-updates all 100 apps at once when a shared module changes:"
+        },
+        {
+          "id": "mod_162_factory_security_monitor",
+          "name": "Module 162: Factory Security Monitor",
+          "path": "apps/modules/mod_162_factory_security_monitor",
+          "description": "Central CLI & dashboard aggregating security posture across the 100-app portfolio:"
+        },
+        {
+          "id": "mod_163_final_production_architecture",
+          "name": "Module 163: Final Production Architecture",
+          "path": "apps/modules/mod_163_final_production_architecture",
+          "description": "The unified synthesis of the complete 163-module production system:"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+name: mod_27_ai_client_module
+description: AI Mobile Client supporting Server-Sent Events (SSE) streaming and prompt hydration.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

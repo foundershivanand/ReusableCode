@@ -33,3 +33,12 @@ turso_files.db*
 .env
 .env.local
 .env.*.local
+# Dependencies & Build Cache
+node_modules/
+.wrangler/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+dist/
+*.egg-info/

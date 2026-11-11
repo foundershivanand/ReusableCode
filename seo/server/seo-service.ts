@@ -20,7 +20,7 @@ export class SeoService {
   private defaultSiteName: string;
 
   constructor(
-    private readonly repository: ISeoRepository,
+    public readonly repository: ISeoRepository,
     config: SeoServiceConfig
   ) {
     this.defaultBaseUrl = config.defaultBaseUrl.replace(/\/+$/, "");

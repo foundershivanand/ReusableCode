@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Personal Product Factory — 263 Master Reusable Modules</title>
+  <meta name="description" content="Production-ready reusable code library spanning Web Apps (33), Conversational Bots (27), AI Agents (40), and Mobile Applications (163). Built for Autonomous AI Agents and Elite Engineers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            dark: {
+              bg: '#080c14',
+              surface: '#0d131f',
+              card: '#111928',
+              border: '#1f2a3d',
+              hover: '#1b263b',
+            },
+            web: '#38bdf8',
+            bot: '#10b981',
+            agent: '#a855f7',
+            app: '#f59e0b',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #080c14; }
+    ::-webkit-scrollbar-thumb { background: #1f2a3d; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #374151; }
+    .glass {
+      background: rgba(13, 19, 31, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-dark-bg text-slate-100 min-h-screen font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 w-full glass border-b border-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <span class="text-xl">⚡</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-white text-base tracking-tight">Product Factory</span>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-indigo-950/80 text-indigo-400 border border-indigo-800/60">Unified Library</span>
+          </div>
+          <p class="text-xs text-slate-400 hidden sm:block">263 Modules: Web • Bots • AI Agents • Mobile Apps</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <button onclick="openEcosystemModal()" class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-dark-hover transition">
+          <i data-lucide="grid" class="w-4 h-4 text-indigo-400"></i>
+          <span>All Portals</span>
+        </button>
+
+        <a href="#pdfs" class="hidden md:flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-slate-600 transition">
+          <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i>
+          <span>PDFs & Docs</span>
+        </a>
+
+        <a href="https://github.com/sh15aa/Web-Reusable" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 shadow-md shadow-indigo-600/30 transition">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">GitHub Repo</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-12 md:py-16 border-b border-dark-border">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(99,102,241,0.15),rgba(255,255,255,0))]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-xs font-medium text-slate-300 mb-4">
+          <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>4 Domains Consolidated in Single Master Repository</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          One Repository. Four Domains. <br>
+          <span class="bg-gradient-to-r from-sky-400 via-emerald-400 to-purple-400 bg-clip-text text-transparent">263 Production Modules.</span>
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed">
+          Zero reinventing the wheel. Reusable software modules for SaaS Web Platforms, Conversational Bots, Autonomous AI Agents, and Mobile Apps.
+        </p>
+
+        <!-- Command Bar -->
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div class="w-full sm:w-auto flex items-center bg-dark-surface border border-dark-border rounded-xl px-4 py-2 font-mono text-xs text-slate-300 shadow-inner">
+            <span class="text-emerald-400 mr-2">$</span>
+            <span class="text-slate-200">curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s auth</span>
+            <button onclick="copyText('curl -sSL https://raw.githubusercontent.com/sh15aa/Web-Reusable/main/scripts/pull-module.sh | bash -s auth')" class="ml-3 text-slate-400 hover:text-white p-1" title="Copy command">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain Cards Grid -->
+      <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Web Card -->
+        <div onclick="selectDomain('web')" class="cursor-pointer group p-4 rounded-2xl bg-dark-surface border border-sky-900/30 hover:border-sky-500/60 transition shadow-lg hover:shadow-sky-500/10">
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-sky-950/60 border border-sky-800/40 text-sky-400 flex items-center justify-center text-xl group-hover:scale-105 transition">
+              🌐
+            </div>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-sky-950 text-sky-400 border border-sky-800/50">33 Modules</span>
+          </div>
+          <h3 class="font-bold text-white text-base group-hover:text-sky-400 transition">Web Apps</h3>
+          <p class="text-xs text-slate-400 mt-1 line-clamp-2">Next.js, React, Node.js, 40-dimension resilience, Crockford IDs, Auth, Billing.</p>
+        </div>
+
+        <!-- Bots Card -->
+        <div onclick="selectDomain('bots')" class="cursor-pointer group p-4 rounded-2xl bg-dark-surface border border-emerald-900/30 hover:border-emerald-500/60 transition shadow-lg hover:shadow-emerald-500/10">
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-800/40 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-105 transition">
+              🤖
+            </div>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800/50">27 Modules</span>
+          </div>
+          <h3 class="font-bold text-white text-base group-hover:text-emerald-400 transition">Conversational Bots</h3>
+          <p class="text-xs text-slate-400 mt-1 line-clamp-2">WhatsApp, Telegram, Chatwoot, UNMP, Redis FSM, sliding rate limiter, bot loop guard.</p>
+        </div>
+
+        <!-- AI Agents Card -->
+        <div onclick="selectDomain('agents')" class="cursor-pointer group p-4 rounded-2xl bg-dark-surface border border-purple-900/30 hover:border-purple-500/60 transition shadow-lg hover:shadow-purple-500/10">
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-purple-950/60 border border-purple-800/40 text-purple-400 flex items-center justify-center text-xl group-hover:scale-105 transition">
+              🧠
+            </div>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-purple-950 text-purple-400 border border-purple-800/50">40 Modules</span>
+          </div>
+          <h3 class="font-bold text-white text-base group-hover:text-purple-400 transition">AI Agents</h3>
+          <p class="text-xs text-slate-400 mt-1 line-clamp-2">Master Agent Factory, 4 memory tiers, tool sandbox, automated judge, regression suite.</p>
+        </div>
+
+        <!-- Mobile Apps Card -->
+        <div onclick="selectDomain('apps')" class="cursor-pointer group p-4 rounded-2xl bg-dark-surface border border-amber-900/30 hover:border-amber-500/60 transition shadow-lg hover:shadow-amber-500/10">
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-amber-950/60 border border-amber-800/40 text-amber-400 flex items-center justify-center text-xl group-hover:scale-105 transition">
+              📱
+            </div>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-950 text-amber-400 border border-amber-800/50">163 Modules</span>
+          </div>
+          <h3 class="font-bold text-white text-base group-hover:text-amber-400 transition">Mobile Apps</h3>
+          <p class="text-xs text-slate-400 mt-1 line-clamp-2">Flutter, Dart, offline-first sync, zero-trust token lifecycle, circuit breakers, 1M scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Module Explorer Section -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="modules">
+    <!-- Domain Tabs -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-dark-border pb-4">
+      <div class="flex flex-wrap gap-2" id="domainTabs">
+        <button onclick="selectDomain('all')" id="tab-all" class="domain-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-md shadow-indigo-600/30 transition">
+          All Modules (263)
+        </button>
+        <button onclick="selectDomain('web')" id="tab-web" class="domain-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-sky-400 hover:border-sky-500/50 transition">
+          🌐 Web (33)
+        </button>
+        <button onclick="selectDomain('bots')" id="tab-bots" class="domain-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition">
+          🤖 Bots (27)
+        </button>
+        <button onclick="selectDomain('agents')" id="tab-agents" class="domain-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-purple-400 hover:border-purple-500/50 transition">
+          🧠 Agents (40)
+        </button>
+        <button onclick="selectDomain('apps')" id="tab-apps" class="domain-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition">
+          📱 Apps (163)
+        </button>
+      </div>
+
+      <div class="text-xs text-slate-400">
+        Showing <span id="moduleCount" class="font-bold text-white">263</span> modules
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-12 gap-3">
+      <!-- Search Input -->
+      <div class="md:col-span-8 relative">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </div>
+        <input type="text" id="searchInput" oninput="filterModules()" placeholder="Search by ID, name, capabilities, dependencies, tags..." 
+               class="w-full pl-10 pr-4 py-2.5 bg-dark-card border border-dark-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+      </div>
+
+      <!-- Category Filter -->
+      <div class="md:col-span-4">
+        <select id="categoryFilter" onchange="filterModules()" class="w-full py-2.5 px-3 bg-dark-card border border-dark-border rounded-xl text-sm text-slate-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Modules Grid -->
+    <div id="modulesGrid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 text-2xl mb-3">
+        🔍
+      </div>
+      <h3 class="text-base font-bold text-white">No modules match your filter</h3>
+      <p class="text-xs text-slate-400 mt-1">Try refining your search keyword or clearing the category filter.</p>
+      <button onclick="resetFilters()" class="mt-4 px-4 py-1.5 rounded-lg bg-indigo-600 text-xs font-semibold text-white hover:bg-indigo-500 transition">
+        Reset All Filters
+      </button>
+    </div>
+  </main>
+
+  <!-- PDFs & Documentation Section -->
+  <section class="border-t border-dark-border bg-dark-surface py-12" id="pdfs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Architecture Manuals & Specs</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Unified Documentation & PDF Library</h2>
+          <p class="text-sm text-slate-400 mt-1">15 authoritative engineering handbooks, checklists, and blueprints.</p>
+        </div>
+        <div class="text-xs font-mono text-slate-400">
+          Direct downloads served edge-fast via Cloudflare
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="pdfGrid">
+        <!-- PDF Card 1 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-sky-400 uppercase tracking-wide">Web SaaS Spec</span>
+              <span>652 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Personal Product Factory Spec</h4>
+            <p class="text-xs text-slate-400 mt-1">40-dimension resilience specification, Crockford IDs, UnitOfWork, multi-tenancy contracts.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/PERSONAL_PRODUCT_FACTORY_SPEC.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/PERSONAL_PRODUCT_FACTORY_SPEC.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Card 2 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-sky-400 uppercase tracking-wide">Web Security</span>
+              <span>652 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Production Readiness Audit</h4>
+            <p class="text-xs text-slate-400 mt-1">25 production-readiness security audits, penetration test verification rubric, error boundaries.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/PRODUCTION_READINESS_AUDIT.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/PRODUCTION_READINESS_AUDIT.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Card 3 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-emerald-400 uppercase tracking-wide">Bots Architecture</span>
+              <span>290 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Enterprise Bot Handbook</h4>
+            <p class="text-xs text-slate-400 mt-1">WhatsApp Cloud API, Telegram Bot API, UNMP protocol, FSM router, and ARQ worker patterns.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/botserusable-handbook.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/botserusable-handbook.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Card 4 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-purple-400 uppercase tracking-wide">AI Agent Blueprint</span>
+              <span>21 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Agent Factory Architecture</h4>
+            <p class="text-xs text-slate-400 mt-1">10 layers breakdown: Gateway, Identity, 4-tier Memory, Tool execution, and automated Judge.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/architecture-blueprint.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/architecture-blueprint.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Card 5 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-amber-400 uppercase tracking-wide">Mobile Apps 163</span>
+              <span>58 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Mobile 163 Modules Catalog</h4>
+            <p class="text-xs text-slate-400 mt-1">163 production modules for Flutter, offline-first sync, Drift SQLite, Hive, and 1M user scale.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/MODULES_CATALOG.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/MODULES_CATALOG.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Card 6 -->
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="font-bold text-amber-400 uppercase tracking-wide">Mobile Factory</span>
+              <span>16 KB</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Mobile Factory Manual</h4>
+            <p class="text-xs text-slate-400 mt-1">Product Idea Engine scoring, Melos monorepo standard, zero-trust tokens, and security testing.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+            <a href="pdfs/FACTORY_MANUAL.pdf" target="_blank" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View PDF
+            </a>
+            <a href="pdfs/FACTORY_MANUAL.pdf" download class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Details Modal -->
+  <div id="moduleModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/80 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="relative w-full max-w-2xl bg-dark-card border border-dark-border rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-start justify-between">
+        <div>
+          <span id="modalDomainBadge" class="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full"></span>
+          <h3 id="modalTitle" class="text-xl font-bold text-white mt-2"></h3>
+          <p id="modalId" class="text-xs font-mono text-slate-400 mt-0.5"></p>
+        </div>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-dark-surface border border-dark-border">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-4">
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Description</h4>
+          <p id="modalDesc" class="text-sm text-slate-300 mt-1 leading-relaxed"></p>
+        </div>
+
+        <div id="modalCapabilitiesContainer">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Capabilities & Highlights</h4>
+          <ul id="modalCapabilities" class="mt-1 space-y-1 text-xs text-slate-300"></ul>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 p-3 rounded-xl bg-dark-surface border border-dark-border text-xs">
+          <div>
+            <span class="text-slate-500 block">Framework / Stack</span>
+            <span id="modalFramework" class="font-semibold text-white"></span>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Repository Path</span>
+            <span id="modalPath" class="font-mono text-slate-300"></span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Pull Command</h4>
+          <div class="relative bg-slate-950 rounded-xl p-3 font-mono text-xs text-slate-200 border border-slate-800">
+            <span id="modalPullCommand"></span>
+            <button onclick="copyModalCommand()" class="absolute top-2.5 right-2.5 p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ecosystem Portals Modal -->
+  <div id="ecosystemModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/80 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="relative w-full max-w-2xl bg-dark-card border border-dark-border rounded-2xl p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-dark-border">
+        <div>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            Connected Ecosystem Portals
+            <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-400 border border-indigo-800/60">6 Live Hubs</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Central management, discovery, and live Cloudflare edge runtimes.</p>
+        </div>
+        <button onclick="closeEcosystemModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg bg-dark-surface border border-dark-border">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-3">
+        <!-- Portal 1 -->
+        <a href="https://project-manage-z6u.pages.dev/" target="_blank" class="block p-3.5 rounded-xl bg-dark-surface border border-dark-border hover:border-indigo-500/50 hover:bg-dark-hover transition">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="text-xl">📊</div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Product Hub — Master Launch OS</h4>
+                <p class="text-xs text-slate-400">96 projects lifecycle tracking, metrics, and launch control.</p>
+              </div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-slate-400"></i>
+          </div>
+        </a>
+
+        <!-- Portal 2 -->
+        <a href="https://finder-d17.pages.dev/" target="_blank" class="block p-3.5 rounded-xl bg-dark-surface border border-dark-border hover:border-sky-500/50 hover:bg-dark-hover transition">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="text-xl">🔍</div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Project & Startup Finder</h4>
+                <p class="text-xs text-slate-400">Market discovery directory and verified software deals.</p>
+              </div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-slate-400"></i>
+          </div>
+        </a>
+
+        <!-- Portal 3 -->
+        <a href="https://mentor-api.foundershivanand.workers.dev/" target="_blank" class="block p-3.5 rounded-xl bg-dark-surface border border-dark-border hover:border-orange-500/50 hover:bg-dark-hover transition">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="text-xl">⚔️</div>
+              <div>
+                <h4 class="font-bold text-white text-sm">AI Mentor Operating System</h4>
+                <p class="text-xs text-slate-400">Adversarial practice arena, 15 skills taxonomy, Turso edge intelligence.</p>
+              </div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-slate-400"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-200 text-xs font-semibold shadow-2xl flex items-center gap-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-dark-border py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        Personal Product Factory — Master Reusable Code Library (v2.0.0)
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="registry/modules.json" class="hover:text-slate-300">registry.json</a>
+        <a href="registry/categories.json" class="hover:text-slate-300">categories.json</a>
+        <a href="api/health.json" class="hover:text-slate-300">health check</a>
+        <a href="https://github.com/sh15aa/Web-Reusable" class="hover:text-slate-300">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Registry Data & Script -->
+  <script src="modules-data.js"></script>
+  <script>
+    let activeDomain = 'all';
+    let allModules = [];
+
+    // Initialize data
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.REUSABLE_REGISTRY && window.REUSABLE_REGISTRY.modules) {
+        allModules = window.REUSABLE_REGISTRY.modules;
+      }
+      populateCategories();
+      renderModules(allModules);
+      lucide.createIcons();
+    });
+
+    function selectDomain(domain) {
+      activeDomain = domain;
+      document.querySelectorAll('.domain-tab').forEach(tab => {
+        tab.classList.remove('active', 'bg-indigo-600', 'text-white');
+        tab.classList.add('bg-dark-card', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById(`tab-${domain}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-dark-card', 'text-slate-300');
+        activeBtn.classList.add('active', 'bg-indigo-600', 'text-white');
+      }
+      populateCategories();
+      filterModules();
+    }
+
+    function populateCategories() {
+      const select = document.getElementById('categoryFilter');
+      select.innerHTML = '<option value="all">All Categories</option>';
+      const filtered = activeDomain === 'all' 
+        ? allModules 
+        : allModules.filter(m => m.domain === activeDomain);
+      
+      const categories = Array.from(new Set(filtered.map(m => m.category))).sort();
+      categories.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c.charAt(0).toUpperCase() + c.slice(1);
+        select.appendChild(opt);
+      });
+    }
+
+    function filterModules() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cat = document.getElementById('categoryFilter').value;
+
+      const filtered = allModules.filter(m => {
+        const matchesDomain = (activeDomain === 'all' || m.domain === activeDomain);
+        const matchesCat = (cat === 'all' || m.category === cat);
+        const searchTarget = `${m.id} ${m.name} ${m.description} ${m.category} ${(m.tags || []).join(' ')} ${(m.capabilities || []).join(' ')}`.toLowerCase();
+        const matchesQuery = !query || searchTarget.includes(query);
+        return matchesDomain && matchesCat && matchesQuery;
+      });
+
+      renderModules(filtered);
+    }
+
+    function resetFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('categoryFilter').value = 'all';
+      selectDomain('all');
+    }
+
+    const DOMAIN_STYLES = {
+      web: { label: 'Web', badge: 'bg-sky-950 text-sky-400 border-sky-800/60', icon: '🌐' },
+      bots: { label: 'Bot', badge: 'bg-emerald-950 text-emerald-400 border-emerald-800/60', icon: '🤖' },
+      agents: { label: 'Agent', badge: 'bg-purple-950 text-purple-400 border-purple-800/60', icon: '🧠' },
+      apps: { label: 'App', badge: 'bg-amber-950 text-amber-400 border-amber-800/60', icon: '📱' },
+    };
+
+    function renderModules(modules) {
+      const grid = document.getElementById('modulesGrid');
+      const empty = document.getElementById('emptyState');
+      document.getElementById('moduleCount').textContent = modules.length;
+
+      if (!modules || modules.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      grid.innerHTML = modules.map(m => {
+        const style = DOMAIN_STYLES[m.domain] || DOMAIN_STYLES.web;
+        const pullCmd = m.pull_command || `bash scripts/pull-module.sh ${m.path}`;
+        const escapedPull = pullCmd.replace(/'/g, "\\'");
+
+        return `
+          <div class="group p-5 rounded-2xl bg-dark-card border border-dark-border hover:border-slate-600 transition flex flex-col justify-between shadow-lg">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${style.badge}">
+                  ${style.icon} ${style.label}
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">${m.category}</span>
+              </div>
+              
+              <h4 class="font-bold text-white text-base group-hover:text-indigo-400 transition leading-snug">
+                ${m.name}
+              </h4>
+              <p class="text-[11px] font-mono text-slate-400 mt-1 truncate">${m.id}</p>
+
+              <p class="text-xs text-slate-400 mt-2.5 line-clamp-3 leading-relaxed">
+                ${m.description || 'No description provided.'}
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-dark-border">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[11px] text-slate-500 font-medium truncate max-w-[140px]">
+                  ${m.framework || 'Universal'}
+                </span>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="copyText('${escapedPull}')" class="p-1.5 rounded-lg bg-dark-surface border border-dark-border text-slate-400 hover:text-white hover:border-slate-500 transition" title="Copy pull command">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                  <button onclick="openModal('${m.id}')" class="px-2.5 py-1 rounded-lg bg-indigo-950/80 border border-indigo-800/60 text-indigo-400 hover:bg-indigo-900 text-xs font-semibold transition">
+                    Inspect
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    let currentSelectedModule = null;
+
+    function openModal(id) {
+      const m = allModules.find(item => item.id === id);
+      if (!m) return;
+      currentSelectedModule = m;
+
+      const style = DOMAIN_STYLES[m.domain] || DOMAIN_STYLES.web;
+      const badge = document.getElementById('modalDomainBadge');
+      badge.className = `text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${style.badge}`;
+      badge.textContent = `${style.icon} ${style.label} Domain — ${m.category}`;
+
+      document.getElementById('modalTitle').textContent = m.name;
+      document.getElementById('modalId').textContent = m.id;
+      document.getElementById('modalDesc').textContent = m.description || '';
+      document.getElementById('modalFramework').textContent = m.framework || 'Universal';
+      document.getElementById('modalPath').textContent = m.path;
+
+      const pullCmd = m.pull_command || `bash scripts/pull-module.sh ${m.path}`;
+      document.getElementById('modalPullCommand').textContent = pullCmd;
+
+      const capContainer = document.getElementById('modalCapabilitiesContainer');
+      const capList = document.getElementById('modalCapabilities');
+      capList.innerHTML = '';
+      if (m.capabilities && m.capabilities.length > 0) {
+        capContainer.classList.remove('hidden');
+        m.capabilities.forEach(c => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-1.5';
+          li.innerHTML = `<span class="text-indigo-400">•</span> <span>${c}</span>`;
+          capList.appendChild(li);
+        });
+      } else {
+        capContainer.classList.add('hidden');
+      }
+
+      document.getElementById('moduleModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('moduleModal').classList.add('hidden');
+    }
+
+    function copyModalCommand() {
+      if (currentSelectedModule) {
+        const pullCmd = currentSelectedModule.pull_command || `bash scripts/pull-module.sh ${currentSelectedModule.path}`;
+        copyText(pullCmd);
+      }
+    }
+
+    function openEcosystemModal() {
+      document.getElementById('ecosystemModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeEcosystemModal() {
+      document.getElementById('ecosystemModal').classList.add('hidden');
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 2500);
+      });
+    }
+
+    // Modal background close
+    window.onclick = function(e) {
+      const modal = document.getElementById('moduleModal');
+      const eco = document.getElementById('ecosystemModal');
+      if (e.target === modal) closeModal();
+      if (e.target === eco) closeEcosystemModal();
+    }
+  </script>
+</body>
+</html>

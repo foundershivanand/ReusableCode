@@ -43,7 +43,7 @@ describe("Module 30: Security Center & Posture Management", () => {
   });
 
   it("should deduplicate findings by fingerprint on re-scan and update lastDetectedAt", async () => {
-    const run1 = await service.runConfigurationChecks({
+    await service.runConfigurationChecks({
       headers: { "content-security-policy": "default-src 'self'" },
       cookies: [],
       cors: { origin: "https://example.com", credentials: true },
@@ -53,7 +53,7 @@ describe("Module 30: Security Center & Posture Management", () => {
     const initialCount = (await repo.getFindings()).length;
 
     // Run again with same config
-    const run2 = await service.runConfigurationChecks({
+    await service.runConfigurationChecks({
       headers: { "content-security-policy": "default-src 'self'" },
       cookies: [],
       cors: { origin: "https://example.com", credentials: true },

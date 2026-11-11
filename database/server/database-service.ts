@@ -161,7 +161,7 @@ export class DatabaseService {
 
     const start = Date.now();
     // Simulate restore verification: row count checks, foreign keys, schema smoke test
-    const durationMs = 120; // 120ms simulated drill
+    const durationMs = Math.max(1, Date.now() - start);
     backup.verifiedAt = new Date().toISOString();
     backup.status = "VERIFIED";
     await this.repository.updateBackup(backup);

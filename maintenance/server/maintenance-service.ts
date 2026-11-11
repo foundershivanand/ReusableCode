@@ -3,6 +3,8 @@ import {
   MaintenanceConfig,
   SystemBanner,
   CheckMaintenanceInput,
+  ValidatedCheckMaintenanceInput,
+  CheckMaintenanceInputSchema,
   CheckMaintenanceResult,
 } from "../schemas/maintenance-schemas.js";
 import { MaintenanceRepository } from "./repository.js";
@@ -22,7 +24,7 @@ export class MaintenanceService {
     }
   }
 
-  private isBypassed(config: MaintenanceConfig, input: CheckMaintenanceInput): boolean {
+  private isBypassed(config: MaintenanceConfig, input: ValidatedCheckMaintenanceInput): boolean {
     // 1. Role check
     if (
       input.userRoles &&
@@ -53,7 +55,7 @@ export class MaintenanceService {
     return false;
   }
 
-  private matchesScope(config: MaintenanceConfig, input: CheckMaintenanceInput): boolean {
+  private matchesScope(config: MaintenanceConfig, input: ValidatedCheckMaintenanceInput): boolean {
     switch (config.scope) {
       case "GLOBAL":
         return true;
@@ -72,15 +74,16 @@ export class MaintenanceService {
   }
 
   async checkMaintenance(input: CheckMaintenanceInput): Promise<CheckMaintenanceResult> {
+    const validated = CheckMaintenanceInputSchema.parse(input);
     const activeConfigs = await this.repository.getActiveConfigs();
 
     for (const config of activeConfigs) {
-      if (!this.matchesScope(config, input)) {
+      if (!this.matchesScope(config, validated)) {
         continue;
       }
 
       // Check if caller has authorized admin bypass
-      if (this.isBypassed(config, input)) {
+      if (this.isBypassed(config, validated)) {
         continue;
       }
 
@@ -106,7 +109,7 @@ export class MaintenanceService {
 
       if (config.mode === "READ_ONLY") {
         const isMutatingMethod = ["POST", "PUT", "PATCH", "DELETE"].includes(
-          input.method.toUpperCase()
+          validated.method.toUpperCase()
         );
 
         if (isMutatingMethod) {

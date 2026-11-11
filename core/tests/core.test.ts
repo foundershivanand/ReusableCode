@@ -1,16 +1,10 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { z } from "zod";
 import {
   // Errors
-  ValidationError,
-  AuthenticationError,
-  AuthorizationError,
   ConflictError,
-  RateLimitError,
-  formatUserFacingError,
   // IDs
   generatePrefixedId,
-  generateSortableId,
   generateSecureToken,
   isValidPrefixedId,
   extractTimestampFromId,
@@ -25,14 +19,9 @@ import {
   reEncryptField,
   isEncryptedField,
   KeyRing,
-  // Observability
-  createTraceContext,
-  runWithTraceContext,
-  getTraceContext,
   // Authz
   defaultAuthorizationEngine,
   // Transactions & Saga
-  InMemoryUnitOfWork,
   SagaCoordinator,
   // Idempotency
   IdempotencyManager,
@@ -86,7 +75,7 @@ describe("Universal Core Platform & Resilience Architecture", () => {
               name: ctx.input.name,
             };
           },
-          auditEvent: async (ctx, result) => {
+          auditEvent: async (_ctx, result) => {
             auditCalled = true;
             expect(result.id).toBe("item_001");
           },
@@ -183,6 +172,8 @@ describe("Universal Core Platform & Resilience Architecture", () => {
       const id2 = generatePrefixedId("usr");
 
       expect(id1.startsWith("usr_")).toBe(true);
+      expect(id2.startsWith("usr_")).toBe(true);
+      expect(id1).not.toBe(id2);
       expect(isValidPrefixedId(id1, "usr")).toBe(true);
       expect(isValidPrefixedId(id1, "org")).toBe(false);
 

@@ -1,5 +1,3 @@
-import { ChangelogItem } from "../schemas/changelog-schemas.js";
-
 export interface MarkdownRenderer {
   render(markdown: string): Promise<string>;
 }

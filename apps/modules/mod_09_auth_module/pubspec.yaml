@@ -1,0 +1,14 @@
+name: mod_09_auth_module
+description: Enterprise-grade authentication suite supporting Email/Pass, OAuth2+PKCE, Google, Apple, Phone OTP, Anonymous, Biometrics, and Token Rotation with single-flight mutex.
+version: 2.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  crypto: ^3.0.3
+  meta: ^1.9.0
+
+dev_dependencies:
+  test: ^1.24.0

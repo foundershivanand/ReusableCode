@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Product Factory | Reusable Code Library</title>
+  <meta name="description" content="Production-grade AI Agent Product Factory with 10 core architectural layers and 40+ standardized reusable modules. Consumed directly from GitHub by AI coding agents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-logo">🤖</span>
+        <div class="brand-text">
+          <span class="brand-name">Agent Factory</span>
+          <span class="brand-tag">agentsreusable</span>
+        </div>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#modules">Modules (40)</a>
+        <a href="#pdfs">PDFs & Docs</a>
+        <a href="#how-to-use">External Usage</a>
+        <a href="#architecture">10 Layers</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-all-links" onclick="openLinksModal()" id="allLinksBtn" title="View all ecosystem links">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          <span>All Links</span>
+        </button>
+        <a href="https://github.com/sh15aa/agentreusable" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+          <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Production AI Agent Product Factory • 10 Core Layers</span>
+      </div>
+      <h1 class="hero-title">
+        Standardized Reusable Code for <br>
+        <span class="gradient-text">Autonomous AI Agents</span>
+      </h1>
+      <p class="hero-subtitle">
+        Zero boilerplate. No reinventing LLM gateways, multi-tier memory, AST sandboxes, human approvals, or evaluation judges. Consumed directly from GitHub by AI coding agents.
+      </p>
+
+      <!-- Install Snippet Bar -->
+      <div class="install-bar">
+        <div class="install-tabs">
+          <button class="install-tab active" onclick="switchInstall('uv')">uv</button>
+          <button class="install-tab" onclick="switchInstall('pip')">pip</button>
+        </div>
+        <div class="install-code-box">
+          <span class="install-prompt">$</span>
+          <code id="installCommand">uv add git+https://github.com/sh15aa/agentreusable.git</code>
+          <button class="copy-btn" onclick="copyInstallCommand()" title="Copy command">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span id="copyInstallText">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#modules" class="btn btn-primary">Explore 40 Modules</a>
+        <button class="btn btn-all-links-hero" onclick="openLinksModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          <span>All Links</span>
+        </button>
+        <a href="#pdfs" class="btn btn-secondary">Download PDF Guides</a>
+        <a href="https://github.com/sh15aa/agentreusable" target="_blank" class="btn btn-outline">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloadable PDF Center -->
+  <section id="pdfs" class="section pdf-section">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="badge-sub">DOCUMENTATION & DOWNLOADS</div>
+        <h2>Direct PDF Downloads & Directives</h2>
+        <p>Complete offline documentation, agent behavioral directives, and module references.</p>
+      </div>
+
+      <div class="pdf-grid">
+        <!-- PDF Card 1: AGENTS.md -->
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <span class="pdf-icon">📄</span>
+            <span class="pdf-badge">Core Directive</span>
+          </div>
+          <h3>AGENTS.md Guide (PDF)</h3>
+          <p>The behavioral rules, priority hierarchy ("Reuse first, build second"), and remote discovery contract for AI agents.</p>
+          <div class="pdf-meta">
+            <span>Size: 5.1 KB</span>
+            <span>Format: PDF / Print Ready</span>
+          </div>
+          <div class="pdf-actions">
+            <a href="pdfs/agents-directive.pdf" download class="btn btn-download">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download PDF</span>
+            </a>
+            <a href="pdfs/agents-directive.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- PDF Card 2: Architecture Blueprint -->
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <span class="pdf-icon">📐</span>
+            <span class="pdf-badge">System Design</span>
+          </div>
+          <h3>Architecture Blueprint (PDF)</h3>
+          <p>Detailed architecture breakdown of all 10 layers: Gateways, Memory, Tools, Orchestrator, Tracing, and CLI commands.</p>
+          <div class="pdf-meta">
+            <span>Size: 4.8 KB</span>
+            <span>Format: PDF / Print Ready</span>
+          </div>
+          <div class="pdf-actions">
+            <a href="pdfs/architecture-blueprint.pdf" download class="btn btn-download">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download PDF</span>
+            </a>
+            <a href="pdfs/architecture-blueprint.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- PDF Card 3: Module Catalog -->
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <span class="pdf-icon">📚</span>
+            <span class="pdf-badge">40 Modules</span>
+          </div>
+          <h3>Complete Module Catalog (PDF)</h3>
+          <p>Exhaustive directory of all 40 modules with exported classes, functions, file paths, and exact Python usage examples.</p>
+          <div class="pdf-meta">
+            <span>Size: 21 KB</span>
+            <span>Format: PDF / Print Ready</span>
+          </div>
+          <div class="pdf-actions">
+            <a href="pdfs/modules-catalog.pdf" download class="btn btn-download">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download PDF</span>
+            </a>
+            <a href="pdfs/modules-catalog.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Registry Raw URL Box -->
+      <div class="registry-banner">
+        <div class="registry-banner-info">
+          <strong>📡 Live Remote Registry for AI Agents:</strong>
+          <code>https://raw.githubusercontent.com/sh15aa/agentreusable/main/registry/modules.json</code>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="copyText('https://raw.githubusercontent.com/sh15aa/agentreusable/main/registry/modules.json', this)">Copy URL</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Module Browser -->
+  <section id="modules" class="section modules-section">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="badge-sub">CATALOG EXPLORER</div>
+        <h2>All 40 Reusable Modules</h2>
+        <p>Search by module name, ID, exported classes, or filter by architectural category.</p>
+      </div>
+
+      <!-- Controls: Search & Category Pills -->
+      <div class="filter-controls">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="searchInput" placeholder="Search modules (e.g. gateway, sandbox, rag, tracer, approval)..." oninput="handleSearch()">
+          <span id="searchCountBadge" class="search-count">40 modules</span>
+        </div>
+
+        <div class="category-pills" id="categoryPills">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Module Grid -->
+      <div class="modules-grid" id="modulesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- External Usage Section: How AI Agents Consume From Other Folders -->
+  <section id="how-to-use" class="section guide-section">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="badge-sub">HOW TO USE IN ANOTHER FOLDER</div>
+        <h2>Direct Consumption From GitHub</h2>
+        <p>How an AI agent (Cursor, Claude Code, GitHub Copilot, Codex, Antigravity) works in a different folder using this library.</p>
+      </div>
+
+      <div class="guide-steps">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Add Package Dependency</h3>
+            <p>In your new application folder, install the library directly from GitHub without cloning the repo:</p>
+            <pre><code># Using uv
+uv add git+https://github.com/sh15aa/agentreusable.git
+
+# Or pip
+pip install git+https://github.com/sh15aa/agentreusable.git</code></pre>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Drop `AGENTS.md` in the Project Root</h3>
+            <p>Tell any coding agent to reuse existing capabilities first instead of writing new boilerplate:</p>
+            <pre><code># In my-new-project/AGENTS.md
+The project has access to: https://github.com/sh15aa/agentreusable
+Module Registry: https://raw.githubusercontent.com/sh15aa/agentreusable/main/registry/modules.json
+
+Rule: Reuse first, build second. Before scaffolding gateways, memory,
+tools, or sandboxes, check registry/modules.json and import from `agentsreusable`.</code></pre>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Prompt Your AI Agent</h3>
+            <p>Give your AI agent this prompt in the new project:</p>
+            <div class="prompt-box">
+              <p>"Build [your agent goal]. Check the reusable library at https://github.com/sh15aa/agentreusable and its registry at https://raw.githubusercontent.com/sh15aa/agentreusable/main/registry/modules.json. Identify existing modules and assemble them instead of writing boilerplate."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Clean Assembled Code</h3>
+            <p>The agent imports standardized modules directly:</p>
+            <pre><code>import asyncio
+from agent_factory.factory import AgentFactory
+from templates.research_agent import create_research_agent
+
+async def main():
+    factory = AgentFactory()
+    agent = create_research_agent(factory)
+    result = await agent.run("Analyze latest AI agent architectures")
+    print(result)
+
+if __name__ == "__main__":
+    asyncio.run(main())</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Architectural Layers Overview -->
+  <section id="architecture" class="section architecture-section">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="badge-sub">SYSTEM DESIGN</div>
+        <h2>10 Core Architectural Layers</h2>
+        <p>A battle-tested production blueprint separating concerns across the entire AI agent lifecycle.</p>
+      </div>
+
+      <div class="layers-grid">
+        <div class="layer-item">
+          <span class="layer-num">01</span>
+          <h4>Identity & Config</h4>
+          <p>Unique identity manifests, status lifecycle, environments, retry and cost policies.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">02</span>
+          <h4>LLM Gateway</h4>
+          <p>Multi-provider routing by task complexity, streaming, and automatic fallback cascades.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">03</span>
+          <h4>Multi-Tier Memory</h4>
+          <p>Working scratchpad, multi-turn compaction, semantic vector search, episodic history & hybrid RAG.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">04</span>
+          <h4>Hardened Tools</h4>
+          <p>Central registry, AST-checked Python sandbox, SSRF-guarded browser & document parser.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">05</span>
+          <h4>Orchestration</h4>
+          <p>Dynamic planning engine, parallel DAG workflow executor, and supervisor multi-agent messaging.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">06</span>
+          <h4>Human-in-the-Loop</h4>
+          <p>Pause & resume approval queue intercepting HIGH & CRITICAL risk tool executions.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">07</span>
+          <h4>Validation</h4>
+          <p>Pydantic structured output auto-repair, factual self-verification & citation provenance.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">08</span>
+          <h4>Security & Governance</h4>
+          <p>RBAC permission matrices, PII redaction (email/phone/SSN), and zero-leak secret isolation.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">09</span>
+          <h4>Evaluation & Benchmarks</h4>
+          <p>Golden test case datasets, LLM-as-Judge 1-5 rubric scoring & regression benchmark runners.</p>
+        </div>
+        <div class="layer-item">
+          <span class="layer-num">10</span>
+          <h4>Observability & APIs</h4>
+          <p>Hierarchical span tracing, security audit trail, operational metrics, and FastAPI SSE streaming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">🤖 Agent Factory Reusable Library</div>
+        <p>Created by <a href="mailto:foundershivanand@gmail.com">Foundershivanand</a> • Deployed on Cloudflare Pages</p>
+      </div>
+      <div class="footer-right">
+        <button class="footer-link-btn" onclick="openLinksModal()">All Links</button>
+        <a href="https://github.com/sh15aa/agentreusable" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a href="pdfs/agents-directive.pdf" download>AGENTS.md (PDF)</a>
+        <a href="pdfs/architecture-blueprint.pdf" download>Architecture (PDF)</a>
+        <a href="pdfs/modules-catalog.pdf" download>Module Catalog (PDF)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- All Links Modal Popup -->
+  <div id="linksModalBackdrop" class="modal-backdrop" onclick="closeLinksModal(event)">
+    <div class="modal-dialog" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-icon">🌐</div>
+          <div>
+            <h3 class="modal-title">All Ecosystem Links</h3>
+            <p class="modal-subtitle">Quick access to all connected platforms and tools</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeLinksModal()" aria-label="Close modal">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="ecosystem-links-list">
+          <!-- Link 1: Project Manager -->
+          <a href="https://project-manage-z6u.pages.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">📋</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">Project Manager</span>
+                <span class="eco-link-badge badge-cf-pages">Cloudflare Pages</span>
+              </div>
+              <div class="eco-link-url">https://project-manage-z6u.pages.dev/</div>
+              <div class="eco-link-desc">Project workflow, team coordination, and task management system.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Link 2: Finder -->
+          <a href="https://finder-d17.pages.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🔍</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">Finder</span>
+                <span class="eco-link-badge badge-cf-pages">Cloudflare Pages</span>
+              </div>
+              <div class="eco-link-url">https://finder-d17.pages.dev/</div>
+              <div class="eco-link-desc">Resource discovery, component indexing, and fast code retrieval.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Link 3: Bots Reusable -->
+          <a href="https://botserusable.pages.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">🤖</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">Bots Reusable</span>
+                <span class="eco-link-badge badge-cf-pages">Cloudflare Pages</span>
+              </div>
+              <div class="eco-link-url">https://botserusable.pages.dev/</div>
+              <div class="eco-link-desc">Pre-configured reusable autonomous bots, triggers, and automated workflows.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Link 4: App Reusable -->
+          <a href="https://appreusable.pages.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">📦</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">App Reusable</span>
+                <span class="eco-link-badge badge-cf-pages">Cloudflare Pages</span>
+              </div>
+              <div class="eco-link-url">https://appreusable.pages.dev/</div>
+              <div class="eco-link-desc">Modular web application templates, dashboard components, and fullstack blocks.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Link 5: Reusable Library Worker -->
+          <a href="https://reusable-library.foundershivanand.workers.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">⚡</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">Reusable Library Worker</span>
+                <span class="eco-link-badge badge-cf-worker">Cloudflare Worker</span>
+              </div>
+              <div class="eco-link-url">https://reusable-library.foundershivanand.workers.dev/</div>
+              <div class="eco-link-desc">Edge API service powering dynamic library lookups and remote modules.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Link 6: AI Mentor OS -->
+          <a href="https://mentor-api.foundershivanand.workers.dev/" target="_blank" rel="noopener noreferrer" class="eco-link-card">
+            <div class="eco-link-icon" style="background: rgba(14, 165, 233, 0.15); color: #38bdf8;">⚔️</div>
+            <div class="eco-link-info">
+              <div class="eco-link-title-row">
+                <span class="eco-link-name">AI Mentor OS</span>
+                <span class="eco-link-badge badge-cf-worker">Cloudflare Worker</span>
+              </div>
+              <div class="eco-link-url">https://mentor-api.foundershivanand.workers.dev/</div>
+              <div class="eco-link-desc">Socratic sparring, accountability tracking, and cognitive debrief console.</div>
+            </div>
+            <div class="eco-link-arrow">
+              <span>Open</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-footer-hint">Press <kbd>Esc</kbd> or click outside to close</span>
+        <button class="btn btn-secondary btn-sm" onclick="closeLinksModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

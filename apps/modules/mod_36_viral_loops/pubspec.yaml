@@ -1,0 +1,13 @@
+name: mod_36_viral_loops
+description: Viral referral loops, invite code generation, and attribution engine.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  crypto: ^3.0.3
+
+dev_dependencies:
+  test: ^1.24.0

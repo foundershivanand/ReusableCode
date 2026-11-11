@@ -25,7 +25,7 @@ export class InMemorySeoRepository implements ISeoRepository {
     return metadata;
   }
 
-  async listPublicRoutes(tenantId?: string): Promise<SitemapUrlEntry[]> {
+  async listPublicRoutes(_tenantId?: string): Promise<SitemapUrlEntry[]> {
     return [...this.publicRoutes];
   }
 

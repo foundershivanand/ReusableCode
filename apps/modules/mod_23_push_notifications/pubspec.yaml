@@ -1,0 +1,10 @@
+name: mod_23_push_notifications
+description: Production push notification handler for FCM / APNs with deep linking and encrypted payload support.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

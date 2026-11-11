@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
-import { extname, basename, relative } from "node:path";
-import { statSync, readdirSync, readFileSync } from "node:fs";
+import { basename, relative } from "node:path";
+import { readdirSync } from "node:fs";
 import type { FileCategory } from "./types.ts";
 
 const CODE_EXTENSIONS = new Set([
@@ -107,7 +107,7 @@ export function determineCategory(filePath: string, ext: string): FileCategory {
   return "other";
 }
 
-export function determineMimeType(filePath: string, ext: string, isBinary: boolean): string {
+export function determineMimeType(_filePath: string, ext: string, isBinary: boolean): string {
   const lowerExt = ext.toLowerCase();
   if (MIME_TYPES[lowerExt]) {
     return MIME_TYPES[lowerExt];

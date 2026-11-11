@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Product Factory — 163 Production-Grade Reusable Modules</title>
+  <meta name="description" content="163 production-grade, hardened modules for Flutter, FastAPI, Zero-Trust Security, and 1M User Scale. Developed for Autonomous AI Agents and Mobile Engineers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22><text y=%2226%22 font-size=%2228%22>🚀</text></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marked.js for markdown rendering in modal -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            dark: {
+              bg: '#090d16',
+              card: '#111827',
+              border: '#1f2937',
+              hover: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    pre code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-[#090d16] text-slate-200 min-h-screen flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-40 bg-[#090d16]/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🚀</span>
+        <div>
+          <span class="font-bold text-lg text-white tracking-tight">Mobile Product Factory</span>
+          <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-900/60 text-blue-400 border border-blue-700/50">163 Modules</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+        <a href="#modules" class="hover:text-blue-400 transition">Modules Catalog</a>
+        <a href="#pdfs" class="hover:text-blue-400 transition flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i> PDF Manuals
+        </a>
+        <a href="#rules" class="hover:text-blue-400 transition">Rules 61-63</a>
+        <a href="#agent-guide" class="hover:text-blue-400 transition flex items-center gap-1.5">
+          <i data-lucide="bot" class="w-4 h-4 text-purple-400"></i> AI Agent Protocol
+        </a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <button onclick="openAllLinksModal()"
+                class="inline-flex items-center space-x-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-3.5 py-1.5 rounded-lg text-sm font-semibold shadow-md shadow-indigo-900/30 transition border border-indigo-500/30 cursor-pointer">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span>All Links</span>
+        </button>
+        <a href="https://github.com/sh15aa/Appreusable" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-white px-3.5 py-1.5 rounded-lg border border-slate-700 transition text-sm font-medium">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub</span>
+          <span class="bg-slate-900 text-xs px-1.5 py-0.5 rounded text-slate-400">main</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-12 overflow-hidden border-b border-slate-800/80">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/70 border border-blue-800/60 text-blue-400 text-xs font-semibold mb-6">
+        <span class="flex h-2 w-2 rounded-full bg-blue-400 animate-pulse"></span>
+        Zero-Trust Architecture • OWASP MASVS v2.0 • 1M User Scale Gate
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+        Enterprise Mobile Product Factory
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+        <span class="text-white font-semibold">163 production-grade, hardened, reusable modules</span> for building independent Flutter products (iOS & Android) and isolated FastAPI backends. Built for developers and autonomous AI coding agents.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+        <a href="#modules" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/30 transition">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          Explore 163 Modules
+        </a>
+        <a href="#pdfs" class="inline-flex items-center gap-2 bg-emerald-700/80 hover:bg-emerald-600 text-white font-medium px-5 py-2.5 rounded-lg border border-emerald-600/60 shadow-lg shadow-emerald-900/30 transition">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          Download PDF Docs
+        </a>
+        <button onclick="openAllLinksModal()" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-700/90 to-indigo-700/90 hover:from-purple-600 hover:to-indigo-600 text-white font-medium px-5 py-2.5 rounded-lg border border-purple-500/50 shadow-lg shadow-purple-950/40 transition cursor-pointer">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          All Links
+        </button>
+        <a href="https://github.com/sh15aa/Appreusable" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-5 py-2.5 rounded-lg border border-slate-700 transition">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          View on GitHub
+        </a>
+      </div>
+
+      <!-- Quick Git Clone Bar -->
+      <div class="max-w-xl mx-auto bg-slate-900/90 border border-slate-800 rounded-lg p-2 flex items-center justify-between text-xs sm:text-sm font-mono text-slate-300">
+        <div class="flex items-center gap-2 pl-2 overflow-x-auto custom-scrollbar whitespace-nowrap">
+          <span class="text-blue-400">$</span>
+          <span>git clone https://github.com/sh15aa/Appreusable.git</span>
+        </div>
+        <button onclick="copyToClipboard('git clone https://github.com/sh15aa/Appreusable.git', this)" 
+                class="ml-3 shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded transition flex items-center gap-1.5">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span>Copy</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF Manuals Showcase Section -->
+  <section id="pdfs" class="py-16 border-b border-slate-800/80 bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <div class="flex items-center gap-2 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
+            <i data-lucide="file-check" class="w-4 h-4"></i> Official Technical Documentation
+          </div>
+          <h2 class="text-3xl font-bold text-white">Downloadable PDF Manuals</h2>
+          <p class="text-slate-400 text-sm mt-1">Complete, print-ready PDF reference guides for engineers and autonomous coding agents.</p>
+        </div>
+        <div class="mt-4 md:mt-0 text-xs text-slate-400">
+          Maintained by: <span class="text-blue-400 font-mono">foundershivanand@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- PDF Card 1: AGENTS.pdf -->
+        <div class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-xl p-5 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-lg bg-blue-950 text-blue-400 border border-blue-800/50">
+                <i data-lucide="bot" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 14 KB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition mb-1">
+              AI Agent Protocol (AGENTS.pdf)
+            </h3>
+            <p class="text-slate-400 text-xs mb-4 leading-relaxed">
+              Strict rules, priority hierarchy, capability index, and prompts guiding autonomous coding agents to reuse modules without rewriting code.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+            <a href="pdfs/AGENTS.pdf" download="AGENTS.pdf" 
+               class="flex-1 inline-flex items-center justify-center gap-1.5 bg-blue-600/90 hover:bg-blue-600 text-white text-xs font-medium py-2 px-3 rounded-lg transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+            </a>
+            <button onclick="previewPdf('pdfs/AGENTS.pdf', 'AI Agent Protocol (AGENTS.md)')"
+                    class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium py-2 px-3 rounded-lg border border-slate-700 transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Preview
+            </button>
+          </div>
+        </div>
+
+        <!-- PDF Card 2: FACTORY_MANUAL.pdf -->
+        <div class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800/50">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 16 KB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition mb-1">
+              Factory Architecture Manual
+            </h3>
+            <p class="text-slate-400 text-xs mb-4 leading-relaxed">
+              Complete architectural handbook: Rule 61 (App/DB Isolation), Rule 62 (One-Click Synthesizer), and Rule 63 (Checklist Tracker).
+            </p>
+          </div>
+          <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+            <a href="pdfs/FACTORY_MANUAL.pdf" download="FACTORY_MANUAL.pdf" 
+               class="flex-1 inline-flex items-center justify-center gap-1.5 bg-emerald-600/90 hover:bg-emerald-600 text-white text-xs font-medium py-2 px-3 rounded-lg transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+            </a>
+            <button onclick="previewPdf('pdfs/FACTORY_MANUAL.pdf', 'Factory Architecture Manual')"
+                    class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium py-2 px-3 rounded-lg border border-slate-700 transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Preview
+            </button>
+          </div>
+        </div>
+
+        <!-- PDF Card 3: MODULES_CATALOG.pdf -->
+        <div class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-xl p-5 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-lg bg-purple-950 text-purple-400 border border-purple-800/50">
+                <i data-lucide="boxes" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 57 KB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition mb-1">
+              Complete Modules Catalog
+            </h3>
+            <p class="text-slate-400 text-xs mb-4 leading-relaxed">
+              Directory of all 163 modules with category classifications, platforms, capabilities, tags, and Flutter `pubspec.yaml` git dependencies.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+            <a href="pdfs/MODULES_CATALOG.pdf" download="MODULES_CATALOG.pdf" 
+               class="flex-1 inline-flex items-center justify-center gap-1.5 bg-purple-600/90 hover:bg-purple-600 text-white text-xs font-medium py-2 px-3 rounded-lg transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+            </a>
+            <button onclick="previewPdf('pdfs/MODULES_CATALOG.pdf', 'Complete Modules Catalog (163 Modules)')"
+                    class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium py-2 px-3 rounded-lg border border-slate-700 transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Preview
+            </button>
+          </div>
+        </div>
+
+        <!-- PDF Card 4: CHECKLIST.pdf -->
+        <div class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-xl p-5 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-lg bg-amber-950 text-amber-400 border border-amber-800/50">
+                <i data-lucide="check-square" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 38 KB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-1">
+              Master 360+ Task Checklist
+            </h3>
+            <p class="text-slate-400 text-xs mb-4 leading-relaxed">
+              Granular quality audit matrix across 10 Factory Layers and 16 Phases (from Idea Discovery to 1M Scale Gate) based on Rule 63.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+            <a href="pdfs/CHECKLIST.pdf" download="CHECKLIST.pdf" 
+               class="flex-1 inline-flex items-center justify-center gap-1.5 bg-amber-600/90 hover:bg-amber-600 text-white text-xs font-medium py-2 px-3 rounded-lg transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+            </a>
+            <button onclick="previewPdf('pdfs/CHECKLIST.pdf', 'Master 360+ Product Checklist')"
+                    class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium py-2 px-3 rounded-lg border border-slate-700 transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Preview
+            </button>
+          </div>
+        </div>
+
+        <!-- PDF Card 5: ALL_MODULES_DOCS.pdf -->
+        <div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-xl p-5 flex flex-col justify-between transition group md:col-span-2 lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+                <i data-lucide="file-archive" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Comprehensive Manual • 59 KB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition mb-1">
+              All 163 Modules Technical Reference (Comprehensive Bundle)
+            </h3>
+            <p class="text-slate-400 text-xs mb-4 leading-relaxed">
+              The complete combined documentation bundle compiling every single module's README, zero-trust constraints, security rules, and code interface specifications into a single offline reference book.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+            <a href="pdfs/ALL_MODULES_DOCS.pdf" download="ALL_MODULES_DOCS.pdf" 
+               class="flex-1 inline-flex items-center justify-center gap-1.5 bg-cyan-600/90 hover:bg-cyan-600 text-white text-xs font-medium py-2 px-3 rounded-lg transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download Full Manual (PDF)
+            </a>
+            <button onclick="previewPdf('pdfs/ALL_MODULES_DOCS.pdf', 'All Modules Complete Technical Reference')"
+                    class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium py-2 px-3 rounded-lg border border-slate-700 transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Preview
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Modules Explorer Section -->
+  <section id="modules" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">
+            <i data-lucide="layers" class="w-4 h-4"></i> Complete Inventory
+          </div>
+          <h2 class="text-3xl font-bold text-white">Browse All 163 Production Modules</h2>
+          <p class="text-slate-400 text-sm mt-1">Live search, filter by architecture layer, and inspect module source contracts.</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center gap-2">
+          <span class="text-xs text-slate-400">Showing:</span>
+          <span id="moduleCountBadge" class="text-xs font-bold px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-700/50">163 of 163</span>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 mb-8 space-y-4">
+        <!-- Search Input -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="searchInput" placeholder="Search modules by name, id, capability, or tag (e.g. auth, sqlite, payments, biometrics, 1m scale)..."
+                 class="w-full bg-slate-950 border border-slate-800 focus:border-blue-500 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none transition">
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 text-xs">
+            Clear
+          </button>
+        </div>
+
+        <!-- Category Pills Filter -->
+        <div class="flex flex-wrap gap-2 text-xs" id="categoryPills">
+          <button onclick="filterCategory('all')" data-cat="all" class="cat-pill active px-3 py-1.5 rounded-lg bg-blue-600 text-white font-medium transition">
+            All (163)
+          </button>
+          <button onclick="filterCategory('architecture_and_auth')" data-cat="architecture_and_auth" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Architecture & Auth (10)
+          </button>
+          <button onclick="filterCategory('data_and_design')" data-cat="data_and_design" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Data & Design (10)
+          </button>
+          <button onclick="filterCategory('hardware_ai_and_monetization')" data-cat="hardware_ai_and_monetization" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Hardware, AI & IAP (10)
+          </button>
+          <button onclick="filterCategory('growth_and_security')" data-cat="growth_and_security" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Growth & Security (10)
+          </button>
+          <button onclick="filterCategory('backend_storage_and_qa')" data-cat="backend_storage_and_qa" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Backend & QA (10)
+          </button>
+          <button onclick="filterCategory('factory_orchestration')" data-cat="factory_orchestration" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Factory Tooling (13)
+          </button>
+          <button onclick="filterCategory('zero_trust_and_data_security')" data-cat="zero_trust_and_data_security" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Zero-Trust Security (15)
+          </button>
+          <button onclick="filterCategory('scale_abuse_and_integrity')" data-cat="scale_abuse_and_integrity" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Scale & Abuse Defense (18)
+          </button>
+          <button onclick="filterCategory('io_security_and_supply_chain')" data-cat="io_security_and_supply_chain" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            I/O & Supply Chain (19)
+          </button>
+          <button onclick="filterCategory('compliance_and_sast_dast')" data-cat="compliance_and_sast_dast" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Compliance & SAST (10)
+          </button>
+          <button onclick="filterCategory('cloud_iam_and_observability')" data-cat="cloud_iam_and_observability" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Cloud IAM & Observability (20)
+          </button>
+          <button onclick="filterCategory('enterprise_scale_gate_and_monitoring')" data-cat="enterprise_scale_gate_and_monitoring" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+            Scale Gate & Monitoring (18)
+          </button>
+        </div>
+      </div>
+
+      <!-- Modules Grid Container -->
+      <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="noResults" class="hidden text-center py-16">
+        <i data-lucide="search-x" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
+        <h3 class="text-lg font-bold text-slate-300">No matching modules found</h3>
+        <p class="text-sm text-slate-500 mt-1">Try adjusting your search terms or category filter.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Architectural Rules Section (Rule 61, 62, 63) -->
+  <section id="rules" class="py-16 bg-slate-950/60 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-blue-400 text-xs font-semibold uppercase tracking-wider">Factory Foundations</span>
+        <h2 class="text-3xl font-bold text-white mt-1">Rules 61, 62 & 63: The Core Triad</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          "100 apps ≠ one giant mobile application." Architectural isolation combined with autonomous synthesis.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Rule 61 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-red-950/80 text-red-400 border border-red-800/60 flex items-center justify-center font-bold mb-4">
+            61
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Isolation Guardian</h3>
+          <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+            Strict isolation of App + Backend + Database per product. Shared factory infrastructure never means shared product data. Every app has dedicated bundle IDs, signing keys, and isolated databases.
+          </p>
+          <div class="bg-slate-950 rounded p-2.5 font-mono text-[11px] text-slate-300 border border-slate-800">
+            mod_61_isolation_guardian<br>
+            python3 isolation_verifier.py
+          </div>
+        </div>
+
+        <!-- Rule 62 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-purple-950/80 text-purple-400 border border-purple-800/60 flex items-center justify-center font-bold mb-4">
+            62
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">One-Click Synthesizer</h3>
+          <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+            Autonomous generator synthesizing PRD, OpenAPI 3.0 specs, isolated DB schemas, ASO plans, Flutter Clean Architecture app, and FastAPI backend with a single CLI command.
+          </p>
+          <div class="bg-slate-950 rounded p-2.5 font-mono text-[11px] text-slate-300 border border-slate-800">
+            mod_62_one_click_synthesizer<br>
+            python3 synthesizer.py --id app-037
+          </div>
+        </div>
+
+        <!-- Rule 63 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 flex items-center justify-center font-bold mb-4">
+            63
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Master 360+ Checklist</h3>
+          <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+            Rigorous task scorecard tracking 360+ quality criteria across 10 layers (Idea, UX, Mobile, Backend, AI, Security, CI/CD, ASO) and 16 development phases from conception to 1M users.
+          </p>
+          <div class="bg-slate-950 rounded p-2.5 font-mono text-[11px] text-slate-300 border border-slate-800">
+            mod_63_master_checklist_tracker<br>
+            ./tracker-cli status --app app-037
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Agent Protocol & Integration Guide -->
+  <section id="agent-guide" class="py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10">
+        <span class="text-purple-400 text-xs font-semibold uppercase tracking-wider">AI Coding Agents</span>
+        <h2 class="text-3xl font-bold text-white mt-1">How AI Agents Use This Directly from GitHub</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Coding agents (Codex, Claude, Cursor, Antigravity) running in any folder can reuse modules directly without rewriting code.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        
+        <!-- Step 1 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">1</span>
+            <h4 class="font-bold text-white">Initialize in any External Project Folder</h4>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Run the global factory helper to generate the local <code class="text-blue-400">AGENTS.md</code> in your new app folder:
+          </p>
+          <div class="bg-slate-950 rounded-lg p-3 font-mono text-xs text-slate-300 border border-slate-800 flex justify-between items-center">
+            <code>factory-pull setup-agent</code>
+            <button onclick="copyToClipboard('factory-pull setup-agent', this)" class="text-slate-400 hover:text-white">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+          <p class="text-xs text-slate-400">
+            This instructs the AI agent on the Core Rule: <b class="text-slate-200">Reuse first, build second</b>.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+            <h4 class="font-bold text-white">Direct Flutter Git Dependency (pubspec.yaml)</h4>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            The agent links modules directly from your GitHub repo without copying files:
+          </p>
+          <div class="bg-slate-950 rounded-lg p-3 font-mono text-xs text-slate-300 border border-slate-800 space-y-1">
+            <span class="text-slate-500"># In pubspec.yaml</span><br>
+            <span class="text-blue-400">mod_09_auth_module</span>:<br>
+            &nbsp;&nbsp;<span class="text-purple-400">git</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;url: https://github.com/sh15aa/Appreusable.git<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;path: modules/mod_09_auth_module<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;ref: main
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="flex items-center space-x-2">
+        <span class="text-lg">🚀</span>
+        <span class="font-bold text-slate-300">Mobile Product Factory</span>
+        <span>• 163 Enterprise Modules</span>
+      </div>
+      <div>
+        Created & Maintained by: <a href="mailto:foundershivanand@gmail.com" class="text-blue-400 hover:underline">foundershivanand@gmail.com</a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/sh15aa/Appreusable" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="github" class="w-4 h-4"></i> GitHub Repository
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: View Module README / Details -->
+  <div id="readmeModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+        <div class="flex items-center gap-3">
+          <span class="p-2 rounded bg-blue-950 text-blue-400 border border-blue-800/50">
+            <i data-lucide="file-code" class="w-5 h-5"></i>
+          </span>
+          <div>
+            <h3 id="modalTitle" class="text-lg font-bold text-white">Module Documentation</h3>
+            <span id="modalPath" class="text-xs font-mono text-slate-400">modules/mod_09_auth_module</span>
+          </div>
+        </div>
+        <button onclick="closeReadmeModal()" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modalBody" class="p-6 overflow-y-auto custom-scrollbar prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed space-y-4">
+        <!-- Rendered markdown here -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-800 bg-slate-950 flex flex-wrap items-center justify-between gap-3">
+        <div id="modalGitSnippet" class="text-xs font-mono text-slate-400 truncate max-w-md"></div>
+        <div class="flex items-center gap-2">
+          <button id="modalCopyBtn" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Dependency
+          </button>
+          <button onclick="closeReadmeModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium px-4 py-2 rounded-lg border border-slate-700 transition">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: PDF In-Browser Previewer -->
+  <div id="pdfModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-black/85 backdrop-blur-sm">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-5xl h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-emerald-400"></i>
+          <h3 id="pdfModalTitle" class="text-base font-bold text-white">Document Preview</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <a id="pdfModalDownloadBtn" href="#" download class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF
+          </a>
+          <button onclick="closePdfModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+      <!-- PDF Embed Body -->
+      <div class="flex-1 bg-slate-950 p-1">
+        <iframe id="pdfIframe" src="" class="w-full h-full rounded border-0" title="PDF Document Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: All Links Hub (Ecosystem & Factory Portals) -->
+  <div id="allLinksModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in duration-200">
+      
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+        <div class="flex items-center gap-3">
+          <span class="p-2.5 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/30 text-purple-400 border border-purple-500/40">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+          </span>
+          <div>
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              All Links & Ecosystem Portals
+              <span class="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-800/60">6 Live Portals</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Direct access to all factories, idea discovery hubs, and master management systems.</p>
+          </div>
+        </div>
+        <button onclick="closeAllLinksModal()" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (List of 6 Links) -->
+      <div class="p-5 overflow-y-auto custom-scrollbar space-y-3.5 bg-slate-900/60">
+        
+        <!-- Link 1: Product Hub -->
+        <a href="https://project-manage-z6u.pages.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-blue-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-blue-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-blue-950/70 border border-blue-800/50 text-blue-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="kanban-square" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-blue-400 transition text-sm sm:text-base">
+                    Product Hub — 96 Projects & Master Launch OS
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/60 shrink-0">Pages</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  Central portfolio command center managing 96 projects, operational roadmaps, release gates, and launch milestones.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-blue-400/90">
+                  <span>https://project-manage-z6u.pages.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 2: Finder -->
+        <a href="https://finder-d17.pages.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-emerald-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-emerald-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-emerald-950/70 border border-emerald-800/50 text-emerald-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="compass" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-emerald-400 transition text-sm sm:text-base">
+                    Finder — Startup & App Ideas
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60 shrink-0">Pages</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  Market discovery engine, startup opportunity scoring, competitive density evaluation, and problem-validation database.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400/90">
+                  <span>https://finder-d17.pages.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 3: Bot Product Factory -->
+        <a href="https://botserusable.pages.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-amber-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-amber-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-amber-950/70 border border-amber-800/50 text-amber-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="cpu" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-amber-400 transition text-sm sm:text-base">
+                    Enterprise Bot Product Factory
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60 shrink-0">Pages</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  Hardened, reusable bots library for automated workflows, Discord/Telegram/Slack integrations, and webhook handlers.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-amber-400/90">
+                  <span>https://botserusable.pages.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 4: AI Agent Product Factory -->
+        <a href="https://agentsreusable.pages.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-purple-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-purple-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-purple-950/70 border border-purple-800/50 text-purple-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="bot" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-purple-400 transition text-sm sm:text-base">
+                    AI Agent Product Factory
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800/60 shrink-0">Pages</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  Autonomous AI agent harnesses, multi-agent coordination frameworks, tool calling modules, and prompt memory systems.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-purple-400/90">
+                  <span>https://agentsreusable.pages.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 5: Personal Product Factory Worker -->
+        <a href="https://reusable-library.foundershivanand.workers.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-cyan-950/70 border border-cyan-800/50 text-cyan-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-cyan-400 transition text-sm sm:text-base">
+                    Personal Product Factory (Worker Portal)
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/60 shrink-0">Workers</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  High-performance Cloudflare Edge Worker serving reusable code endpoints, serverless utilities, and API microservices.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-cyan-400/90">
+                  <span>https://reusable-library.foundershivanand.workers.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 6: AI Mentor Operating System -->
+        <a href="https://mentor-api.foundershivanand.workers.dev/" target="_blank" rel="noopener noreferrer" 
+           class="group block bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-orange-500/60 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:shadow-orange-950/30">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-lg bg-orange-950/70 border border-orange-800/50 text-orange-400 shrink-0 mt-0.5 group-hover:scale-105 transition">
+                <i data-lucide="swords" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-white group-hover:text-orange-400 transition text-sm sm:text-base">
+                    AI Mentor Operating System
+                  </h4>
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-orange-950 text-orange-400 border border-orange-800/60 shrink-0">Workers</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-2">
+                  Adversarial practice arena, 15 skills taxonomy, Socratic sparring, and gamified performance system backed by Turso & Cloudflare Edge.
+                </p>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-orange-400/90">
+                  <span>https://mentor-api.foundershivanand.workers.dev/</span>
+                </div>
+              </div>
+            </div>
+            <div class="shrink-0 p-2 text-slate-500 group-hover:text-orange-400 group-hover:translate-x-0.5 transition">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
+        <span class="text-xs text-slate-500">
+          Account: <span class="text-slate-400 font-mono">foundershivanand@gmail.com</span>
+        </span>
+        <button onclick="closeAllLinksModal()" 
+                class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium px-4 py-2 rounded-lg border border-slate-700 transition cursor-pointer">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Data Script -->
+  <script src="modules-data.js"></script>
+
+  <!-- Interactive Logic -->
+  <script>
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function renderModules() {
+      const grid = document.getElementById('modulesGrid');
+      const noResults = document.getElementById('noResults');
+      const badge = document.getElementById('moduleCountBadge');
+      
+      const filtered = (window.MODULES || []).filter(m => {
+        const matchesCat = (activeCategory === 'all') || (m.category === activeCategory);
+        if (!matchesCat) return false;
+
+        if (!searchQuery) return true;
+        const text = `${m.id} ${m.name} ${m.description} ${(m.tags || []).join(' ')} ${(m.capabilities || []).join(' ')}`.toLowerCase();
+        return text.includes(searchQuery);
+      });
+
+      badge.textContent = `${filtered.length} of ${window.MODULES ? window.MODULES.length : 163}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(m => {
+        const platformBadge = m.platform === 'flutter' 
+          ? '<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-950 text-sky-400 border border-sky-800/60">Flutter</span>'
+          : '<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-950 text-amber-400 border border-amber-800/60">Python</span>';
+
+        const numBadge = `<span class="text-xs font-mono font-bold text-slate-400">#${String(m.number).padStart(2, '0')}</span>`;
+
+        const caps = (m.capabilities || []).slice(0, 2).map(c => 
+          `<li class="truncate text-slate-400 text-xs flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-blue-500"></span>${c.replace(/\\*\\*/g, '')}</li>`
+        ).join('');
+
+        return `
+          <div class="bg-slate-900/90 border border-slate-800 hover:border-slate-700 rounded-xl p-5 flex flex-col justify-between transition group hover:shadow-xl hover:shadow-blue-950/20">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  ${numBadge}
+                  ${platformBadge}
+                </div>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-1.5 py-0.5 rounded">Ready</span>
+              </div>
+
+              <h4 class="text-base font-bold text-white group-hover:text-blue-400 transition mb-1 leading-snug">
+                ${m.name}
+              </h4>
+              <p class="text-xs font-mono text-slate-500 mb-2.5">${m.id}</p>
+
+              <p class="text-slate-400 text-xs line-clamp-2 mb-3 leading-relaxed">
+                ${m.description || m.name}
+              </p>
+
+              ${caps ? `<ul class="space-y-1 mb-4 border-t border-slate-800/80 pt-2.5">${caps}</ul>` : ''}
+            </div>
+
+            <div class="pt-3 border-t border-slate-800/80 flex items-center gap-2">
+              <button onclick="openReadmeModal('${m.id}')" 
+                      class="flex-1 inline-flex items-center justify-center gap-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium py-1.5 px-3 rounded-lg border border-slate-700 transition">
+                <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i> View Docs
+              </button>
+              <button onclick="copySnippet('${m.id}', this)" title="Copy pubspec dependency"
+                      class="inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium p-2 rounded-lg border border-slate-700 transition">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = 'cat-pill active px-3 py-1.5 rounded-lg bg-blue-600 text-white font-medium transition';
+        } else {
+          btn.className = 'cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition';
+        }
+      });
+      renderModules();
+    }
+
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      if (searchQuery) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderModules();
+    });
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchQuery = '';
+      clearBtn.classList.add('hidden');
+      renderModules();
+    }
+
+    function openReadmeModal(modId) {
+      const modal = document.getElementById('readmeModal');
+      const title = document.getElementById('modalTitle');
+      const pathEl = document.getElementById('modalPath');
+      const body = document.getElementById('modalBody');
+      const snippet = document.getElementById('modalGitSnippet');
+      const copyBtn = document.getElementById('modalCopyBtn');
+
+      const m = (window.MODULES || []).find(x => x.id === modId);
+      const doc = (window.MODULE_DOCS || {})[modId] || `# ${modId}\nNo documentation available.`;
+
+      title.textContent = m ? m.name : modId;
+      pathEl.textContent = `modules/${modId}`;
+      snippet.textContent = `${modId}: { git: { url: 'https://github.com/sh15aa/Appreusable.git', path: 'modules/${modId}' } }`;
+
+      body.innerHTML = marked.parse(doc);
+
+      copyBtn.onclick = function() {
+        const snippetText = `${modId}:\n  git:\n    url: https://github.com/sh15aa/Appreusable.git\n    path: modules/${modId}\n    ref: main`;
+        copyToClipboard(snippetText, copyBtn);
+      };
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeReadmeModal() {
+      document.getElementById('readmeModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function previewPdf(pdfPath, title) {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfIframe');
+      const titleEl = document.getElementById('pdfModalTitle');
+      const dlBtn = document.getElementById('pdfModalDownloadBtn');
+
+      titleEl.textContent = title;
+      iframe.src = pdfPath;
+      dlBtn.href = pdfPath;
+      dlBtn.download = pdfPath.split('/').pop();
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closePdfModal() {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfIframe');
+      iframe.src = '';
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function copySnippet(modId, btn) {
+      const snippetText = `${modId}:\n  git:\n    url: https://github.com/sh15aa/Appreusable.git\n    path: modules/${modId}\n    ref: main`;
+      copyToClipboard(snippetText, btn);
+    }
+
+    function copyToClipboard(text, el) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = el.innerHTML;
+        el.innerHTML = '<span class="text-emerald-400 font-bold">✓ Copied!</span>';
+        setTimeout(() => {
+          el.innerHTML = original;
+          lucide.createIcons();
+        }, 2000);
+      });
+    }
+
+    function openAllLinksModal() {
+      const modal = document.getElementById('allLinksModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeAllLinksModal() {
+      const modal = document.getElementById('allLinksModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeReadmeModal();
+        closePdfModal();
+        closeAllLinksModal();
+      }
+    });
+
+    // Close modals on backdrop click
+    document.getElementById('readmeModal').addEventListener('click', (e) => {
+      if (e.target.id === 'readmeModal') closeReadmeModal();
+    });
+    document.getElementById('pdfModal').addEventListener('click', (e) => {
+      if (e.target.id === 'pdfModal') closePdfModal();
+    });
+    document.getElementById('allLinksModal').addEventListener('click', (e) => {
+      if (e.target.id === 'allLinksModal') closeAllLinksModal();
+    });
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderModules();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

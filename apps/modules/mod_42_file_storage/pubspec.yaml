@@ -1,0 +1,10 @@
+name: mod_42_file_storage
+description: Secure file upload manager with presigned URLs, chunking, and MIME validation.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

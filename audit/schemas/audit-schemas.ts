@@ -81,7 +81,7 @@ export const CreateAuditLogInputSchema = z.object({
   afterState: z.record(z.string(), z.any()).optional(),
   metadata: z.record(z.string(), z.any()).default({})
 });
-export type CreateAuditLogInput = z.infer<typeof CreateAuditLogInputSchema>;
+export type CreateAuditLogInput = z.input<typeof CreateAuditLogInputSchema>;
 
 export const AuditQueryFilterSchema = z.object({
   tenantId: z.string().min(1),

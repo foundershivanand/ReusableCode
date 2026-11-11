@@ -48,13 +48,15 @@ export class InMemorySearchRepository implements ISearchRepository {
       if (input.typeFilter && doc.type !== input.typeFilter) continue;
 
       // 1. Role-based permission check
-      if (doc.allowedRoles.length > 0) {
-        const hasRole = doc.allowedRoles.some((r) => userRoles.has(r));
+      const allowedRoles = doc.allowedRoles ?? [];
+      if (allowedRoles.length > 0) {
+        const hasRole = allowedRoles.some((r) => userRoles.has(r));
         if (!hasRole) continue;
       }
 
       // 2. User-specific permission check
-      if (doc.allowedUserIds.length > 0 && !doc.allowedUserIds.includes(input.userId)) {
+      const allowedUserIds = doc.allowedUserIds ?? [];
+      if (allowedUserIds.length > 0 && !allowedUserIds.includes(input.userId)) {
         continue;
       }
 
@@ -79,7 +81,8 @@ export class InMemorySearchRepository implements ISearchRepository {
           url: doc.url
         });
 
-        if (matches.length >= input.limit) break;
+        const limit = input.limit ?? 20;
+        if (matches.length >= limit) break;
       }
     }
 

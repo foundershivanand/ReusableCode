@@ -82,7 +82,7 @@ export const MeterEventIngestSchema = z.object({
   timestamp: z.string().datetime().default(() => new Date().toISOString()),
   metadata: z.record(z.string(), z.unknown()).default({}),
 });
-export type MeterEventIngest = z.infer<typeof MeterEventIngestSchema>;
+export type MeterEventIngest = z.input<typeof MeterEventIngestSchema>;
 
 export const ReserveCreditsSchema = z.object({
   tenantId: z.string().min(1),
@@ -91,7 +91,7 @@ export const ReserveCreditsSchema = z.object({
   ttlSeconds: z.number().int().positive().default(300),
   metadata: z.record(z.string(), z.unknown()).default({}),
 });
-export type ReserveCreditsInput = z.infer<typeof ReserveCreditsSchema>;
+export type ReserveCreditsInput = z.input<typeof ReserveCreditsSchema>;
 
 export const SettleCreditsSchema = z.object({
   reservationId: z.string().uuid(),
@@ -99,13 +99,13 @@ export const SettleCreditsSchema = z.object({
   pricingVersion: z.string().default("v1"),
   metadata: z.record(z.string(), z.unknown()).default({}),
 });
-export type SettleCreditsInput = z.infer<typeof SettleCreditsSchema>;
+export type SettleCreditsInput = z.input<typeof SettleCreditsSchema>;
 
 export const ReleaseCreditsSchema = z.object({
   reservationId: z.string().uuid(),
   reason: z.string().min(1).default("Operation cancelled or failed"),
 });
-export type ReleaseCreditsInput = z.infer<typeof ReleaseCreditsSchema>;
+export type ReleaseCreditsInput = z.input<typeof ReleaseCreditsSchema>;
 
 export const AutoRechargeConfigSchema = z.object({
   tenantId: z.string().min(1),

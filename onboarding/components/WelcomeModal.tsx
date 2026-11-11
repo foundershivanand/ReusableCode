@@ -41,6 +41,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
       window.addEventListener("keydown", handleKeyDown);
       return () => window.removeEventListener("keydown", handleKeyDown);
     }
+    return undefined;
   }, [isOpen, handleKeyDown]);
 
   if (!isOpen) return null;

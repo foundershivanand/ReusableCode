@@ -1,0 +1,13 @@
+{
+  "android_devices": [
+    {"model": "Pixel7", "version": "33", "locale": "en", "orientation": "portrait"},
+    {"model": "GalaxyS21", "version": "31", "locale": "en", "orientation": "portrait"},
+    {"model": "RedmiNote11", "version": "31", "locale": "en", "orientation": "portrait"},
+    {"model": "Nexus9_Tablet", "version": "28", "locale": "en", "orientation": "landscape"}
+  ],
+  "ios_devices": [
+    {"model": "iPhone14Pro", "version": "17.0", "locale": "en"},
+    {"model": "iPhoneSE3rdGen", "version": "16.0", "locale": "en"},
+    {"model": "iPadPro12_9", "version": "17.0", "locale": "en"}
+  ]
+}

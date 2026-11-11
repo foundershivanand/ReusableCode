@@ -1,0 +1,7 @@
+{
+  "subnets": [
+    {"name": "public", "cidr": "10.0.1.0/24", "internet_gateway": true},
+    {"name": "private_api", "cidr": "10.0.10.0/24", "nat_gateway": true},
+    {"name": "isolated_db", "cidr": "10.0.20.0/24", "internet_access": false}
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "repository": "https://github.com/sh15aa/agentreusable",
+  "library_name": "agentsreusable",
+  "package": "agentsreusable",
+  "install_command": "pip install git+https://github.com/sh15aa/agentreusable.git",
+  "uv_install_command": "uv add git+https://github.com/sh15aa/agentreusable.git",
+  "total_modules": 40,
+  "categories": [
+    "factory",
+    "core",
+    "memory",
+    "tools",
+    "orchestration",
+    "validation",
+    "observability",
+    "evaluation",
+    "api",
+    "templates"
+  ],
+  "modules": [
+    {
+      "id": "factory.master",
+      "name": "Master Agent Factory",
+      "category": "factory",
+      "path": "agent_factory/factory.py",
+      "status": "stable",
+      "description": "Master builder for assembling full production agent instances from identity, gateway, memory, tools, and security layers.",
+      "exports": [
+        "AgentFactory",
+        "AgentInstance"
+      ],
+      "usage_example": "from agent_factory.factory import AgentFactory\nagent = AgentFactory.create_agent(config, manifest, gateway=gateway, tools=tool_registry)"
+    },
+    {
+      "id": "core.identity",
+      "name": "Agent Identity & Configuration",
+      "category": "core",
+      "path": "agent_factory/core/identity.py",
+      "status": "stable",
+      "description": "Agent identity specifications, manifests, environment configurations, and cost/retry policies.",
+      "exports": [
+        "AgentIdentity",
+        "AgentConfig",
+        "AgentManifest",
+        "AgentStatus",
+        "AgentEnvironment"
+      ],
+      "usage_example": "from agent_factory.core.identity import AgentIdentity, AgentConfig, AgentManifest\nidentity = AgentIdentity(agent_id='agent-01', name='Researcher')"
+    },
+    {
+      "id": "core.gateway",
+      "name": "LLM Gateway & Multi-Provider Router",
+      "category": "core",
+      "path": "agent_factory/core/gateway.py",
+      "status": "stable",
+      "description": "Unified LLM gateway with model routing by task complexity, multi-provider fallbacks, streaming, and tool call normalization.",
+      "exports": [
+        "LLMGateway",
+        "ModelRouter",
+        "LLMRequest",
+        "LLMResponse",
+        "TaskComplexity",
+        "MockProvider",
+        "OpenAICompatibleProvider"
+      ],
+      "usage_example": "from agent_factory.core.gateway import LLMGateway, LLMRequest, TaskComplexity\ngateway = LLMGateway()\nres = await gateway.complete(LLMRequest(messages=[...], complexity=TaskComplexity.SIMPLE))"
+    },
+    {
+      "id": "core.cost",
+      "name": "Token Tracker & Cost Economics",
+      "category": "core",
+      "path": "agent_factory/core/cost.py",
+      "status": "stable",
+      "description": "Token usage tracking, multi-model pricing economics, per-run cost recording, and budget limit enforcement.",
+      "exports": [
+        "CostManager",
+        "TokenUsage",
+        "ModelPricing",
+        "ExecutionCostRecord"
+      ],
+      "usage_example": "from agent_factory.core.cost import CostManager\ncost_mgr = CostManager()\ncost_mgr.record_usage('gpt-4o', prompt_tokens=150, completion_tokens=50)"
+    },
+    {
+      "id": "core.prompt",
+      "name": "Prompt Manager & Injection Defense",
+      "category": "core",
+      "path": "agent_factory/core/prompt.py",
+      "status": "stable",
+      "description": "Dynamic prompt template compilation, versioning, canary tokens for system prompt leakage detection, and prompt injection filtering.",
+      "exports": [
+        "PromptManager",
+        "PromptTemplate",
+        "PromptInjectionDefense",
+        "PromptVersion"
+      ],
+      "usage_example": "from agent_factory.core.prompt import PromptManager, PromptInjectionDefense\nprompt_mgr = PromptManager()\ndefense = PromptInjectionDefense()"
+    },
+    {
+      "id": "core.reliability",
+      "name": "Reliability, Loop Detection & Idempotency",
+      "category": "core",
+      "path": "agent_factory/core/reliability.py",
+      "status": "stable",
+      "description": "Exponential backoff retries, cycle/loop detection, execution resource bounds, and idempotency guarantees.",
+      "exports": [
+        "RetryPolicy",
+        "LoopDetector",
+        "ResourceLimits",
+        "IdempotencyManager"
+      ],
+      "usage_example": "from agent_factory.core.reliability import LoopDetector, ResourceLimits\ndetector = LoopDetector(threshold=3)\ndetector.record_step('action_hash')"
+    },
+    {
+      "id": "core.security",
+      "name": "Security, RBAC & Secret Isolation",
+      "category": "core",
+      "path": "agent_factory/core/security.py",
+      "status": "stable",
+      "description": "Role-based access control, tool risk categorization (LOW, MEDIUM, HIGH, CRITICAL), SSRF IP/domain validation, and zero-leak secret isolation.",
+      "exports": [
+        "RiskLevel",
+        "TenantContext",
+        "ToolPermission",
+        "SSRFValidator",
+        "SecretStore"
+      ],
+      "usage_example": "from agent_factory.core.security import RiskLevel, SSRFValidator, SecretStore\nSSRFValidator.validate_url('https://api.github.com')"
+    },
+    {
+      "id": "core.state",
+      "name": "Agent Execution State & Persistence",
+      "category": "core",
+      "path": "agent_factory/core/state.py",
+      "status": "stable",
+      "description": "Execution context state machine, step tracking, intermediate results, and checkpoint persistence.",
+      "exports": [
+        "ExecutionContext",
+        "AgentStateEnum",
+        "StepResult",
+        "StepStatus"
+      ],
+      "usage_example": "from agent_factory.core.state import ExecutionContext\nctx = ExecutionContext(run_id='run-123')"
+    },
+    {
+      "id": "core.lifecycle",
+      "name": "Agent Versioning & Canary Rollout",
+      "category": "core",
+      "path": "agent_factory/core/lifecycle.py",
+      "status": "stable",
+      "description": "Semantic agent version management, canary traffic splitting, and automated rollback on regression.",
+      "exports": [
+        "CanaryDeploymentManager",
+        "VersionedAgentRecord",
+        "DeploymentStatus"
+      ],
+      "usage_example": "from agent_factory.core.lifecycle import CanaryDeploymentManager\ncanary = CanaryDeploymentManager()"
+    },
+    {
+      "id": "memory.conversation",
+      "name": "Conversation Engine & Multi-turn Threads",
+      "category": "memory",
+      "path": "agent_factory/memory/conversation.py",
+      "status": "stable",
+      "description": "Multi-turn conversation management, message history formatting, and automated context compaction for large dialogues.",
+      "exports": [
+        "ConversationEngine",
+        "ConversationMessage",
+        "ConversationThread"
+      ],
+      "usage_example": "from agent_factory.memory.conversation import ConversationEngine\nconv = ConversationEngine()\nconv.add_user_message('thread-1', 'Hello')"
+    },
+    {
+      "id": "memory.working",
+      "name": "Working Memory & Scratchpad",
+      "category": "memory",
+      "path": "agent_factory/memory/working.py",
+      "status": "stable",
+      "description": "Short-term scratchpad memory storing active goals, discovered findings, completed steps, and task scratchpad notes.",
+      "exports": [
+        "WorkingMemory"
+      ],
+      "usage_example": "from agent_factory.memory.working import WorkingMemory\nwm = WorkingMemory(objective='Analyze data')\nwm.add_finding('Key insight found')"
+    },
+    {
+      "id": "memory.semantic",
+      "name": "Semantic Memory & Vector Retrieval",
+      "category": "memory",
+      "path": "agent_factory/memory/semantic.py",
+      "status": "stable",
+      "description": "In-memory semantic vector store, text chunking, and cosine similarity ranking for agent knowledge.",
+      "exports": [
+        "SemanticMemory",
+        "MemoryChunk",
+        "SimpleEmbeddingProvider",
+        "cosine_similarity"
+      ],
+      "usage_example": "from agent_factory.memory.semantic import SemanticMemory\nsm = SemanticMemory()\nawait sm.store('text document', metadata={'source': 'doc1'})\nresults = await sm.search('query', top_k=3)"
+    },
+    {
+      "id": "memory.episodic",
+      "name": "Episodic Memory & Experience Learning",
+      "category": "memory",
+      "path": "agent_factory/memory/episodic.py",
+      "status": "stable",
+      "description": "Stores historical task execution episodes, failures, successes, and derived lessons learned for future task improvement.",
+      "exports": [
+        "EpisodicMemory",
+        "Episode"
+      ],
+      "usage_example": "from agent_factory.memory.episodic import EpisodicMemory, Episode\nem = EpisodicMemory()\nem.record_episode(Episode(task='deploy', outcome='success', lessons=['always check env vars']))"
+    },
+    {
+      "id": "memory.rag",
+      "name": "Hybrid RAG Engine (BM25 + Dense Vectors)",
+      "category": "memory",
+      "path": "agent_factory/memory/rag.py",
+      "status": "stable",
+      "description": "Hybrid retrieval augmented generation combining lexical BM25 indexing with dense semantic vector search and reciprocal rank fusion.",
+      "exports": [
+        "RAGEngine",
+        "BM25Index",
+        "KnowledgeBase",
+        "RAGSearchResult"
+      ],
+      "usage_example": "from agent_factory.memory.rag import RAGEngine\nrag = RAGEngine()\nawait rag.ingest_documents([{'content': 'AI agent guide', 'id': 'doc1'}])\nresults = await rag.query('agent architecture')"
+    },
+    {
+      "id": "memory.governance",
+      "name": "Memory Governance, PII Redaction & Context Builder",
+      "category": "memory",
+      "path": "agent_factory/memory/governance.py",
+      "status": "stable",
+      "description": "PII scrubbing (emails, credit cards, phones, SSNs), TTL retention pruning, and assembled context token budgeting.",
+      "exports": [
+        "MemoryGovernance",
+        "ContextBuilder"
+      ],
+      "usage_example": "from agent_factory.memory.governance import MemoryGovernance, ContextBuilder\nscrubbed = MemoryGovernance.redact_pii('Contact john@example.com')"
+    },
+    {
+      "id": "tools.registry",
+      "name": "Central Tool Registry & Dispatcher",
+      "category": "tools",
+      "path": "agent_factory/tools/registry.py",
+      "status": "stable",
+      "description": "Central registry registering tools, generating standardized JSON tool schemas for LLMs, checking permissions, and dispatching execution.",
+      "exports": [
+        "ToolRegistry"
+      ],
+      "usage_example": "from agent_factory.tools.registry import ToolRegistry\nregistry = ToolRegistry()\nregistry.register(my_tool)\nschemas = registry.get_schemas()"
+    },
+    {
+      "id": "tools.base",
+      "name": "Base Tool Contract & Specification",
+      "category": "tools",
+      "path": "agent_factory/tools/base.py",
+      "status": "stable",
+      "description": "Abstract base class for all tools with JSON schema extraction, risk levels, and standardized ToolExecutionResult wrapper.",
+      "exports": [
+        "BaseTool",
+        "ToolExecutionResult"
+      ],
+      "usage_example": "from agent_factory.tools.base import BaseTool, ToolExecutionResult\nclass MyTool(BaseTool): ..."
+    },
+    {
+      "id": "tools.approval",
+      "name": "Human Approval & HITL Workflows",
+      "category": "tools",
+      "path": "agent_factory/tools/approval.py",
+      "status": "stable",
+      "description": "Human-in-the-loop approval queue intercepting HIGH and CRITICAL risk tool executions before dispatch.",
+      "exports": [
+        "HumanApprovalQueue",
+        "ApprovalRequest",
+        "ApprovalStatus"
+      ],
+      "usage_example": "from agent_factory.tools.approval import HumanApprovalQueue\nqueue = HumanApprovalQueue()\nreq = queue.request_approval(tool_name='delete_database', args={...})"
+    },
+    {
+      "id": "tools.builtins.search",
+      "name": "Web Search Tool",
+      "category": "tools",
+      "path": "agent_factory/tools/builtins/search.py",
+      "status": "stable",
+      "description": "Structured search tool for external information gathering with query parameters, filtering, and result summaries.",
+      "exports": [
+        "WebSearchTool",
+        "SearchInput",
+        "SearchResultItem",
+        "SearchOutput"
+      ],
+      "usage_example": "from agent_factory.tools.builtins.search import WebSearchTool\nsearch = WebSearchTool()\nresult = await search.execute(query='latest python features')"
+    },
+    {
+      "id": "tools.builtins.browser",
+      "name": "Browser Action Tool with SSRF Defense",
+      "category": "tools",
+      "path": "agent_factory/tools/builtins/browser.py",
+      "status": "stable",
+      "description": "Web browser automation tool with URL sanitization, domain allow/deny list, and private network SSRF defenses.",
+      "exports": [
+        "BrowserTool",
+        "BrowserActionInput",
+        "BrowserActionOutput"
+      ],
+      "usage_example": "from agent_factory.tools.builtins.browser import BrowserTool\nbrowser = BrowserTool()\npage = await browser.execute(url='https://example.com')"
+    },
+    {
+      "id": "tools.builtins.code_exec",
+      "name": "Hardened Python Sandbox Tool",
+      "category": "tools",
+      "path": "agent_factory/tools/builtins/code_exec.py",
+      "status": "stable",
+      "description": "AST-inspected, isolated Python code execution tool restricting dangerous builtins, modules, and excessive CPU/memory runtime.",
+      "exports": [
+        "PythonSandboxTool",
+        "CodeExecutionInput",
+        "CodeExecutionOutput"
+      ],
+      "usage_example": "from agent_factory.tools.builtins.code_exec import PythonSandboxTool\nsandbox = PythonSandboxTool()\nres = await sandbox.execute(code='result = [x**2 for x in range(10)]')"
+    },
+    {
+      "id": "tools.builtins.files",
+      "name": "Document & File Processing Tool",
+      "category": "tools",
+      "path": "agent_factory/tools/builtins/files.py",
+      "status": "stable",
+      "description": "File parser and reader supporting text, markdown, CSV, JSON, and PDF text extraction with strict path traversal prevention.",
+      "exports": [
+        "FileProcessingTool",
+        "FileParseInput",
+        "FileParseOutput"
+      ],
+      "usage_example": "from agent_factory.tools.builtins.files import FileProcessingTool\nfiles = FileProcessingTool()\ncontent = await files.execute(file_path='data/report.json')"
+    },
+    {
+      "id": "orchestration.planner",
+      "name": "Planning Engine & Task Decomposition",
+      "category": "orchestration",
+      "path": "agent_factory/orchestration/planner.py",
+      "status": "stable",
+      "description": "Breaks complex user goals into sequential/parallel dependency DAG steps, handles dynamic re-planning on step failures.",
+      "exports": [
+        "PlanningEngine",
+        "Plan",
+        "PlanStep"
+      ],
+      "usage_example": "from agent_factory.orchestration.planner import PlanningEngine\nplanner = PlanningEngine(gateway=gateway)\nplan = await planner.create_plan('Build customer support workflow')"
+    },
+    {
+      "id": "orchestration.workflow",
+      "name": "Workflow Execution Engine (DAG Orchestrator)",
+      "category": "orchestration",
+      "path": "agent_factory/orchestration/workflow.py",
+      "status": "stable",
+      "description": "Directed acyclic graph execution engine supporting parallel branches, dependency resolution, error traps, and conditional routing.",
+      "exports": [
+        "WorkflowEngine"
+      ],
+      "usage_example": "from agent_factory.orchestration.workflow import WorkflowEngine\nengine = WorkflowEngine()\nres = await engine.execute_dag(dag_definition)"
+    },
+    {
+      "id": "orchestration.multi_agent",
+      "name": "Multi-Agent Orchestration & Supervisor",
+      "category": "orchestration",
+      "path": "agent_factory/orchestration/multi_agent.py",
+      "status": "stable",
+      "description": "Agent-to-agent communication protocol, message passing, peer collaboration, and hierarchical supervisor orchestration.",
+      "exports": [
+        "MultiAgentOrchestrator",
+        "SupervisorAgent",
+        "AgentMessage",
+        "AgentMessageType"
+      ],
+      "usage_example": "from agent_factory.orchestration.multi_agent import MultiAgentOrchestrator, SupervisorAgent\nsupervisor = SupervisorAgent(workers=[worker1, worker2])"
+    },
+    {
+      "id": "orchestration.events",
+      "name": "Event Bus, Trigger Engine & Job Queue",
+      "category": "orchestration",
+      "path": "agent_factory/orchestration/events.py",
+      "status": "stable",
+      "description": "Asynchronous publish-subscribe event bus, event triggers for automated agent dispatch, and background job queuing.",
+      "exports": [
+        "EventBus",
+        "BackgroundJobQueue",
+        "AgentEvent"
+      ],
+      "usage_example": "from agent_factory.orchestration.events import EventBus, AgentEvent\nbus = EventBus()\nbus.subscribe('order.created', handler_fn)"
+    },
+    {
+      "id": "validation.structured",
+      "name": "Structured Output Engine & Schema Enforcer",
+      "category": "validation",
+      "path": "agent_factory/validation/structured.py",
+      "status": "stable",
+      "description": "Extracts and validates JSON outputs against Pydantic models, automatically repairing broken JSON and syntax mismatches.",
+      "exports": [
+        "StructuredOutputEngine"
+      ],
+      "usage_example": "from agent_factory.validation.structured import StructuredOutputEngine\nvalidator = StructuredOutputEngine()\nmodel_obj = validator.parse_and_validate(raw_llm_text, target_pydantic_cls)"
+    },
+    {
+      "id": "validation.verification",
+      "name": "Self-Verification & Fact Checking",
+      "category": "validation",
+      "path": "agent_factory/validation/verification.py",
+      "status": "stable",
+      "description": "Multi-pass verification validating LLM responses against source material, checking hallucinations and factual alignment.",
+      "exports": [
+        "SelfVerificationEngine",
+        "VerificationResult",
+        "FactVerificationItem"
+      ],
+      "usage_example": "from agent_factory.validation.verification import SelfVerificationEngine\nverifier = SelfVerificationEngine(gateway=gateway)\nresult = await verifier.verify_claims(answer, context_docs)"
+    },
+    {
+      "id": "validation.citations",
+      "name": "Citation Engine & Source Provenance",
+      "category": "validation",
+      "path": "agent_factory/validation/citations.py",
+      "status": "stable",
+      "description": "Maps claims and generated statements back to verified document source IDs, line ranges, or URLs.",
+      "exports": [
+        "CitationEngine",
+        "Citation"
+      ],
+      "usage_example": "from agent_factory.validation.citations import CitationEngine\ncitations = CitationEngine()\nannotated = citations.link_citations(generated_text, retrieved_sources)"
+    },
+    {
+      "id": "observability.tracer",
+      "name": "Distributed Tracing & Span Trees",
+      "category": "observability",
+      "path": "agent_factory/observability/tracer.py",
+      "status": "stable",
+      "description": "Hierarchical span tracing for agent thought loops, LLM calls, tool executions, and timing diagnostics.",
+      "exports": [
+        "Tracer",
+        "Span"
+      ],
+      "usage_example": "from agent_factory.observability.tracer import Tracer\ntracer = Tracer()\nwith tracer.start_span('agent_step'): ..."
+    },
+    {
+      "id": "observability.audit",
+      "name": "Security Audit Logging",
+      "category": "observability",
+      "path": "agent_factory/observability/audit.py",
+      "status": "stable",
+      "description": "Tamper-evident audit logging for tool executions, privilege elevations, policy rejections, and access logs.",
+      "exports": [
+        "AuditLogger",
+        "AuditRecord"
+      ],
+      "usage_example": "from agent_factory.observability.audit import AuditLogger\naudit = AuditLogger()\naudit.log_event(action='tool_call', user_id='usr_123', risk='MEDIUM')"
+    },
+    {
+      "id": "observability.metrics",
+      "name": "Operational Metrics & Analytics",
+      "category": "observability",
+      "path": "agent_factory/observability/metrics.py",
+      "status": "stable",
+      "description": "Tracks latency distributions, token usage, tool success/failure ratios, and cost velocity.",
+      "exports": [
+        "AgentAnalytics",
+        "AgentAnalyticsSnapshot"
+      ],
+      "usage_example": "from agent_factory.observability.metrics import AgentAnalytics\nanalytics = AgentAnalytics()\nsnapshot = analytics.get_snapshot()"
+    },
+    {
+      "id": "evaluation.dataset",
+      "name": "Golden Evaluation Datasets & Test Cases",
+      "category": "evaluation",
+      "path": "agent_factory/evaluation/dataset.py",
+      "status": "stable",
+      "description": "Golden test case schema, expected outputs, ground truth rubrics, and dataset serialization.",
+      "exports": [
+        "GoldenDataset",
+        "TestCase"
+      ],
+      "usage_example": "from agent_factory.evaluation.dataset import GoldenDataset, TestCase\nds = GoldenDataset(name='qa_tests')\nds.add_test(TestCase(prompt='...', expected='...'))"
+    },
+    {
+      "id": "evaluation.judge",
+      "name": "LLM-as-Judge & Rubric Scoring",
+      "category": "evaluation",
+      "path": "agent_factory/evaluation/judge.py",
+      "status": "stable",
+      "description": "Automated qualitative evaluation scoring agent outputs on accuracy, clarity, safety, and helpfulness (1-5 scale).",
+      "exports": [
+        "LLMAsJudge",
+        "JudgeScorecard"
+      ],
+      "usage_example": "from agent_factory.evaluation.judge import LLMAsJudge\njudge = LLMAsJudge(gateway=gateway)\nscorecard = await judge.evaluate(prompt, response, ground_truth)"
+    },
+    {
+      "id": "evaluation.regression",
+      "name": "Regression Benchmark Runner",
+      "category": "evaluation",
+      "path": "agent_factory/evaluation/regression.py",
+      "status": "stable",
+      "description": "Automated benchmark suite running GoldenDatasets against agent instances and generating pass/fail reports.",
+      "exports": [
+        "RegressionRunner",
+        "BenchmarkReport",
+        "CaseEvaluationReport"
+      ],
+      "usage_example": "from agent_factory.evaluation.regression import RegressionRunner\nrunner = RegressionRunner(agent_instance)\nreport = await runner.run_benchmark(golden_dataset)"
+    },
+    {
+      "id": "api.server",
+      "name": "Production FastAPI Agent Server",
+      "category": "api",
+      "path": "agent_factory/api/server.py",
+      "status": "stable",
+      "description": "REST API, Server-Sent Events (SSE) streaming endpoint, and webhook callback integration for agents.",
+      "exports": [
+        "RunAgentRequest",
+        "RunAgentResponse",
+        "ResolveApprovalRequest"
+      ],
+      "usage_example": "import uvicorn\n# Run with: uvicorn agent_factory.api.server:app --port 8000"
+    },
+    {
+      "id": "api.auth",
+      "name": "API Auth, Tenant Resolution & HMAC Webhooks",
+      "category": "api",
+      "path": "agent_factory/api/auth.py",
+      "status": "stable",
+      "description": "Bearer token authentication, multi-tenant isolation, rate limiting, and HMAC signature verification for webhooks.",
+      "exports": [
+        "RateLimiter",
+        "verify_webhook_signature"
+      ],
+      "usage_example": "from agent_factory.api.auth import RateLimiter, verify_webhook_signature\nlimiter = RateLimiter(requests_per_minute=60)"
+    },
+    {
+      "id": "templates.research_agent",
+      "name": "Deep Research Agent Template",
+      "category": "templates",
+      "path": "templates/research_agent.py",
+      "status": "stable",
+      "description": "Pre-configured ready-to-run Deep Web Search, Fact-Checking, and Citation Research Agent.",
+      "exports": [
+        "create_research_agent"
+      ],
+      "usage_example": "from templates.research_agent import create_research_agent\nagent = create_research_agent()\nresult = await agent.run('Investigate latest quantum computing breakthroughs')"
+    },
+    {
+      "id": "templates.content_agent",
+      "name": "Content Strategy Agent Template",
+      "category": "templates",
+      "path": "templates/content_agent.py",
+      "status": "stable",
+      "description": "Pre-configured Content Strategy, Tone-of-Voice, and SEO Writing Agent.",
+      "exports": [
+        "create_content_agent"
+      ],
+      "usage_example": "from templates.content_agent import create_content_agent\nagent = create_content_agent()\nresult = await agent.run('Draft product announcement blog post')"
+    },
+    {
+      "id": "templates.coding_agent",
+      "name": "Data Analysis & Coding Agent Template",
+      "category": "templates",
+      "path": "templates/coding_agent.py",
+      "status": "stable",
+      "description": "Pre-configured Python Sandbox, Data Analysis, and Code Execution Agent.",
+      "exports": [
+        "create_coding_agent"
+      ],
+      "usage_example": "from templates.coding_agent import create_coding_agent\nagent = create_coding_agent()\nresult = await agent.run('Calculate summary statistics from dataset')"
+    }
+  ]
+}

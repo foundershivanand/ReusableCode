@@ -64,6 +64,7 @@ export const MonitoringProvider: React.FC<MonitoringProviderProps> = ({
       }, pollIntervalMs);
       return () => clearInterval(interval);
     }
+    return undefined;
   }, [refreshHealth, refreshIncidents, pollIntervalMs]);
 
   return (

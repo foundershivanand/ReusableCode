@@ -1,0 +1,10 @@
+name: mod_10_authorization_system
+description: Zero-trust Role-Based Access Control (RBAC) and client-side capability enforcement engine.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

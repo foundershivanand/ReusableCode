@@ -21,7 +21,7 @@ export const CommandItemSchema = z.object({
   action: z.string().optional(), // action identifier or URL
   metadata: z.record(z.string(), z.any()).default({})
 });
-export type CommandItem = z.infer<typeof CommandItemSchema>;
+export type CommandItem = z.input<typeof CommandItemSchema>;
 
 export const SearchDocumentSchema = z.object({
   id: z.string().min(1),
@@ -36,7 +36,7 @@ export const SearchDocumentSchema = z.object({
   indexVersion: z.number().int().default(1),
   updatedAt: z.date().default(() => new Date())
 });
-export type SearchDocument = z.infer<typeof SearchDocumentSchema>;
+export type SearchDocument = z.input<typeof SearchDocumentSchema>;
 
 export const SearchQueryInputSchema = z.object({
   tenantId: z.string().min(1),
@@ -46,7 +46,7 @@ export const SearchQueryInputSchema = z.object({
   typeFilter: z.string().optional(),
   limit: z.number().int().min(1).max(50).default(20)
 });
-export type SearchQueryInput = z.infer<typeof SearchQueryInputSchema>;
+export type SearchQueryInput = z.input<typeof SearchQueryInputSchema>;
 
 export const SearchResultItemSchema = z.object({
   id: z.string(),

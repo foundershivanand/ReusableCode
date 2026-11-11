@@ -13,6 +13,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "types": ["node"],
     "paths": {

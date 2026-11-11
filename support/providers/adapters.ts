@@ -3,7 +3,7 @@ import type { SupportTicket, CreateTicketInput } from "../schemas/support-schema
 
 export class CrispSupportAdapter implements ISupportProvider {
   public name = "CRISP";
-  constructor(private websiteId: string, private apiKey?: string) {}
+  constructor(public websiteId: string, public apiKey?: string) {}
 
   async createTicket(input: CreateTicketInput): Promise<SupportTicket> {
     return {
@@ -21,7 +21,7 @@ export class CrispSupportAdapter implements ISupportProvider {
 
 export class IntercomSupportAdapter implements ISupportProvider {
   public name = "INTERCOM";
-  constructor(private appToken: string) {}
+  constructor(public appToken: string) {}
 
   async createTicket(input: CreateTicketInput): Promise<SupportTicket> {
     return {
@@ -39,7 +39,7 @@ export class IntercomSupportAdapter implements ISupportProvider {
 
 export class PlainSupportAdapter implements ISupportProvider {
   public name = "PLAIN";
-  constructor(private apiKey: string) {}
+  constructor(public apiKey: string) {}
 
   async createTicket(input: CreateTicketInput): Promise<SupportTicket> {
     return {

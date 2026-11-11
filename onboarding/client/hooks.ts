@@ -1,5 +1,5 @@
 import { useOnboarding } from "./react-context.js";
-import type { OnboardingStep, StepStatus } from "../schemas/onboarding-schemas.js";
+import type { StepStatus } from "../schemas/onboarding-schemas.js";
 
 export { useOnboarding };
 

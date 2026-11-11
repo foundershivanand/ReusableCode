@@ -64,7 +64,7 @@ export const CreateExportInputSchema = z.object({
   resourceType: z.string().min(1),
   format: ExportFormatSchema.default("CSV")
 });
-export type CreateExportInput = z.infer<typeof CreateExportInputSchema>;
+export type CreateExportInput = z.input<typeof CreateExportInputSchema>;
 
 export const CreateImportInputSchema = z.object({
   tenantId: z.string().min(1),
@@ -75,4 +75,4 @@ export const CreateImportInputSchema = z.object({
   maxRows: z.number().int().min(1).max(50000).default(10000),
   content: z.string().min(1) // raw CSV or JSON text
 });
-export type CreateImportInput = z.infer<typeof CreateImportInputSchema>;
+export type CreateImportInput = z.input<typeof CreateImportInputSchema>;

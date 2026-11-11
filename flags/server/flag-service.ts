@@ -48,7 +48,8 @@ export class FeatureFlagService {
         return {
           key,
           enabled: false,
-          reason: "KILL_SWITCH_ACTIVE"
+          reason: "KILL_SWITCH_ACTIVE",
+          isDefault: false
         };
       }
 
@@ -57,7 +58,8 @@ export class FeatureFlagService {
         return {
           key,
           enabled: false,
-          reason: "FLAG_EXPIRED"
+          reason: "FLAG_EXPIRED",
+          isDefault: false
         };
       }
 
@@ -66,7 +68,8 @@ export class FeatureFlagService {
         return {
           key,
           enabled: false,
-          reason: `FLAG_LIFECYCLE_${flag.lifecycleState}`
+          reason: `FLAG_LIFECYCLE_${flag.lifecycleState}`,
+          isDefault: false
         };
       }
 

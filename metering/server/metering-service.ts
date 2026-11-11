@@ -172,7 +172,7 @@ export class MeteringService {
         reservationId: reservation.id,
         pricingVersion: "v1",
         reason: `Reserved ${input.estimatedAmount} credits for operation ${input.operationId}`,
-        metadata: input.metadata,
+        metadata: input.metadata ?? {},
         createdAt: new Date().toISOString(),
       };
       await this.repository.appendLedgerEntry(ledgerEntry);
@@ -226,9 +226,9 @@ export class MeteringService {
         amount: -input.actualAmount,
         balanceAfter: balance.availableBalance,
         reservationId: res.id,
-        pricingVersion: input.pricingVersion,
+        pricingVersion: input.pricingVersion ?? "v1",
         reason: `Settled reservation ${res.id} for ${input.actualAmount} credits (estimated ${res.estimatedAmount})`,
-        metadata: input.metadata,
+        metadata: input.metadata ?? {},
         createdAt: new Date().toISOString(),
       };
       await this.repository.appendLedgerEntry(ledgerEntry);
@@ -272,7 +272,7 @@ export class MeteringService {
         balanceAfter: balance.availableBalance,
         reservationId: res.id,
         pricingVersion: "v1",
-        reason: input.reason,
+        reason: input.reason ?? "Operation cancelled or failed",
         metadata: {},
         createdAt: new Date().toISOString(),
       };
@@ -303,7 +303,8 @@ export class MeteringService {
       const balance = await this.getOrCreateBalance(event.tenantId);
       await this.expireCreditsInternal(event.tenantId, balance);
 
-      const totalCost = event.quantity * event.unitCostCredits;
+      const unitCost = event.unitCostCredits ?? 1;
+      const totalCost = event.quantity * unitCost;
       balance.availableBalance -= totalCost;
       balance.lifetimeConsumed += totalCost;
       balance.version += 1;
@@ -319,9 +320,9 @@ export class MeteringService {
         amount: -totalCost,
         balanceAfter: balance.availableBalance,
         idempotencyKey: event.idempotencyKey,
-        pricingVersion: event.pricingVersion,
-        reason: `Usage: ${event.eventType} (qty: ${event.quantity} @ ${event.unitCostCredits})`,
-        metadata: event.metadata,
+        pricingVersion: event.pricingVersion ?? "v1",
+        reason: `Usage: ${event.eventType} (qty: ${event.quantity} @ ${unitCost})`,
+        metadata: event.metadata ?? {},
         createdAt: new Date().toISOString(),
       };
       await this.repository.appendLedgerEntry(ledgerEntry);

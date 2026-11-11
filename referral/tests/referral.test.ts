@@ -62,7 +62,7 @@ describe("Module 20: Affiliate & Referral System", () => {
   });
 
   it("flags self-referral attempts as fraud", async () => {
-    const affiliate = await service.createAffiliate({
+    await service.createAffiliate({
       tenantId: "t_1",
       userId: "u_alice",
       referralCode: "ALICE10",

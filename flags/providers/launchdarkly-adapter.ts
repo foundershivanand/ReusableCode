@@ -11,7 +11,7 @@ export interface LaunchDarklyAdapterConfig {
 
 export class LaunchDarklyFlagAdapter implements IFeatureFlagProvider {
   public name = "LAUNCHDARKLY";
-  private sdkKey: string;
+  public sdkKey: string;
 
   constructor(config: LaunchDarklyAdapterConfig) {
     this.sdkKey = config.sdkKey;

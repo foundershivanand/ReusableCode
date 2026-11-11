@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import os
+import sys
+
+DATA_DIR = "/home/shiva/appreusable/apps"
+MASTER_TASKS_FILE = os.path.join(os.path.dirname(__file__), "master_tasks.json")
+
+def load_master_tasks():
+    with open(MASTER_TASKS_FILE, "r") as f:
+        return json.load(f)
+
+def get_app_checklist_path(app_id: str):
+    return os.path.join(DATA_DIR, app_id, "checklist.json")
+
+def init_app_checklist(app_id: str):
+    app_dir = os.path.join(DATA_DIR, app_id)
+    os.makedirs(app_dir, exist_ok=True)
+    chk_path = get_app_checklist_path(app_id)
+    if os.path.exists(chk_path):
+        print(f"Checklist already exists for {app_id}")
+        return
+    master = load_master_tasks()
+    with open(chk_path, "w") as f:
+        json.dump(master, f, indent=2)
+    print(f"Initialized {len(master)} factory tasks for {app_id} at {chk_path}")
+
+def get_status(app_id: str):
+    chk_path = get_app_checklist_path(app_id)
+    if not os.path.exists(chk_path):
+        print(f"Error: Checklist not found for {app_id}. Run 'init --app {app_id}' first.")
+        sys.exit(1)
+    with open(chk_path, "r") as f:
+        tasks = json.load(f)
+
+    total = len(tasks)
+    completed = sum(1 for t in tasks.values() if t["status"] == "completed")
+    pct = (completed / total) * 100 if total > 0 else 0.0
+
+    print(f"==================================================")
+    print(f"  FACTORY PROGRESS REPORT: {app_id.upper()}")
+    print(f"==================================================")
+    print(f"Overall Progress: {completed}/{total} tasks ({pct:.1f}%)\n")
+
+    phases = {}
+    for t in tasks.values():
+        p = t["phase"]
+        phases.setdefault(p, {"total": 0, "completed": 0})
+        phases[p]["total"] += 1
+        if t["status"] == "completed":
+            phases[p]["completed"] += 1
+
+    print(f"{'PHASE':<38} | {'COMPLETED':<10} | {'STATUS'}")
+    print("-" * 65)
+    for p, counts in phases.items():
+        comp = counts["completed"]
+        tot = counts["total"]
+        phase_pct = (comp / tot) * 100 if tot > 0 else 0.0
+        status_bar = f"[{'#' * int(phase_pct // 10):<10}] {phase_pct:.0f}%"
+        print(f"{p:<38} | {comp:>4}/{tot:<5} | {status_bar}")
+    print("==================================================")
+
+def complete_task(app_id: str, task_id: str):
+    chk_path = get_app_checklist_path(app_id)
+    if not os.path.exists(chk_path):
+        print(f"Error: Checklist not found for {app_id}.")
+        sys.exit(1)
+    with open(chk_path, "r") as f:
+        tasks = json.load(f)
+
+    if task_id not in tasks:
+        print(f"Error: Unknown task ID {task_id}")
+        sys.exit(1)
+
+    tasks[task_id]["status"] = "completed"
+    with open(chk_path, "w") as f:
+        json.dump(tasks, f, indent=2)
+    print(f"[COMPLETED] {task_id}: {tasks[task_id]['description']}")
+
+def export_markdown(app_id: str):
+    chk_path = get_app_checklist_path(app_id)
+    if not os.path.exists(chk_path):
+        print(f"Error: Checklist not found for {app_id}.")
+        sys.exit(1)
+    with open(chk_path, "r") as f:
+        tasks = json.load(f)
+
+    print(f"# Master Factory Checklist: {app_id}\n")
+    current_phase = None
+    for t in tasks.values():
+        if t["phase"] != current_phase:
+            current_phase = t["phase"]
+            print(f"\n## {current_phase} ({t['layer']})\n")
+        check = "[x]" if t["status"] == "completed" else "[ ]"
+        print(f"- {check} **{t['id']}**: {t['description']}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Master Checklist Tracker CLI")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    init_p = subparsers.add_parser("init", help="Initialize checklist for an app")
+    init_p.add_argument("--app", required=True, help="App ID")
+
+    status_p = subparsers.add_parser("status", help="Show app checklist progress")
+    status_p.add_argument("--app", required=True, help="App ID")
+
+    complete_p = subparsers.add_parser("complete", help="Mark a task as completed")
+    complete_p.add_argument("--app", required=True, help="App ID")
+    complete_p.add_argument("--task", required=True, help="Task ID")
+
+    export_p = subparsers.add_parser("export", help="Export checklist to Markdown")
+    export_p.add_argument("--app", required=True, help="App ID")
+
+    args = parser.parse_args()
+    if args.command == "init":
+        init_app_checklist(args.app)
+    elif args.command == "status":
+        get_status(args.app)
+    elif args.command == "complete":
+        complete_task(args.app, args.task)
+    elif args.command == "export":
+        export_markdown(args.app)

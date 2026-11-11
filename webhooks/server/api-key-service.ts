@@ -137,7 +137,6 @@ export class ApiKeyService {
       rateLimitPerMinute: oldKey.rateLimitPerMinute
     });
     return {
-      apiKey: generated.apiKey,
       newApiKey: generated.apiKey,
       rawKey: generated.rawKey
     };

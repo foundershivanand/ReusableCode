@@ -1,0 +1,10 @@
+name: mod_32_remote_config
+description: Remote configuration client with local cache fallbacks and type-safe getters.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

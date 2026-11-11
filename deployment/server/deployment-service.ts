@@ -13,7 +13,7 @@ import { DeploymentRepository } from "./repository.js";
 const SECRET_KEYWORDS = ["SECRET", "PASSWORD", "KEY", "TOKEN", "DATABASE_URL", "REDIS_URL"];
 
 export class DeploymentService {
-  constructor(private repository: DeploymentRepository) {}
+  constructor(public repository: DeploymentRepository) {}
 
   validateStartupConfig(env: Record<string, string | undefined>): ServerEnvConfig {
     const result = ServerEnvConfigSchema.safeParse(env);

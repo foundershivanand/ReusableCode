@@ -1,0 +1,10 @@
+name: mod_21_device_features
+description: Native device hardware interfaces - Haptics, Clipboard, Biometrics, Sensors, and Location.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.24.0

@@ -1,0 +1,933 @@
+{
+  "name": "Personal Product Factory \u2014 Reusable Code Library",
+  "version": "1.0.0",
+  "repository": "https://github.com/sh15aa/Web-Reusable",
+  "default_branch": "main",
+  "total_modules": 33,
+  "modules": [
+    {
+      "id": "ops.admin",
+      "name": "Admin Operations Console",
+      "category": "operations",
+      "path": "admin",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Super-admin control center, user impersonation, system flags, audit oversight, and emergency controls.",
+      "capabilities": [
+        "user-impersonation",
+        "system-controls",
+        "audit-inspection",
+        "tenant-management"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "ADMIN_SECRET_KEY",
+        "ENABLE_IMPERSONATION"
+      ],
+      "docs": "admin/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ai.infra",
+      "name": "AI Infrastructure & LLM Workflows",
+      "category": "ai",
+      "path": "ai",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Enterprise AI runtime with streaming, prompt injection defense, token/cost accounting, and worker queue.",
+      "capabilities": [
+        "llm-streaming",
+        "prompt-defense",
+        "token-accounting",
+        "job-queue",
+        "cost-tracking"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "AI_COST_BUDGET_USD"
+      ],
+      "docs": "ai/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "analytics.events",
+      "name": "Analytics & Event Tracking",
+      "category": "data",
+      "path": "analytics",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Real-time event logging, funnel analysis, custom product events, and privacy-preserving metrics aggregation.",
+      "capabilities": [
+        "event-tracking",
+        "funnel-analysis",
+        "time-series-metrics",
+        "privacy-filtering"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "ANALYTICS_RETENTION_DAYS"
+      ],
+      "docs": "analytics/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "audit.trail",
+      "name": "Audit Logs & Tamper-Evident Trail",
+      "category": "security",
+      "path": "audit",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Cryptographically verified activity logging, actor attribution, structured audit trail, and compliance export.",
+      "capabilities": [
+        "activity-stream",
+        "tamper-evident-logs",
+        "actor-attribution",
+        "compliance-ready"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "AUDIT_SIGNING_KEY"
+      ],
+      "docs": "audit/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "auth.unified",
+      "name": "Unified Authentication & Sessions",
+      "category": "security",
+      "path": "auth",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Production session management, secure passwords, Google/GitHub OAuth, MFA, and RBAC middleware.",
+      "capabilities": [
+        "session-auth",
+        "google-oauth",
+        "github-oauth",
+        "password-hashing",
+        "rbac-middleware",
+        "csrf-protection"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "SESSION_SECRET",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET"
+      ],
+      "docs": "auth/docs/API.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "billing.subscriptions",
+      "name": "Payments & Subscription Engine",
+      "category": "monetization",
+      "path": "billing",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Multi-provider payment gateway (Stripe/LemonSqueezy), recurring subscriptions, usage invoices, and checkout flows.",
+      "capabilities": [
+        "stripe-billing",
+        "lemon-squeezy",
+        "subscription-lifecycle",
+        "usage-metering",
+        "webhook-reconciliation"
+      ],
+      "dependencies": [
+        "zod",
+        "stripe"
+      ],
+      "env_vars": [
+        "STRIPE_SECRET_KEY",
+        "STRIPE_WEBHOOK_SECRET",
+        "LEMONSQUEEZY_API_KEY"
+      ],
+      "docs": "billing/docs/API.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "growth.changelog",
+      "name": "Product Changelog & Roadmap",
+      "category": "growth",
+      "path": "changelog",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "In-app release announcements, release notes feed, feature roadmap, and subscriber email notifications.",
+      "capabilities": [
+        "in-app-releases",
+        "public-roadmap",
+        "version-tags",
+        "email-broadcasts"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "changelog/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "compliance.legal",
+      "name": "Legal & Compliance Suite",
+      "category": "security",
+      "path": "compliance",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "GDPR/CCPA privacy management, cookie consent banner, terms acceptance tracking, and data erasure requests.",
+      "capabilities": [
+        "gdpr-compliance",
+        "cookie-consent",
+        "terms-tracking",
+        "data-erasure-requests"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "DPO_EMAIL"
+      ],
+      "docs": "compliance/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "core.platform",
+      "name": "Core Platform & Resilience Standards",
+      "category": "foundation",
+      "path": "core",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Universal 40-dimension platform foundation: AsyncLocalStorage context, Crockford IDs, UnitOfWork, Idempotency, and resilient errors.",
+      "capabilities": [
+        "error-handling",
+        "crockford-ids",
+        "idempotency-engine",
+        "unit-of-work",
+        "secrets-manager",
+        "crypto-utils"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "APP_SECRET",
+        "NODE_ENV"
+      ],
+      "docs": "core/docs",
+      "has_tests": true,
+      "has_client": false,
+      "has_server": false,
+      "has_components": false,
+      "has_schemas": false
+    },
+    {
+      "id": "tools.dashboard",
+      "name": "Reusable Studio Dashboard",
+      "category": "tools",
+      "path": "dashboard",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Interactive testing studio and packager for exploring and bundling reusable modules.",
+      "capabilities": [
+        "module-studio",
+        "bundle-packager",
+        "api-tester"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "PORT"
+      ],
+      "docs": "dashboard/README.md",
+      "has_tests": false,
+      "has_client": false,
+      "has_server": false,
+      "has_components": false,
+      "has_schemas": false
+    },
+    {
+      "id": "data.database",
+      "name": "Database Migrations & Disaster Recovery",
+      "category": "data",
+      "path": "database",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Migration manager, automated backups, point-in-time recovery, and multi-dialect connection pooling (libSQL, Postgres, SQLite).",
+      "capabilities": [
+        "migration-runner",
+        "backup-automation",
+        "snapshot-restore",
+        "connection-pooling"
+      ],
+      "dependencies": [
+        "zod",
+        "@libsql/client"
+      ],
+      "env_vars": [
+        "DATABASE_URL",
+        "DATABASE_AUTH_TOKEN"
+      ],
+      "docs": "database/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ops.deployment",
+      "name": "Environment & Canary Deployment Management",
+      "category": "operations",
+      "path": "deployment",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Multi-environment configuration, traffic shifting, canary rollouts, zero-downtime health verification, and rollback engine.",
+      "capabilities": [
+        "canary-rollouts",
+        "health-probes",
+        "traffic-shifting",
+        "environment-promotion"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "DEPLOYMENT_ENV",
+        "CANARY_PERCENTAGE"
+      ],
+      "docs": "deployment/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "growth.domains",
+      "name": "Custom Domains & White-Label Routing",
+      "category": "growth",
+      "path": "domains",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Multi-tenant custom domain provisioning, CNAME verification, automated SSL certificate lifecycle, and edge routing.",
+      "capabilities": [
+        "custom-domains",
+        "cname-validation",
+        "ssl-lifecycle",
+        "subdomain-routing"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "CLOUDFLARE_API_TOKEN",
+        "APEX_DOMAIN"
+      ],
+      "docs": "domains/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "growth.ab-testing",
+      "name": "A/B Testing & Experimentation Engine",
+      "category": "growth",
+      "path": "experimentation",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Statistically sound A/B experimentation, deterministic hashing, variant assignment, and conversion tracking.",
+      "capabilities": [
+        "variant-bucketing",
+        "conversion-tracking",
+        "feature-experiments",
+        "significance-calc"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [],
+      "docs": "experimentation/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ops.feature-flags",
+      "name": "Feature Flags & Dynamic Config",
+      "category": "operations",
+      "path": "flags",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Dynamic feature switches, percentage rollouts, user attribute targeting, kill-switches, and zero-redeploy config updates.",
+      "capabilities": [
+        "feature-flags",
+        "percentage-rollouts",
+        "kill-switches",
+        "attribute-targeting"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [],
+      "docs": "flags/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ux.i18n",
+      "name": "Internationalization & Translation Suite",
+      "category": "ux",
+      "path": "i18n",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Type-safe multi-language translations, locale detection, pluralization, currency/date formatting, and missing key fallbacks.",
+      "capabilities": [
+        "locale-detection",
+        "type-safe-translations",
+        "pluralization",
+        "currency-formatting"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "DEFAULT_LOCALE"
+      ],
+      "docs": "i18n/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ops.maintenance",
+      "name": "Maintenance Mode & Incident Banners",
+      "category": "operations",
+      "path": "maintenance",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Emergency maintenance switch, scheduled downtime banners, bypass tokens for staff, and read-only mode enforcement.",
+      "capabilities": [
+        "maintenance-mode",
+        "status-banners",
+        "bypass-tokens",
+        "read-only-guard"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "MAINTENANCE_BYPASS_TOKEN"
+      ],
+      "docs": "maintenance/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "monetization.metering",
+      "name": "Usage Metering & Credit Ledger",
+      "category": "monetization",
+      "path": "metering",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "High-throughput usage aggregation, prepaid credit wallet, quota limits, and burst protection for API and compute consumption.",
+      "capabilities": [
+        "usage-metering",
+        "credit-wallet",
+        "quota-enforcement",
+        "overage-billing"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [],
+      "docs": "metering/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ops.monitoring",
+      "name": "Product Health & Incident Monitoring",
+      "category": "operations",
+      "path": "monitoring",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Synthetic uptime pings, real-time error budget tracking, alerting webhooks, and public status page generation.",
+      "capabilities": [
+        "uptime-monitors",
+        "sla-tracking",
+        "incident-management",
+        "status-page"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "OPS_ALERT_WEBHOOK_URL"
+      ],
+      "docs": "monitoring/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "comms.notifications",
+      "name": "Notification Center & Transactional Emails",
+      "category": "communications",
+      "path": "notifications",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Multi-channel notifications (Transactional Email via Resend/Postmark, Webhooks, In-App Bell), user preference controls.",
+      "capabilities": [
+        "transactional-email",
+        "in-app-notifications",
+        "webhook-dispatch",
+        "email-templates"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "RESEND_API_KEY",
+        "EMAIL_FROM"
+      ],
+      "docs": "notifications/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ux.onboarding",
+      "name": "User Onboarding & Interactive Tours",
+      "category": "ux",
+      "path": "onboarding",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Interactive step-by-step checklists, guided tours, progress state persistence, and gamified onboarding milestones.",
+      "capabilities": [
+        "checklist-progress",
+        "guided-tours",
+        "onboarding-milestones",
+        "dismissible-guides"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "onboarding/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "data.portability",
+      "name": "Data Export, Import & GDPR Takeout",
+      "category": "data",
+      "path": "portability",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Asynchronous JSON/CSV data export generation, streaming data imports, validation checks, and user GDPR data portability.",
+      "capabilities": [
+        "async-data-export",
+        "csv-import",
+        "gdpr-takeout",
+        "zip-generation"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [],
+      "docs": "portability/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "growth.referrals",
+      "name": "Affiliate & Viral Referral System",
+      "category": "growth",
+      "path": "referral",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Unique invite links, referral code generation, click-to-signup attribution, reward payouts, and tier progression.",
+      "capabilities": [
+        "referral-codes",
+        "attribution-tracking",
+        "reward-credits",
+        "tier-incentives"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "REFERRAL_REWARD_AMOUNT_CENTS"
+      ],
+      "docs": "referral/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ux.search",
+      "name": "Global Search & Command Palette",
+      "category": "ux",
+      "path": "search",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Spotlight-style command palette (Cmd+K), fuzzy search over entities, keyboard navigation, and indexed action catalog.",
+      "capabilities": [
+        "command-palette",
+        "fuzzy-search",
+        "keyboard-shortcuts",
+        "quick-actions"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "search/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "security.shield",
+      "name": "Rate Limiting & Threat Protection",
+      "category": "security",
+      "path": "security",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Token-bucket & sliding window rate limiters, IP blacklisting, DDoS mitigations, SQLi/XSS sanitization, and request signing.",
+      "capabilities": [
+        "sliding-window-rate-limit",
+        "ip-firewall",
+        "payload-sanitization",
+        "honeypot-guards"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "SECURITY_RATE_LIMIT_MAX"
+      ],
+      "docs": "security/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "security.center",
+      "name": "Security Posture & Compliance Dashboard",
+      "category": "security",
+      "path": "security-center",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "SOC2/ISO27001 readiness monitor, security health scoring, open vulnerability tracking, and automated posture reports.",
+      "capabilities": [
+        "posture-scoring",
+        "soc2-checklist",
+        "vulnerability-tracker",
+        "security-dashboard"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "security-center/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "growth.seo",
+      "name": "SEO, OpenGraph & Metadata Engine",
+      "category": "growth",
+      "path": "seo",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Dynamic Open Graph social card generation, structured JSON-LD schema builder, automatic sitemap.xml, and canonical tags.",
+      "capabilities": [
+        "opengraph-generator",
+        "json-ld-schemas",
+        "dynamic-sitemaps",
+        "meta-tag-builder"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "SITE_URL"
+      ],
+      "docs": "seo/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "ux.settings",
+      "name": "Settings & Workspace Preferences",
+      "category": "ux",
+      "path": "settings",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Multi-level settings engine (user profile, workspace configuration, billing preferences, developer keys) with schema validation.",
+      "capabilities": [
+        "profile-settings",
+        "workspace-settings",
+        "notification-prefs",
+        "schema-validation"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "settings/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "data.storage",
+      "name": "File Storage & Asset Pipeline",
+      "category": "data",
+      "path": "storage",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Provider-agnostic file storage (S3, Cloudflare R2, Local), secure pre-signed upload URLs, MIME verification, and thumbnail resizing.",
+      "capabilities": [
+        "s3-storage",
+        "r2-storage",
+        "presigned-urls",
+        "mime-validation",
+        "image-resizing"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "S3_BUCKET",
+        "S3_REGION",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY"
+      ],
+      "docs": "storage/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "comms.support",
+      "name": "Customer Support & Feedback System",
+      "category": "communications",
+      "path": "support",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Embeddable feedback modal, ticket management lifecycle, triage priorities, CSAT surveys, and Discord/Slack integrations.",
+      "capabilities": [
+        "feedback-widget",
+        "ticket-lifecycle",
+        "csat-ratings",
+        "webhook-alerts"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [
+        "SUPPORT_SLACK_WEBHOOK"
+      ],
+      "docs": "support/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "foundation.tenancy",
+      "name": "Multi-Tenancy & Workspace Isolation",
+      "category": "foundation",
+      "path": "tenancy",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Strict tenant boundary enforcement, workspace switching, team invitations, member roles, and multi-tenant scoping.",
+      "capabilities": [
+        "workspace-isolation",
+        "tenant-switching",
+        "team-invitations",
+        "role-delegation"
+      ],
+      "dependencies": [
+        "zod",
+        "react",
+        "react-dom"
+      ],
+      "env_vars": [],
+      "docs": "tenancy/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    },
+    {
+      "id": "data.turso-storage",
+      "name": "Turso Distributed SQLite Storage Engine",
+      "category": "data",
+      "path": "turso-storage",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Distributed edge storage engine on libSQL / Turso, with built-in HTTP API, ingestion CLI, and web explorer UI.",
+      "capabilities": [
+        "libsql-client",
+        "embedded-sqlite",
+        "http-storage-api",
+        "cli-tools",
+        "web-explorer"
+      ],
+      "dependencies": [
+        "zod",
+        "@libsql/client"
+      ],
+      "env_vars": [
+        "TURSO_DATABASE_URL",
+        "TURSO_AUTH_TOKEN",
+        "ADMIN_PASSWORD"
+      ],
+      "docs": "turso-storage/README.md",
+      "has_tests": true,
+      "has_client": false,
+      "has_server": false,
+      "has_components": false,
+      "has_schemas": false
+    },
+    {
+      "id": "foundation.webhooks",
+      "name": "Webhook Engine & Developer API Keys",
+      "category": "foundation",
+      "path": "webhooks",
+      "status": "stable",
+      "framework": "Node.js / TypeScript / React / Next.js",
+      "description": "Outbound webhook dispatcher with exponential backoff retries, HMAC-SHA256 signature verification, and developer API key hashing.",
+      "capabilities": [
+        "hmac-verification",
+        "webhook-retries",
+        "dead-letter-queue",
+        "api-key-management"
+      ],
+      "dependencies": [
+        "zod"
+      ],
+      "env_vars": [
+        "WEBHOOK_SIGNING_SECRET"
+      ],
+      "docs": "webhooks/docs/10_API_REFERENCE.md",
+      "has_tests": true,
+      "has_client": true,
+      "has_server": true,
+      "has_components": true,
+      "has_schemas": true
+    }
+  ]
+}

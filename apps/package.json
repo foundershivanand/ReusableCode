@@ -1,0 +1,22 @@
+{
+  "name": "mobile-product-factory",
+  "version": "1.0.0",
+  "description": "Enterprise Mobile App Factory - 163 Modular, Production-Grade, Hardened Modules for Android + iOS",
+  "scripts": {
+    "audit:all": "python3 modules/mod_49_release_checklist/preflight_auditor.py",
+    "audit:isolation": "python3 modules/mod_61_isolation_guardian/isolation_verifier.py",
+    "lint:boundaries": "python3 modules/mod_59_architecture_boundary/boundary_linter.py",
+    "factory:cli": "python3 modules/mod_56_automated_cli/factory-cli",
+    "factory:synthesize": "python3 modules/mod_62_one_click_synthesizer/synthesizer.py",
+    "factory:tracker": "python3 modules/mod_63_master_checklist_tracker/tracker-cli",
+    "security:scorecard": "python3 modules/mod_162_factory_security_monitor/factory-security scorecard",
+    "security:owasp": "python3 modules/mod_162_factory_security_monitor/factory-security owasp",
+    "security:scale": "python3 modules/mod_162_factory_security_monitor/factory-security scale",
+    "security:portfolio": "python3 modules/mod_162_factory_security_monitor/factory-security portfolio",
+    "test:scale": "python3 tests/test_1m_scale_and_security.py",
+    "test:python": "pytest modules/"
+  },
+  "keywords": ["flutter", "mobile-factory", "android", "ios", "clean-architecture", "zero-trust"],
+  "author": "Mobile App Factory",
+  "license": "UNLICENSED"
+}

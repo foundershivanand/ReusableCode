@@ -54,7 +54,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
       return {
         key,
         enabled: false,
-        reason: "KILL_SWITCH_ACTIVE"
+        reason: "KILL_SWITCH_ACTIVE",
+        isDefault: false
       };
     }
 
@@ -63,7 +64,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
       return {
         key,
         enabled: false,
-        reason: "FLAG_EXPIRED"
+        reason: "FLAG_EXPIRED",
+        isDefault: false
       };
     }
 
@@ -72,7 +74,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
       return {
         key,
         enabled: false,
-        reason: `FLAG_LIFECYCLE_${flag.lifecycleState}`
+        reason: `FLAG_LIFECYCLE_${flag.lifecycleState}`,
+        isDefault: false
       };
     }
 
@@ -81,7 +84,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
       return {
         key,
         enabled: false,
-        reason: "FLAG_DISABLED"
+        reason: "FLAG_DISABLED",
+        isDefault: false
       };
     }
 
@@ -93,7 +97,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
           return {
             key,
             enabled: false,
-            reason: `DEPENDENCY_UNSATISFIED:${depKey}`
+            reason: `DEPENDENCY_UNSATISFIED:${depKey}`,
+            isDefault: false
           };
         }
       }
@@ -108,7 +113,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
         return {
           key,
           enabled: false,
-          reason: "TARGETING_RULES_MISMATCH"
+          reason: "TARGETING_RULES_MISMATCH",
+          isDefault: false
         };
       }
     }
@@ -123,7 +129,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
         return {
           key,
           enabled: false,
-          reason: `ROLLOUT_BUCKET_EXCLUDED:${bucket}`
+          reason: `ROLLOUT_BUCKET_EXCLUDED:${bucket}`,
+          isDefault: false
         };
       }
     }
@@ -132,7 +139,8 @@ export class MemoryFlagAdapter implements IFeatureFlagProvider {
       key,
       enabled: true,
       reason: "MATCHED_ROLLOUT_OR_RULES",
-      remoteConfig: flag.remoteConfigValue
+      remoteConfig: flag.remoteConfigValue,
+      isDefault: false
     };
   }
 

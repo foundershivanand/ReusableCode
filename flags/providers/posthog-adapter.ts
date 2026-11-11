@@ -12,15 +12,15 @@ export interface PostHogAdapterConfig {
 
 export class PostHogFlagAdapter implements IFeatureFlagProvider {
   public name = "POSTHOG";
-  private apiKey: string;
-  private host: string;
+  public apiKey: string;
+  public host: string;
 
   constructor(config: PostHogAdapterConfig) {
     this.apiKey = config.apiKey;
     this.host = config.host || "https://app.posthog.com";
   }
 
-  async getFlag(key: string): Promise<FeatureFlag | null> {
+  async getFlag(_key: string): Promise<FeatureFlag | null> {
     return null; // External provider delegation
   }
 
@@ -40,7 +40,8 @@ export class PostHogFlagAdapter implements IFeatureFlagProvider {
     defaultVal: boolean = false
   ): Promise<EvaluationResult> {
     try {
-      const distinctId = context.userId || context.tenantId || "anonymous";
+      const _distinctId = context.userId || context.tenantId || "anonymous";
+      void _distinctId;
       // In production: call PostHog API /decide endpoint
       return {
         key,

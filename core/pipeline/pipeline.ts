@@ -1,4 +1,4 @@
-import { ZodSchema, z } from "zod";
+import { ZodSchema } from "zod";
 import { generatePrefixedId } from "../ids/ids.js";
 import {
   ValidationError,
@@ -123,7 +123,7 @@ export async function executePipeline<TInput, TOutput>(
         if (!validationResult.success) {
           throw new ValidationError(
             "Input validation failed",
-            validationResult.error.errors
+            validationResult.error.issues
           );
         }
         parsedInput = validationResult.data;
@@ -197,7 +197,7 @@ export async function executePipeline<TInput, TOutput>(
         const outValidation = definition.outputSchema.safeParse(result);
         if (!outValidation.success) {
           logger.error("Output validation schema failure", {
-            errors: outValidation.error.errors,
+            errors: outValidation.error.issues,
           });
           throw new InternalError("Output failed schema validation - data transmission prevented");
         }

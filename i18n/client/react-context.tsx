@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
-import { LocaleMetadata, TranslationDictionary } from "../schemas/i18n-schemas.js";
+import { LocaleMetadata } from "../schemas/i18n-schemas.js";
 import { I18nClient } from "./i18n-client.js";
 
 export interface I18nContextValue {

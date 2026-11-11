@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import sys
+
+def scaffold_app(app_id: str, app_name: str, bundle_id: str):
+    target_dir = f"/home/shiva/appreusable/apps/{app_id}"
+    print(f"Creating new independent app: {app_name} ({app_id}) at {target_dir}...")
+    os.makedirs(f"{target_dir}/lib/core", exist_ok=True)
+    os.makedirs(f"{target_dir}/lib/features/home", exist_ok=True)
+    os.makedirs(f"{target_dir}/test", exist_ok=True)
+
+    pubspec_content = f"""name: {app_id.replace('-', '_')}
+description: {app_name} independent mobile product.
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mod_04_core_architecture:
+    path: ../../modules/mod_04_core_architecture
+  mod_05_app_config_system:
+    path: ../../modules/mod_05_app_config_system
+  mod_09_auth_module:
+    path: ../../modules/mod_09_auth_module
+  mod_13_api_layer:
+    path: ../../modules/mod_13_api_layer
+  mod_15_state_management:
+    path: ../../modules/mod_15_state_management
+  mod_16_design_system:
+    path: ../../modules/mod_16_design_system
+"""
+    with open(f"{target_dir}/pubspec.yaml", "w") as f:
+        f.write(pubspec_content.strip() + "\n")
+
+    main_content = f"""// {app_name} - Main Entrypoint
+void main() {{
+  print('Starting {app_name} ({bundle_id})...');
+}}
+"""
+    with open(f"{target_dir}/lib/main.dart", "w") as f:
+        f.write(main_content.strip() + "\n")
+
+    print(f"Successfully scaffolded {app_name} ({app_id})!")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Mobile App Factory CLI")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    new_parser = subparsers.add_parser("new", help="Scaffold a new independent product app")
+    new_parser.add_argument("--id", required=True, help="Unique product identifier e.g. app-001")
+    new_parser.add_argument("--name", required=True, help="App display name")
+    new_parser.add_argument("--bundle", required=True, help="App bundle ID e.g. com.factory.app001")
+
+    args = parser.parse_args()
+    if args.command == "new":
+        scaffold_app(args.id, args.name, args.bundle)

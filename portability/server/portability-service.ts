@@ -1,4 +1,4 @@
-import { randomBytes, randomUUID } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import type { IPortabilityRepository } from "./repository.js";
 import {
   type ExportJob,
@@ -43,13 +43,14 @@ export class DataPortabilityService {
       job.progressPercentage = 50;
 
       // 2. Format data with CSV injection defense
-      let formattedOutput: string;
+      let _formattedOutput: string;
       if (validated.format === "JSON") {
-        formattedOutput = JSON.stringify(data, null, 2);
+        _formattedOutput = JSON.stringify(data, null, 2);
       } else {
         // CSV
-        formattedOutput = this.formatSafeCsv(data);
+        _formattedOutput = this.formatSafeCsv(data);
       }
+      void _formattedOutput;
 
       job.progressPercentage = 90;
 

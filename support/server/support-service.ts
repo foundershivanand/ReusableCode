@@ -12,7 +12,7 @@ import {
 
 export class SupportService {
   private userRequestTimestamps: Map<string, number[]> = new Map();
-  private provider: ISupportProvider;
+  public provider: ISupportProvider;
 
   constructor(
     private readonly repository: ISupportRepository,

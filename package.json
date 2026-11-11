@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:types": "tsc --noEmit",
+    "test:agents": "cd agents && uv run pytest",
+    "test:bots": "PYTHONPATH=bots bots/.venv/bin/pytest -o asyncio_default_fixture_loop_scope=function bots/tests",
+    "test:apps": "python3 apps/tests/test_1m_scale_and_security.py",
+    "test:all": "vitest run && tsc --noEmit && cd agents && uv run pytest && cd .. && PYTHONPATH=bots bots/.venv/bin/pytest -o asyncio_default_fixture_loop_scope=function bots/tests && python3 apps/tests/test_1m_scale_and_security.py",
     "turso:serve": "node --experimental-strip-types turso-storage/cli.ts serve",
     "turso:ingest": "node --experimental-strip-types turso-storage/cli.ts ingest",
     "turso:stats": "node --experimental-strip-types turso-storage/cli.ts stats",

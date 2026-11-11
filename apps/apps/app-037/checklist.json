@@ -1,0 +1,1157 @@
+{
+  "IDEA_001": {
+    "id": "IDEA_001",
+    "description": "Define core problem statement in 1 sentence",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "completed"
+  },
+  "IDEA_002": {
+    "id": "IDEA_002",
+    "description": "Identify specific primary user persona",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_003": {
+    "id": "IDEA_003",
+    "description": "Determine initial hypothesis on willingness to pay",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_004": {
+    "id": "IDEA_004",
+    "description": "Run automated viability scoring (Mod 01)",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "completed"
+  },
+  "IDEA_005": {
+    "id": "IDEA_005",
+    "description": "Check trademark & domain availability",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_006": {
+    "id": "IDEA_006",
+    "description": "Validate idea fits mobile-native form factor (sensors, camera, haptics)",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_007": {
+    "id": "IDEA_007",
+    "description": "Evaluate offline-utility potential",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_008": {
+    "id": "IDEA_008",
+    "description": "Document anti-goals (what the app will NOT do)",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_009": {
+    "id": "IDEA_009",
+    "description": "Assess technical complexity rating (1-10)",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_010": {
+    "id": "IDEA_010",
+    "description": "Define MVP feature cutoff threshold",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_011": {
+    "id": "IDEA_011",
+    "description": "Establish unit economics & gross margin target",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_012": {
+    "id": "IDEA_012",
+    "description": "Determine if app requires backend or is local-only",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_013": {
+    "id": "IDEA_013",
+    "description": "Identify potential viral sharing hook",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_014": {
+    "id": "IDEA_014",
+    "description": "Define 3 primary success KPIs",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "IDEA_015": {
+    "id": "IDEA_015",
+    "description": "Executive sign-off on Idea Viability",
+    "phase": "Phase 1: Idea Discovery",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_001": {
+    "id": "COMP_001",
+    "description": "Identify top 5 direct App Store competitors",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_002": {
+    "id": "COMP_002",
+    "description": "Identify top 5 direct Google Play competitors",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_003": {
+    "id": "COMP_003",
+    "description": "Mine 1-star & 2-star reviews of competitors for user pain points",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_004": {
+    "id": "COMP_004",
+    "description": "Analyze competitor pricing tiers & trial durations",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_005": {
+    "id": "COMP_005",
+    "description": "Map competitor feature matrix against MVP",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_006": {
+    "id": "COMP_006",
+    "description": "Analyze competitor keyword rankings & ASO volume",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_007": {
+    "id": "COMP_007",
+    "description": "Evaluate competitor download estimates (SensorTower/Data.ai)",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_008": {
+    "id": "COMP_008",
+    "description": "Identify competitor UI/UX weaknesses",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_009": {
+    "id": "COMP_009",
+    "description": "Assess competitor update frequency and support responsiveness",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "COMP_010": {
+    "id": "COMP_010",
+    "description": "Formulate the 10x value proposition differentiator",
+    "phase": "Phase 2: Market & Competitor Analysis",
+    "layer": "Layer 1: Idea / Research",
+    "status": "pending"
+  },
+  "PRD_001": {
+    "id": "PRD_001",
+    "description": "Create standardized PRD document (Mod 62)",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "completed"
+  },
+  "PRD_002": {
+    "id": "PRD_002",
+    "description": "Draft user stories with Gherkin acceptance criteria",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_003": {
+    "id": "PRD_003",
+    "description": "Define edge cases (offline, low memory, interrupted flow)",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_004": {
+    "id": "PRD_004",
+    "description": "Specify localization language targets",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_005": {
+    "id": "PRD_005",
+    "description": "Determine data retention & privacy compliance policy",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_006": {
+    "id": "PRD_006",
+    "description": "Define guest mode vs authenticated mode capabilities",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_007": {
+    "id": "PRD_007",
+    "description": "Establish subscription paywall trigger points",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_008": {
+    "id": "PRD_008",
+    "description": "Document push notification triggers and categories",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_009": {
+    "id": "PRD_009",
+    "description": "Define remote config keys & default values (Mod 32)",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "PRD_010": {
+    "id": "PRD_010",
+    "description": "PRD gate approval sign-off",
+    "phase": "Phase 3: PRD & Product Management",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_001": {
+    "id": "UX_001",
+    "description": "Map end-to-end user navigation flow",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_002": {
+    "id": "UX_002",
+    "description": "Design onboarding progression (Value -> Perms -> Action)",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_003": {
+    "id": "UX_003",
+    "description": "Design empty states for zero-data screens",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_004": {
+    "id": "UX_004",
+    "description": "Design loading skeleton loaders for async screens",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_005": {
+    "id": "UX_005",
+    "description": "Design error recovery dialogs and offline banner",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_006": {
+    "id": "UX_006",
+    "description": "Map permission priming rationale dialogs (Mod 22)",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_007": {
+    "id": "UX_007",
+    "description": "Design paywall presentation screen",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_008": {
+    "id": "UX_008",
+    "description": "Design settings and account deletion flow (Apple guideline 5.1.1)",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_009": {
+    "id": "UX_009",
+    "description": "Verify touch targets meet 48x48dp minimum (Mod 19)",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UX_010": {
+    "id": "UX_010",
+    "description": "UX flow gate approval sign-off",
+    "phase": "Phase 4: UX & Wireframing",
+    "layer": "Layer 2: Product Management",
+    "status": "pending"
+  },
+  "UI_001": {
+    "id": "UI_001",
+    "description": "Define app color palette (Primary, Secondary, Surface, Error)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_002": {
+    "id": "UI_002",
+    "description": "Configure dark mode & AMOLED color variations (Mod 20)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_003": {
+    "id": "UI_003",
+    "description": "Set typography scale using AppSpacing tokens (Mod 17)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_004": {
+    "id": "UI_004",
+    "description": "Create custom app icon (1024x1024 PNG)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_005": {
+    "id": "UI_005",
+    "description": "Generate splash screen assets for Android & iOS",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_006": {
+    "id": "UI_006",
+    "description": "Implement UI components using Mod 16 design system",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_007": {
+    "id": "UI_007",
+    "description": "Verify WCAG 2.1 AAA contrast ratios (Mod 19)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_008": {
+    "id": "UI_008",
+    "description": "Test layout responsiveness across compact, foldable, and tablet (Mod 18)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_009": {
+    "id": "UI_009",
+    "description": "Design haptic feedback triggers (Mod 21)",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "UI_010": {
+    "id": "UI_010",
+    "description": "UI gate approval sign-off",
+    "phase": "Phase 5: UI & Design System",
+    "layer": "Layer 3: Design System",
+    "status": "pending"
+  },
+  "ARCH_001": {
+    "id": "ARCH_001",
+    "description": "Enforce Clean Architecture separation (Mod 04)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_002": {
+    "id": "ARCH_002",
+    "description": "Configure Service Locator dependency injection (Mod 03)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_003": {
+    "id": "ARCH_003",
+    "description": "Enforce strict typing in analysis_options.yaml (Mod 02)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_004": {
+    "id": "ARCH_004",
+    "description": "Configure multi-environment configs (Dev/Staging/Prod) (Mod 05)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_005": {
+    "id": "ARCH_005",
+    "description": "Configure encrypted key-value storage (Mod 11)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_006": {
+    "id": "ARCH_006",
+    "description": "Configure Outbox pattern for offline mutations (Mod 12)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_007": {
+    "id": "ARCH_007",
+    "description": "Implement API client with SSL certificate pinning (Mod 13)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_008": {
+    "id": "ARCH_008",
+    "description": "Implement user-safe error sanitizer (Mod 14)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_009": {
+    "id": "ARCH_009",
+    "description": "Implement standardized state machine (Mod 15)",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "ARCH_010": {
+    "id": "ARCH_010",
+    "description": "Architecture gate approval sign-off",
+    "phase": "Phase 6: Architecture & Security Baseline",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "BE_001": {
+    "id": "BE_001",
+    "description": "Scaffold isolated backend repository (Mod 44 / Mod 61)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_002": {
+    "id": "BE_002",
+    "description": "Configure isolated database connection (Zero shared DB)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_003": {
+    "id": "BE_003",
+    "description": "Implement JWT bearer token validation",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_004": {
+    "id": "BE_004",
+    "description": "Implement SlowAPI token-bucket rate limiting",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_005": {
+    "id": "BE_005",
+    "description": "Configure presigned S3/GCS file upload endpoints (Mod 42)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_006": {
+    "id": "BE_006",
+    "description": "Implement purchase receipt verification webhook (Mod 30)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_007": {
+    "id": "BE_007",
+    "description": "Configure automated database migrations (Mod 41)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_008": {
+    "id": "BE_008",
+    "description": "Implement AI gateway with user tier quotas (Mod 28)",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_009": {
+    "id": "BE_009",
+    "description": "Configure automated health check `/health` endpoint",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "BE_010": {
+    "id": "BE_010",
+    "description": "Backend gate approval sign-off",
+    "phase": "Phase 7: Isolated Backend & Database",
+    "layer": "Layer 5: Backend / Database",
+    "status": "pending"
+  },
+  "MOB_001": {
+    "id": "MOB_001",
+    "description": "Implement onboarding engine flow (Mod 37)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_002": {
+    "id": "MOB_002",
+    "description": "Implement OAuth2 / PKCE authentication flow (Mod 09)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_003": {
+    "id": "MOB_003",
+    "description": "Implement Core Feature 1",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_004": {
+    "id": "MOB_004",
+    "description": "Implement Core Feature 2",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_005": {
+    "id": "MOB_005",
+    "description": "Implement Core Feature 3",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_006": {
+    "id": "MOB_006",
+    "description": "Implement In-App Purchase paywall integration (Mod 29)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_007": {
+    "id": "MOB_007",
+    "description": "Implement Push Notification listeners (Mod 23)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_008": {
+    "id": "MOB_008",
+    "description": "Implement Deep Link router (Mod 34)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_009": {
+    "id": "MOB_009",
+    "description": "Implement Native Share sheet & watermarking (Mod 35)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "MOB_010": {
+    "id": "MOB_010",
+    "description": "Implement Viral referral loop (Mod 36)",
+    "phase": "Phase 8: Mobile Flutter Implementation",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_001": {
+    "id": "AND_001",
+    "description": "Generate dedicated 4096-bit RSA release keystore (Mod 06)",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_002": {
+    "id": "AND_002",
+    "description": "Configure secure build.gradle.kts signing configs",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_003": {
+    "id": "AND_003",
+    "description": "Configure ProGuard/R8 code shrinking and obfuscation",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_004": {
+    "id": "AND_004",
+    "description": "Configure network_security_config.xml blocking cleartext HTTP",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_005": {
+    "id": "AND_005",
+    "description": "Verify Android 14 (API 34) target SDK compliance",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_006": {
+    "id": "AND_006",
+    "description": "Configure adaptive app icons & monochrome icons",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_007": {
+    "id": "AND_007",
+    "description": "Configure App Links assetlinks.json for deep linking",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_008": {
+    "id": "AND_008",
+    "description": "Verify 13 granular permissions in AndroidManifest.xml",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_009": {
+    "id": "AND_009",
+    "description": "Configure 64-bit native libs compliance",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "AND_010": {
+    "id": "AND_010",
+    "description": "Android identity gate approval sign-off",
+    "phase": "Phase 9: Android Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_001": {
+    "id": "IOS_001",
+    "description": "Create unique Bundle ID in Apple Developer portal",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_002": {
+    "id": "IOS_002",
+    "description": "Configure Fastlane Match signing certificates & provisioning",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_003": {
+    "id": "IOS_003",
+    "description": "Configure hardened Info.plist with strict ATS (Mod 07)",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_004": {
+    "id": "IOS_004",
+    "description": "Configure Runner.entitlements (Associated Domains, APNs)",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_005": {
+    "id": "IOS_005",
+    "description": "Configure Dynamic Island / Live Activities if supported",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_006": {
+    "id": "IOS_006",
+    "description": "Configure Universal Links apple-app-site-association (AASA)",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_007": {
+    "id": "IOS_007",
+    "description": "Configure Privacy Manifest (NSPrivacyAccessedAPITypes)",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_008": {
+    "id": "IOS_008",
+    "description": "Verify Dark Mode assets in Assets.xcassets",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_009": {
+    "id": "IOS_009",
+    "description": "Verify account deletion endpoint compliance",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "IOS_010": {
+    "id": "IOS_010",
+    "description": "iOS identity gate approval sign-off",
+    "phase": "Phase 10: iOS Identity & Hardening",
+    "layer": "Layer 4: Mobile Development",
+    "status": "pending"
+  },
+  "SEC_001": {
+    "id": "SEC_001",
+    "description": "Audit code for zero hardcoded API keys or secrets",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_002": {
+    "id": "SEC_002",
+    "description": "Enable Root & Jailbreak detection (Mod 39)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_003": {
+    "id": "SEC_003",
+    "description": "Enable Emulator & Debugger attachment detection (Mod 39)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_004": {
+    "id": "SEC_004",
+    "description": "Verify input sanitization on all user fields (Mod 40)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_005": {
+    "id": "SEC_005",
+    "description": "Verify SQLCipher database encryption key is hardware-backed",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_006": {
+    "id": "SEC_006",
+    "description": "Verify SSL certificate pinning against MITM attacks (Mod 13)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_007": {
+    "id": "SEC_007",
+    "description": "Verify Secure Clipboard 60-second auto-clearing (Mod 21)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_008": {
+    "id": "SEC_008",
+    "description": "Verify Privacy consent mode under GDPR/CCPA (Mod 24)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_009": {
+    "id": "SEC_009",
+    "description": "Verify crash reporter scrubs PII before submission (Mod 25)",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "SEC_010": {
+    "id": "SEC_010",
+    "description": "Security gate approval sign-off",
+    "phase": "Phase 11: Deep Security & Anti-Tampering",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_001": {
+    "id": "TEST_001",
+    "description": "Run unit test suite with 80%+ coverage (Mod 46)",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_002": {
+    "id": "TEST_002",
+    "description": "Run widget test suite across key presentation screens",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_003": {
+    "id": "TEST_003",
+    "description": "Execute Golden User Journey automated test (Mod 47)",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_004": {
+    "id": "TEST_004",
+    "description": "Execute Device Test Matrix on 12 devices (Mod 48)",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_005": {
+    "id": "TEST_005",
+    "description": "Verify performance watchdog cold startup < 1.5s (Mod 26)",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_006": {
+    "id": "TEST_006",
+    "description": "Execute memory leak & ANR stress test",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_007": {
+    "id": "TEST_007",
+    "description": "Execute offline mutation replay stress test (Mod 12)",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_008": {
+    "id": "TEST_008",
+    "description": "Verify purchase restoration on clean device",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_009": {
+    "id": "TEST_009",
+    "description": "Verify push notification delivery & background handling",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "TEST_010": {
+    "id": "TEST_010",
+    "description": "Testing gate approval sign-off",
+    "phase": "Phase 12: Automated Testing & Golden Journey",
+    "layer": "Layer 7: Testing / Security",
+    "status": "pending"
+  },
+  "BETA_001": {
+    "id": "BETA_001",
+    "description": "Trigger automated CI build for Android AAB & iOS IPA (Mod 45)",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_002": {
+    "id": "BETA_002",
+    "description": "Deploy iOS build to TestFlight Internal testers",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_003": {
+    "id": "BETA_003",
+    "description": "Deploy Android build to Google Play Internal track",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_004": {
+    "id": "BETA_004",
+    "description": "Collect crash-free session rate (Target: >=99.5%)",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_005": {
+    "id": "BETA_005",
+    "description": "Collect feedback from 20 internal beta testers",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_006": {
+    "id": "BETA_006",
+    "description": "Verify in-app feedback submission mechanism",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_007": {
+    "id": "BETA_007",
+    "description": "Verify subscription sandbox purchases",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_008": {
+    "id": "BETA_008",
+    "description": "Verify remote config flag toggles in live build",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_009": {
+    "id": "BETA_009",
+    "description": "Resolve all P0/P1 blockers discovered in beta",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "BETA_010": {
+    "id": "BETA_010",
+    "description": "Beta gate approval sign-off",
+    "phase": "Phase 13: Beta Testing & TestFlight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_001": {
+    "id": "SUB_001",
+    "description": "Execute Pre-Flight Auditor script (Mod 49)",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_002": {
+    "id": "SUB_002",
+    "description": "Upload final signed Android App Bundle to Play Console",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_003": {
+    "id": "SUB_003",
+    "description": "Upload final signed IPA archive to App Store Connect",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_004": {
+    "id": "SUB_004",
+    "description": "Complete Google Play Data Safety questionnaire",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_005": {
+    "id": "SUB_005",
+    "description": "Complete Apple App Privacy nutrition labels",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_006": {
+    "id": "SUB_006",
+    "description": "Complete Content Rating questionnaires",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_007": {
+    "id": "SUB_007",
+    "description": "Submit IAP subscription products for store review",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_008": {
+    "id": "SUB_008",
+    "description": "Provide App Reviewer demo credentials & review notes",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_009": {
+    "id": "SUB_009",
+    "description": "Submit iOS build for App Store Review",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "SUB_010": {
+    "id": "SUB_010",
+    "description": "Submit Android build for Google Play Review",
+    "phase": "Phase 14: Store Submission & Pre-Flight",
+    "layer": "Layer 8: CI/CD / Release",
+    "status": "pending"
+  },
+  "ASO_001": {
+    "id": "ASO_001",
+    "description": "Generate localized store titles, subtitles, and keywords (Mod 50)",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_002": {
+    "id": "ASO_002",
+    "description": "Generate 5-slide localized store screenshots (Mod 51)",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_003": {
+    "id": "ASO_003",
+    "description": "Produce 15-second App Store preview video",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_004": {
+    "id": "ASO_004",
+    "description": "Publish product landing page with deep-link smart banner",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_005": {
+    "id": "ASO_005",
+    "description": "Publish privacy policy & terms of service web pages",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_006": {
+    "id": "ASO_006",
+    "description": "Prepare Product Hunt & social launch campaign",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_007": {
+    "id": "ASO_007",
+    "description": "Configure Apple Search Ads / Google Ads attribution",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_008": {
+    "id": "ASO_008",
+    "description": "Setup launch day monitoring war-room",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_009": {
+    "id": "ASO_009",
+    "description": "Monitor store approval & transition to Published",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "ASO_010": {
+    "id": "ASO_010",
+    "description": "Launch gate approval sign-off",
+    "phase": "Phase 15: ASO & Marketing Launch",
+    "layer": "Layer 9: ASO / Marketing",
+    "status": "pending"
+  },
+  "POST_001": {
+    "id": "POST_001",
+    "description": "Verify real-time analytics events arriving in dashboard (Mod 53)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_002": {
+    "id": "POST_002",
+    "description": "Monitor D1 retention metric (Target: >=40%)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_003": {
+    "id": "POST_003",
+    "description": "Monitor D7 retention metric (Target: >=18%)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_004": {
+    "id": "POST_004",
+    "description": "Monitor trial-to-paid conversion rate (Target: >=7%)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_005": {
+    "id": "POST_005",
+    "description": "Harvest and classify 1-3 star reviews with AI (Mod 52)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_006": {
+    "id": "POST_006",
+    "description": "Calculate weekly Product Health Scorecard (Mod 54)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_007": {
+    "id": "POST_007",
+    "description": "Update Factory Portfolio Database record (Mod 55)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_008": {
+    "id": "POST_008",
+    "description": "Identify top user feature request for v1.1",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_009": {
+    "id": "POST_009",
+    "description": "Deploy remote config A/B paywall experiment (Mod 33)",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  },
+  "POST_010": {
+    "id": "POST_010",
+    "description": "Cycle into next product iteration",
+    "phase": "Phase 16: Analytics, Review Mining & Iteration",
+    "layer": "Layer 10: Analytics / Growth",
+    "status": "pending"
+  }
+}

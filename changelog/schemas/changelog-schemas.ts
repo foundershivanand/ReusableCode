@@ -86,4 +86,4 @@ export const CreateChangelogInputSchema = z.object({
   targetAudience: TargetAudienceSchema.default("ALL"),
   scheduledFor: z.string().datetime().optional(),
 });
-export type CreateChangelogInput = z.infer<typeof CreateChangelogInputSchema>;
+export type CreateChangelogInput = z.input<typeof CreateChangelogInputSchema>;

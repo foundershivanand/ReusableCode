@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useAudit } from "../client/react-context.js";
 import { AuditFilterBar } from "./AuditFilterBar.js";
-import type { AuditLogEntry } from "../schemas/audit-schemas.js";
 
 export const AuditLogViewer: React.FC = () => {
   const { logs, isLoading, error, verifyIntegrity } = useAudit();

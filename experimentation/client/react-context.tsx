@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
+import React, { createContext, useContext, useCallback, useMemo } from "react";
 import { VariantDefinition } from "../schemas/experiment-schemas.js";
 import { ExperimentationClient } from "./experimentation-client.js";
 

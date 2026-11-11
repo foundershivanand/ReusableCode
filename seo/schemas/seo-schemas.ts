@@ -60,7 +60,7 @@ export const PageMetadataInputSchema = z.object({
   alternates: z.array(HreflangAlternateSchema).default([]),
   structuredData: z.record(z.string(), z.any()).optional()
 });
-export type PageMetadataInput = z.infer<typeof PageMetadataInputSchema>;
+export type PageMetadataInput = z.input<typeof PageMetadataInputSchema>;
 
 export const ResolvedMetadataSchema = z.object({
   title: z.string(),

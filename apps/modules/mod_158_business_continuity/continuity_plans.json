@@ -1,0 +1,12 @@
+{
+  "scenarios": [
+    {
+      "event": "AI Provider Outage",
+      "action": "Switch AI gateway fallback from Claude to GPT to Gemini (Mod 28)"
+    },
+    {
+      "event": "Cloud Region Outage",
+      "action": "Route traffic to secondary standby region via Route53 / Cloudflare (Mod 79)"
+    }
+  ]
+}

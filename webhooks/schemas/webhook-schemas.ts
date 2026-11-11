@@ -36,7 +36,7 @@ export const CreateApiKeyInputSchema = z.object({
   expiresInDays: z.number().int().min(1).max(365).optional(),
   rateLimitPerMinute: z.number().int().min(1).default(60)
 });
-export type CreateApiKeyInput = z.infer<typeof CreateApiKeyInputSchema>;
+export type CreateApiKeyInput = z.input<typeof CreateApiKeyInputSchema>;
 
 export const WebhookStatusSchema = z.enum(["ACTIVE", "DISABLED", "SUSPENDED", "DEAD_LETTER"]);
 export type WebhookStatus = z.infer<typeof WebhookStatusSchema>;

@@ -7,7 +7,7 @@ export class MockPaymentProviderAdapter implements PaymentProviderAdapter {
     this.shouldFail = fail;
   }
 
-  async chargePaymentMethod(params: {
+  async chargePaymentMethod(_params: {
     tenantId: string;
     paymentMethodId: string;
     amount: number;

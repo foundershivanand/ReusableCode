@@ -1,0 +1,23 @@
+name: app_037
+description: SoundScape AI - Independent mobile product
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mod_04_core_architecture:
+    path: ../../../modules/mod_04_core_architecture
+  mod_05_app_config_system:
+    path: ../../../modules/mod_05_app_config_system
+  mod_09_auth_module:
+    path: ../../../modules/mod_09_auth_module
+  mod_13_api_layer:
+    path: ../../../modules/mod_13_api_layer
+  mod_15_state_management:
+    path: ../../../modules/mod_15_state_management
+  mod_16_design_system:
+    path: ../../../modules/mod_16_design_system
